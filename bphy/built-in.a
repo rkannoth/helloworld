@@ -1,0 +1,30 @@
+!<thin>
+//                                              258       `
+otx2_bphy_main.o/
+otx2_rfoe.o/
+otx2_rfoe_ethtool.o/
+otx2_rfoe_ptp.o/
+otx2_cpri.o/
+otx2_cpri_ethtool.o/
+otx2_bphy_debugfs.o/
+cnf10k_rfoe.o/
+cnf10k_rfoe_ethtool.o/
+cnf10k_rfoe_ptp.o/
+cnf10k_cpri.o/
+cnf10k_cpri_ethtool.o/
+otx2_bcn_ptp.o/
+cnf10k_bphy_debugfs.o/
+/0              0           0     0     644     503368    `
+/18             0           0     0     644     620592    `
+/31             0           0     0     644     271808    `
+/52            /0           0     0     644     282320    `
+/69             0           0     0     644     450296    `
+/82             0           0     0     644     256048    `
+/103            0           0     0     644     381248    `
+/124            0           0     0     644     570240    `
+/139            0           0     0     644     384056    `
+/162            0           0     0     644     402216    `
+/181            0           0     0     644     447648    `
+/196            0           0     0     644     256144    `
+/219            0           0     0     644     410072    `
+/235            0           0     0     644     365288    `
