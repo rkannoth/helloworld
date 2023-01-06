@@ -940,6 +940,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.o := \
     $(wildcard include/config/garp.h) \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
+    $(wildcard include/config/macsec.h) \
     $(wildcard include/config/net/flow/limit.h) \
     $(wildcard include/config/ethtool/netlink.h) \
   include/linux/delay.h \
@@ -1106,8 +1107,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.o := \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
   include/linux/rbtree_latch.h \
-  include/linux/bpf_types.h \
-    $(wildcard include/config/bpf/events.h) \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1209,6 +1208,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.o := \
     $(wildcard include/config/modules/tree/lookup.h) \
     $(wildcard include/config/module/sig.h) \
     $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/bpf/events.h) \
     $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/constructors.h) \
@@ -1312,6 +1312,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.o := \
     $(wildcard include/config/tracepoint.h) \
   include/net/xdp_priv.h \
   include/trace/define_trace.h \
+  include/net/ip6_checksum.h \
   drivers/net/ethernet/marvell/octeontx2/nic/otx2_reg.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h \
@@ -1373,6 +1374,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.o := \
     $(wildcard include/config/net/devlink.h) \
   include/uapi/linux/devlink.h \
   include/linux/dim.h \
+  include/uapi/linux/if_macsec.h \
   drivers/net/ethernet/marvell/octeontx2/af/mbox.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/af/common.h \

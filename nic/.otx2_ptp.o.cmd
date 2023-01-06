@@ -576,7 +576,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.o := \
     $(wildcard include/config/modules/use/elf/rela.h) \
   drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h \
     $(wildcard include/config/dcb.h) \
-    $(wildcard include/config/have/ebpf/jit.h) \
+    $(wildcard include/config/macsec.h) \
   include/linux/pci.h \
     $(wildcard include/config/pci/iov.h) \
     $(wildcard include/config/pcieaer.h) \
@@ -1191,7 +1191,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.o := \
     $(wildcard include/config/bpf/lirc/mode2.h) \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
-  include/linux/bpf_types.h \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1238,6 +1237,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.o := \
     $(wildcard include/config/net/devlink.h) \
   include/uapi/linux/devlink.h \
   include/linux/dim.h \
+  include/uapi/linux/if_macsec.h \
   drivers/net/ethernet/marvell/octeontx2/af/mbox.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/af/common.h \

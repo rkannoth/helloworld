@@ -985,6 +985,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_debugfs.o := \
     $(wildcard include/config/garp.h) \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
+    $(wildcard include/config/macsec.h) \
     $(wildcard include/config/net/flow/limit.h) \
     $(wildcard include/config/ethtool/netlink.h) \
   include/linux/delay.h \
@@ -1171,7 +1172,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_debugfs.o := \
     $(wildcard include/config/bpf/lirc/mode2.h) \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
-  include/linux/bpf_types.h \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \

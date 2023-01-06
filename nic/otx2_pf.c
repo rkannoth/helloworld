@@ -24,9 +24,6 @@
 #include "otx2_ptp.h"
 #include "cn10k.h"
 #include "qos.h"
-#include "otx2_xdp.h"
-#include "otx2_thread.h"
-#include "otx2_map.h"
 #include <rvu_trace.h>
 
 #define DRV_NAME	"rvu_nicpf"
@@ -838,6 +835,15 @@ static void otx2_handle_link_event(struct otx2_nic *pf)
 	}
 }
 
+int otx2_mbox_up_handler_mcs_intr_notify(struct otx2_nic *pf,
+					 struct mcs_intr_info *event,
+					 struct msg_rsp *rsp)
+{
+	cn10k_handle_mcs_event(pf, event);
+
+	return 0;
+}
+
 int otx2_mbox_up_handler_cgx_link_event(struct otx2_nic *pf,
 					struct cgx_link_info_msg *msg,
 					struct msg_rsp *rsp)
@@ -921,6 +927,7 @@ static int otx2_process_mbox_msg_up(struct otx2_nic *pf,
 		return err;						\
 	}
 MBOX_UP_CGX_MESSAGES
+MBOX_UP_MCS_MESSAGES
 #undef M
 		break;
 	default:
@@ -2675,16 +2682,6 @@ static int otx2_xdp(struct net_device *netdev, struct netdev_bpf *xdp)
 	case XDP_QUERY_PROG:
 		xdp->prog_id = pf->xdp_prog ? pf->xdp_prog->aux->id : 0;
 		return 0;
-	case XDP_SETUP_PROG_HW:
-		return otx2_setup_hw_xdp(netdev, xdp);
-
-	case BPF_OFFLOAD_MAP_ALLOC:
-		return otx2_bpf_map_alloc(netdev, xdp->offmap);
-
-	case BPF_OFFLOAD_MAP_FREE:
-		otx2_bpf_map_free(xdp->offmap);
-		return 0;
-
 	default:
 		return -EINVAL;
 	}
@@ -2900,7 +2897,6 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
 	pf->dev = dev;
 	pf->total_vfs = pci_sriov_get_totalvfs(pdev);
 	pf->flags |= OTX2_FLAG_INTF_DOWN;
-	INIT_LIST_HEAD(&pf->xdp_hw.lmaps);
 
 	hw = &pf->hw;
 	hw->pdev = pdev;
@@ -2968,7 +2964,7 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
 
 	err = otx2_realloc_msix_vectors(pf);
 	if (err)
-		goto err_mbox_destroy;
+		goto err_detach_rsrc;
 
 	err = otx2_set_real_num_queues(netdev, hw->tx_queues, hw->rx_queues);
 	if (err)
@@ -3010,6 +3006,10 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
 	if (err)
 		goto err_ptp_destroy;
 
+	err = cn10k_mcs_init(pf);
+	if (err)
+		goto err_del_mcam_entries;
+
 	if (pf->flags & OTX2_FLAG_NTUPLE_SUPPORT)
 		netdev->hw_features |= NETIF_F_NTUPLE;
 
@@ -3043,13 +3043,7 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
 	err = register_netdev(netdev);
 	if (err) {
 		dev_err(dev, "Failed to register netdevice\n");
-		goto err_del_mcam_entries;
-	}
-
-	err = otx2_xdp_offload_dev_register(netdev);
-	if (err) {
-		dev_err(dev, "Failed to register offload  netdevice\n");
-		goto err_del_mcam_entries;
+		goto err_mcs_free;
 	}
 
 	err = otx2_wq_init(pf);
@@ -3093,6 +3087,8 @@ err_mcam_flow_del:
 	otx2_mcam_flow_del(pf);
 err_unreg_netdev:
 	unregister_netdev(netdev);
+err_mcs_free:
+	cn10k_mcs_free(pf);
 err_del_mcam_entries:
 	otx2_mcam_flow_del(pf);
 err_ptp_destroy:
@@ -3264,6 +3260,8 @@ static void otx2_remove(struct pci_dev *pdev)
 		otx2_config_pause_frm(pf);
 	}
 
+	cn10k_mcs_free(pf);
+
 #ifdef CONFIG_DCB
 	/* Disable PFC config */
 	if (pf->pfc_en) {
@@ -3277,7 +3275,6 @@ static void otx2_remove(struct pci_dev *pdev)
 	otx2_cgx_config_linkevents(pf, false);
 
 	otx2_unregister_dl(pf);
-	otx2_xdp_offload_dev_unregister(netdev);
 	unregister_netdev(netdev);
 	otx2_sriov_disable(pf->pdev);
 	otx2_sriov_vfcfg_cleanup(pf);
@@ -3312,15 +3309,12 @@ static struct pci_driver otx2_pf_driver = {
 static int __init otx2_rvupf_init_module(void)
 {
 	pr_info("%s: %s\n", DRV_NAME, DRV_STRING);
-	otx2_thread_init();
-	otx2_xdp_proc_create();
 
 	return pci_register_driver(&otx2_pf_driver);
 }
 
 static void __exit otx2_rvupf_cleanup_module(void)
 {
-	otx2_thread_cleanup();
 	pci_unregister_driver(&otx2_pf_driver);
 }
 

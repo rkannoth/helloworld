@@ -58,6 +58,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.o := \
     $(wildcard include/config/garp.h) \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
+    $(wildcard include/config/macsec.h) \
     $(wildcard include/config/net/flow/limit.h) \
     $(wildcard include/config/ethtool/netlink.h) \
     $(wildcard include/config/bug.h) \
@@ -1105,8 +1106,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.o := \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
   include/linux/rbtree_latch.h \
-  include/linux/bpf_types.h \
-    $(wildcard include/config/bpf/events.h) \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1205,6 +1204,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.o := \
     $(wildcard include/config/modules/tree/lookup.h) \
     $(wildcard include/config/module/sig.h) \
     $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/bpf/events.h) \
     $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/constructors.h) \
@@ -1365,6 +1365,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.o := \
     $(wildcard include/config/net/devlink.h) \
   include/uapi/linux/devlink.h \
   include/linux/dim.h \
+  include/uapi/linux/if_macsec.h \
   drivers/net/ethernet/marvell/octeontx2/af/mbox.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/af/common.h \

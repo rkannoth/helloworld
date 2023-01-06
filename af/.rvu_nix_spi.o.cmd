@@ -1,8 +1,8 @@
-cmd_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := aarch64-marvell-linux-gnu-gcc -Wp,-MD,drivers/net/ethernet/marvell/octeontx2/af/.rvu_validation.o.d  -nostdinc -isystem /home/rkannoth/work/marvell-tools-1026.0/bin/../lib/gcc/aarch64-marvell-linux-gnu/10.1.0/include -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mgeneral-regs-only -DCONFIG_AS_LSE=1 -DCONFIG_CC_HAS_K_CONSTRAINT=1 -fno-asynchronous-unwind-tables -Wno-psabi -mabi=lp64 -mbranch-protection=none -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=2048 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-zero-length-bounds -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -fmacro-prefix-map=./= -Wno-packed-not-aligned -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1120 -Idrivers/net/ethernet/marvell/octeontx2/af    -DKBUILD_BASENAME='"rvu_validation"' -DKBUILD_MODNAME='"rvu_af"' -c -o drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.c
+cmd_drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o := aarch64-marvell-linux-gnu-gcc -Wp,-MD,drivers/net/ethernet/marvell/octeontx2/af/.rvu_nix_spi.o.d  -nostdinc -isystem /home/rkannoth/work/marvell-tools-1026.0/bin/../lib/gcc/aarch64-marvell-linux-gnu/10.1.0/include -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mgeneral-regs-only -DCONFIG_AS_LSE=1 -DCONFIG_CC_HAS_K_CONSTRAINT=1 -fno-asynchronous-unwind-tables -Wno-psabi -mabi=lp64 -mbranch-protection=none -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=2048 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-zero-length-bounds -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -fmacro-prefix-map=./= -Wno-packed-not-aligned -mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=1120 -Idrivers/net/ethernet/marvell/octeontx2/af    -DKBUILD_BASENAME='"rvu_nix_spi"' -DKBUILD_MODNAME='"rvu_af"' -c -o drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.c
 
-source_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.c
+source_drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o := drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.c
 
-deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := \
+deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o := \
   include/linux/kconfig.h \
     $(wildcard include/config/cpu/big/endian.h) \
     $(wildcard include/config/booger.h) \
@@ -17,10 +17,38 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := \
     $(wildcard include/config/arm64.h) \
     $(wildcard include/config/retpoline.h) \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
+  drivers/net/ethernet/marvell/octeontx2/af/rvu.h \
+    $(wildcard include/config/debug/fs.h) \
+  include/linux/pci.h \
+    $(wildcard include/config/pci/iov.h) \
+    $(wildcard include/config/pcieaer.h) \
+    $(wildcard include/config/pcieaspm.h) \
+    $(wildcard include/config/hotplug/pci/pcie.h) \
+    $(wildcard include/config/pcie/ptm.h) \
+    $(wildcard include/config/pci/msi.h) \
+    $(wildcard include/config/pci/ats.h) \
+    $(wildcard include/config/pci/pri.h) \
+    $(wildcard include/config/pci/pasid.h) \
+    $(wildcard include/config/pci/p2pdma.h) \
+    $(wildcard include/config/pci/domains/generic.h) \
+    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
+    $(wildcard include/config/pci.h) \
+    $(wildcard include/config/sysfs.h) \
+    $(wildcard include/config/pcieportbus.h) \
+    $(wildcard include/config/pci/domains.h) \
+    $(wildcard include/config/acpi.h) \
+    $(wildcard include/config/have/arch/prel32/relocations.h) \
+    $(wildcard include/config/pci/quirks.h) \
+    $(wildcard include/config/hibernate/callbacks.h) \
+    $(wildcard include/config/pci/mmconfig.h) \
+    $(wildcard include/config/acpi/mcfg.h) \
+    $(wildcard include/config/hotplug/pci.h) \
+    $(wildcard include/config/of.h) \
+    $(wildcard include/config/eeh.h) \
+  include/linux/mod_devicetable.h \
   include/linux/types.h \
     $(wildcard include/config/have/uid16.h) \
     $(wildcard include/config/uid16.h) \
-    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
     $(wildcard include/config/phys/addr/t/64bit.h) \
     $(wildcard include/config/64bit.h) \
   include/uapi/linux/types.h \
@@ -37,32 +65,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := \
   include/linux/compiler_types.h \
   arch/arm64/include/uapi/asm/posix_types.h \
   include/uapi/asm-generic/posix_types.h \
-  include/linux/pci.h \
-    $(wildcard include/config/pci/iov.h) \
-    $(wildcard include/config/pcieaer.h) \
-    $(wildcard include/config/pcieaspm.h) \
-    $(wildcard include/config/hotplug/pci/pcie.h) \
-    $(wildcard include/config/pcie/ptm.h) \
-    $(wildcard include/config/pci/msi.h) \
-    $(wildcard include/config/pci/ats.h) \
-    $(wildcard include/config/pci/pri.h) \
-    $(wildcard include/config/pci/pasid.h) \
-    $(wildcard include/config/pci/p2pdma.h) \
-    $(wildcard include/config/pci/domains/generic.h) \
-    $(wildcard include/config/pci.h) \
-    $(wildcard include/config/sysfs.h) \
-    $(wildcard include/config/pcieportbus.h) \
-    $(wildcard include/config/pci/domains.h) \
-    $(wildcard include/config/acpi.h) \
-    $(wildcard include/config/have/arch/prel32/relocations.h) \
-    $(wildcard include/config/pci/quirks.h) \
-    $(wildcard include/config/hibernate/callbacks.h) \
-    $(wildcard include/config/pci/mmconfig.h) \
-    $(wildcard include/config/acpi/mcfg.h) \
-    $(wildcard include/config/hotplug/pci.h) \
-    $(wildcard include/config/of.h) \
-    $(wildcard include/config/eeh.h) \
-  include/linux/mod_devicetable.h \
   include/linux/uuid.h \
   include/uapi/linux/uuid.h \
   include/linux/string.h \
@@ -895,8 +897,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := \
   arch/arm64/include/generated/asm/dma-mapping.h \
   include/asm-generic/dma-mapping.h \
   include/linux/pci-dma-compat.h \
-  drivers/net/ethernet/marvell/octeontx2/af/rvu.h \
-    $(wildcard include/config/debug/fs.h) \
   include/net/devlink.h \
     $(wildcard include/config/net/devlink.h) \
   include/linux/netdevice.h \
@@ -1172,6 +1172,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o := \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_reg.h \
 
-drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o: $(deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o)
+drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o: $(deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o)
 
-$(deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_validation.o):
+$(deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_nix_spi.o):

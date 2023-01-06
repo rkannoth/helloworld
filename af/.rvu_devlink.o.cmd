@@ -937,6 +937,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_devlink.o := \
     $(wildcard include/config/garp.h) \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
+    $(wildcard include/config/macsec.h) \
     $(wildcard include/config/net/flow/limit.h) \
     $(wildcard include/config/ethtool/netlink.h) \
   include/linux/delay.h \
@@ -1138,8 +1139,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/af/rvu_devlink.o := \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
   include/linux/rbtree_latch.h \
-  include/linux/bpf_types.h \
-    $(wildcard include/config/bpf/events.h) \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \

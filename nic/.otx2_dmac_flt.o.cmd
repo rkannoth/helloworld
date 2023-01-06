@@ -19,7 +19,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_dmac_flt.o := \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
   drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h \
     $(wildcard include/config/dcb.h) \
-    $(wildcard include/config/have/ebpf/jit.h) \
+    $(wildcard include/config/macsec.h) \
   include/linux/pci.h \
     $(wildcard include/config/pci/iov.h) \
     $(wildcard include/config/pcieaer.h) \
@@ -1160,8 +1160,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_dmac_flt.o := \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
   include/linux/rbtree_latch.h \
-  include/linux/bpf_types.h \
-    $(wildcard include/config/bpf/events.h) \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1213,6 +1211,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_dmac_flt.o := \
     $(wildcard include/config/module/sig.h) \
     $(wildcard include/config/kallsyms.h) \
     $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/bpf/events.h) \
     $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/constructors.h) \
@@ -1238,6 +1237,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_dmac_flt.o := \
     $(wildcard include/config/have/mod/arch/specific.h) \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
+  include/uapi/linux/if_macsec.h \
   drivers/net/ethernet/marvell/octeontx2/af/mbox.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/af/common.h \

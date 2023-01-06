@@ -620,6 +620,12 @@ void rvu_npc_install_ucast_entry(struct rvu *rvu, u16 pcifunc,
 	if (blkaddr < 0)
 		return;
 
+	/* Ucast rule should not be installed if DMAC
+	 * extraction is not supported by the profile.
+	 */
+	if (!npc_is_feature_supported(rvu, BIT_ULL(NPC_DMAC), pfvf->nix_rx_intf))
+		return;
+
 	index = npc_get_nixlf_mcam_index(mcam, pcifunc,
 					 nixlf, NIXLF_UCAST_ENTRY);
 
@@ -772,6 +778,14 @@ void rvu_npc_install_bcast_match_entry(struct rvu *rvu, u16 pcifunc,
 	/* Get 'pcifunc' of PF device */
 	pcifunc = pcifunc & ~RVU_PFVF_FUNC_MASK;
 	pfvf = rvu_get_pfvf(rvu, pcifunc);
+
+	/* Bcast rule should not be installed if both DMAC
+	 * and LXMB extraction is not supported by the profile.
+	 */
+	if (!npc_is_feature_supported(rvu, BIT_ULL(NPC_DMAC), pfvf->nix_rx_intf) &&
+	    !npc_is_feature_supported(rvu, BIT_ULL(NPC_LXMB), pfvf->nix_rx_intf))
+		return;
+
 	index = npc_get_nixlf_mcam_index(mcam, pcifunc,
 					 nixlf, NIXLF_BCAST_ENTRY);
 
@@ -842,6 +856,14 @@ void rvu_npc_install_allmulti_entry(struct rvu *rvu, u16 pcifunc, int nixlf,
 	vf_func = pcifunc & RVU_PFVF_FUNC_MASK;
 	pcifunc = pcifunc & ~RVU_PFVF_FUNC_MASK;
 	pfvf = rvu_get_pfvf(rvu, pcifunc);
+
+	/* Mcast rule should not be installed if both DMAC
+	 * and LXMB extraction is not supported by the profile.
+	 */
+	if (!npc_is_feature_supported(rvu, BIT_ULL(NPC_DMAC), pfvf->nix_rx_intf) &&
+	    !npc_is_feature_supported(rvu, BIT_ULL(NPC_LXMB), pfvf->nix_rx_intf))
+		return;
+
 	index = npc_get_nixlf_mcam_index(mcam, pcifunc,
 					 nixlf, NIXLF_ALLMULTI_ENTRY);
 
@@ -902,76 +924,6 @@ void rvu_npc_enable_allmulti_entry(struct rvu *rvu, u16 pcifunc, int nixlf,
 	index = npc_get_nixlf_mcam_index(mcam, pcifunc, nixlf,
 					 NIXLF_ALLMULTI_ENTRY);
 	npc_enable_mcam_entry(rvu, mcam, blkaddr, index, enable);
-}
-
-void npc_disable_mcam_entry(struct rvu *rvu, u16 npcifunc,  int nixlf)
-{
-	int blkaddr;
-
-	blkaddr = rvu_get_blkaddr(rvu, BLKTYPE_NPC, 0);
-	if (blkaddr < 0)
-		return;
-
-	pr_err("dusabling npcifunc=0x%x\n", npcifunc);
-
-	/* Disable all rules on pma device */
-	rvu_npc_disable_mcam_entries(rvu, npcifunc, nixlf);
-}
-
-void npc_update_mcam_action(struct rvu *rvu, u16 npcifunc, u16 opcifunc, int nixlf)
-{
-	struct npc_mcam *mcam = &rvu->hw->mcam;
-	int index, bank, idx;
-	struct rvu_npc_mcam_rule *rule;
-	int blkaddr;
-	u64 reg, old_reg;
-
-	blkaddr = rvu_get_blkaddr(rvu, BLKTYPE_NPC, 0);
-	if (blkaddr < 0)
-		return;
-
-	pr_err("npcifunc=0x%x opcifunc=0x%x\n",
-	       npcifunc, opcifunc);
-
-	npc_enable_mcam_entry(rvu, mcam, blkaddr, index, false);
-
-	list_for_each_entry(rule, &mcam->mcam_rules, list) {
-
-		if (!is_npc_intf_rx(rule->intf))
-			continue;
-
-		if (rule->rx_action.pf_func != opcifunc) {
-			continue;
-		}
-
-		if (rule->rx_action.op == NIX_RX_ACTIONOP_MCAST) {
-			continue;
-		}
-
-		index = rule->entry;
-		pr_err("Found macam index (%d) matching opcifunc=0x%x\n",
-		       index, opcifunc);
-
-		bank = npc_get_bank(mcam, index);
-		idx = index & (mcam->banksize - 1);
-		reg = rvu_read64(rvu, blkaddr,
-				 NPC_AF_MCAMEX_BANKX_ACTION(idx, bank));
-		old_reg = reg;
-
-		rule->rx_action.pf_func = npcifunc;
-
-		reg &= (u64)~GENMASK_ULL(19, 4);
-		reg |= FIELD_PREP(GENMASK_ULL(19, 4), npcifunc);
-
-		pr_err("index=%d old Reg=0x%llx new Reg=0x%llx  pf_func=0x%x\n", index, old_reg,
-		       reg, rule->rx_action.pf_func);
-
-		rvu_write64(rvu, blkaddr,
-			    NPC_AF_MCAMEX_BANKX_ACTION(idx, bank), reg);
-
-		npc_enable_mcam_entry(rvu, mcam, blkaddr, index, true);
-	}
-
 }
 
 static void npc_update_vf_flow_entry(struct rvu *rvu, struct npc_mcam *mcam,

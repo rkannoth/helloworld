@@ -975,6 +975,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_smqvf.o := \
     $(wildcard include/config/garp.h) \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
+    $(wildcard include/config/macsec.h) \
     $(wildcard include/config/net/flow/limit.h) \
     $(wildcard include/config/ethtool/netlink.h) \
   include/linux/delay.h \
@@ -1137,7 +1138,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_smqvf.o := \
     $(wildcard include/config/bpf/lirc/mode2.h) \
   include/uapi/linux/bpf_common.h \
   include/linux/file.h \
-  include/linux/bpf_types.h \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1190,7 +1190,6 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_smqvf.o := \
   arch/arm64/include/asm/pci.h \
   include/linux/pci-dma-compat.h \
   drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h \
-    $(wildcard include/config/have/ebpf/jit.h) \
   include/linux/ptp_clock_kernel.h \
     $(wildcard include/config/ptp/1588/clock.h) \
   include/linux/pps_kernel.h \
@@ -1238,6 +1237,7 @@ deps_drivers/net/ethernet/marvell/octeontx2/nic/otx2_smqvf.o := \
     $(wildcard include/config/net/devlink.h) \
   include/uapi/linux/devlink.h \
   include/linux/dim.h \
+  include/uapi/linux/if_macsec.h \
   drivers/net/ethernet/marvell/octeontx2/af/mbox.h \
   drivers/net/ethernet/marvell/octeontx2/af/rvu_struct.h \
   drivers/net/ethernet/marvell/octeontx2/af/common.h \

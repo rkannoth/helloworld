@@ -265,11 +265,11 @@ static int rvu_dbg_mcs_sa_stats_display(struct seq_file *filp, void *unused, int
 	int sa_id;
 
 	if (dir == MCS_TX) {
-		mutex_lock(&mcs->stats_lock);
 		map = &mcs->tx.sa;
-		seq_puts(filp, "\n TX SA stats\n");
-		mcs_get_sa_stats(mcs, &stats, sa_id, MCS_TX);
+		mutex_lock(&mcs->stats_lock);
 		for_each_set_bit(sa_id, map->bmap, mcs->hw->sa_entries) {
+			seq_puts(filp, "\n TX SA stats\n");
+			mcs_get_sa_stats(mcs, &stats, sa_id, MCS_TX);
 			seq_printf(filp, "sa%d: Pkts encrypted: %lld\n", sa_id,
 				   stats.pkt_encrypt_cnt);
 
@@ -2819,6 +2819,14 @@ static void rvu_dbg_npc_mcam_show_flows(struct seq_file *s,
 		case NPC_DIP_IPV6:
 			seq_printf(s, "%pI6 ", rule->packet.ip6dst);
 			seq_printf(s, "mask %pI6\n", rule->mask.ip6dst);
+			break;
+		case NPC_IPFRAG_IPV6:
+			seq_printf(s, "%d ", rule->packet.next_header);
+			seq_printf(s, "mask 0x%x\n", rule->mask.next_header);
+			break;
+		case NPC_IPFRAG_IPV4:
+			seq_printf(s, "%d ", rule->packet.ip_flag);
+			seq_printf(s, "mask 0x%x\n", rule->mask.ip_flag);
 			break;
 		case NPC_SPORT_TCP:
 		case NPC_SPORT_UDP:
