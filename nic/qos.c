@@ -205,7 +205,7 @@ static void __otx2_qos_txschq_cfg(struct otx2_nic *pfvf,
 				  node->quantum : pfvf->tx_max_pktlen;
 			rr_weight = otx2_qos_quantum_to_dwrr_weight(pfvf,
 								    quantum);
-			cfg->regval[num_regs] = node->parent->child_dwrr_prio << 24 |
+			cfg->regval[num_regs] = (u64)node->parent->child_dwrr_prio << 24 |
 						rr_weight;
 		}
 		num_regs++;
@@ -266,7 +266,6 @@ static void __otx2_qos_txschq_cfg(struct otx2_nic *pfvf,
 						rr_weight;
 		}
 		num_regs++;
-
 
 		/* configure PIR */
 		maxrate = (node->rate > node->ceil) ? node->rate : node->ceil;
@@ -1257,7 +1256,6 @@ static int otx2_qos_root_destroy(struct otx2_nic *pfvf)
 	root = otx2_sw_node_find(pfvf, OTX2_QOS_ROOT_CLASSID);
 	if (!root)
 		return -ENOENT;
-
 
 	/* free the hw mappings */
 	otx2_qos_destroy_node(pfvf, root);

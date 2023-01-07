@@ -120,6 +120,7 @@ static void otx2_get_egress_rate_cfg(u64 maxrate, u32 *exp,
 				     u32 *mantissa, u32 *div_exp)
 {
 	u64 tmp;
+	u32 shift;
 
 	/* Rate calculation by hardware
 	 *
@@ -134,18 +135,25 @@ static void otx2_get_egress_rate_cfg(u64 maxrate, u32 *exp,
 	 */
 	*div_exp = 0;
 
-	if (maxrate) {
+	if (maxrate > 1) {
 		*exp = ilog2(maxrate) ? ilog2(maxrate) - 1 : 0;
 		tmp = maxrate - rounddown_pow_of_two(maxrate);
 		if (maxrate < MAX_RATE_MANTISSA)
 			*mantissa = tmp * 2;
-		else
-			*mantissa = tmp / (1ULL << (*exp - 7));
-	} else {
-		/* Instead of disabling rate limiting, set all values to max */
-		*exp = MAX_RATE_EXPONENT;
-		*mantissa = MAX_RATE_MANTISSA;
+		else {
+			shift = *exp - 7;
+			if (shift > 63)
+				goto disable_rate_limit;
+
+			*mantissa = tmp / (1ULL << shift);
+		}
+		return;
 	}
+
+disable_rate_limit:
+	/* Instead of disabling rate limiting, set all values to max */
+	*exp = MAX_RATE_EXPONENT;
+	*mantissa = MAX_RATE_MANTISSA;
 }
 
 u64 otx2_get_txschq_rate_regval(struct otx2_nic *nic,
