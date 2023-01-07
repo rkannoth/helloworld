@@ -42,7 +42,7 @@ struct otx2_qos {
 	DECLARE_HASHTABLE(qos_hlist, order_base_2(OTX2_QOS_MAX_LEAF_NODES));
 	DECLARE_BITMAP(qos_sq_bmap, OTX2_QOS_MAX_LEAF_NODES);
 	u16 qid_to_sqmap[OTX2_QOS_MAX_LEAF_NODES];
-	u32 maj_id;
+	u16 maj_id;
 	u16 defcls;
 	struct list_head qos_tree;
 	struct mutex qos_lock; /* child list lock */
