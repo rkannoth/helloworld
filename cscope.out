@@ -1,4 +1,4 @@
-cscope 15 $HOME/work/sdk_01/sdk/linux/kernel/coverity/drivers/net/ethernet/marvell/octeontx2               0002603264
+cscope 15 $HOME/work/sdk_01/sdk/linux/kernel/coverity/drivers/net/ethernet/marvell/octeontx2               0002603427
 	@af/cgx.c
 
 8 
@@ -334829,7 +334829,9 @@ schq
 ªq
 ->
 ªgvÆ
-[0] = 
+[0] = (
+u64
+)
 ∑ª¡
  << 16;
 
@@ -353401,9 +353403,7 @@ rx_cou¡
 tx_cou¡
 ;
 
-436 
-u32
- 
+436 
 qsize
 ;
 
@@ -353463,7 +353463,15 @@ qsize
 EINVAL
 ;
 
-452 
+453 i‡(2 * 
+qsize
+ > 63)
+
+454  -
+EINVAL
+;
+
+455 
 rx_cou¡
  = 
 	`Q_COUNT
@@ -353471,7 +353479,7 @@ rx_cou¡
 qsize
 );
 
-458 
+461 
 tx_cou¡
  = 
 	`˛amp_t
@@ -353483,7 +353491,7 @@ rög
 tx_≥ndög
 ,
 
-459 
+462 
 	`Q_COUNT
 (
 Q_SIZE_4K
@@ -353491,7 +353499,7 @@ Q_SIZE_4K
 Q_SIZE_MAX
 ));
 
-460 
+463 
 tx_cou¡
  = 
 	`Q_COUNT
@@ -353499,7 +353507,7 @@ tx_cou¡
 	`Q_SIZE
 (tx_count, 3));
 
-462 i‡(
+465 i‡(
 tx_cou¡
  =
 qs
@@ -353511,11 +353519,11 @@ rx_cou¡
 rqe_˙t
 )
 
-465 i‡(
+468 i‡(
 if_up
 )
 
-466 
+469 
 √tdev
 ->
 √tdev_›s
@@ -353523,7 +353531,7 @@ if_up
 	`ndo_°›
 (netdev);
 
-469 
+472 
 qs
 ->
 sqe_˙t
@@ -353531,7 +353539,7 @@ sqe_˙t
 tx_cou¡
 ;
 
-470 
+473 
 qs
 ->
 rqe_˙t
@@ -353539,11 +353547,11 @@ rqe_˙t
 rx_cou¡
 ;
 
-472 i‡(
+475 i‡(
 if_up
 )
 
-473  
+476  
 √tdev
 ->
 √tdev_›s
@@ -353551,11 +353559,11 @@ if_up
 	`ndo_›í
 (netdev);
 
-476 
+479 
 	}
 }
 
-478 
+481 
 	$Ÿx2_gë_cﬂÀs˚
 (
 √t_devi˚
@@ -353563,13 +353571,13 @@ if_up
 √tdev
 ,
 
-479 
+482 
 ëhtoﬁ_cﬂÀs˚
  *
 cmd
 )
 
-481 
+484 
 Ÿx2_nic
  *
 pfvf
@@ -353579,7 +353587,7 @@ pfvf
 √tdev
 );
 
-482 
+485 
 Ÿx2_hw
  *
 hw
@@ -353587,7 +353595,7 @@ hw
 pfvf
 ->hw;
 
-484 
+487 
 cmd
 ->
 rx_cﬂÀs˚_u£cs
@@ -353597,7 +353605,7 @@ hw
 cq_time_waô
 ;
 
-485 
+488 
 cmd
 ->
 rx_max_cﬂÀs˚d_‰ames
@@ -353607,7 +353615,7 @@ hw
 cq_ecou¡_waô
 ;
 
-486 
+489 
 cmd
 ->
 tx_cﬂÀs˚_u£cs
@@ -353617,7 +353625,7 @@ hw
 cq_time_waô
 ;
 
-487 
+490 
 cmd
 ->
 tx_max_cﬂÀs˚d_‰ames
@@ -353627,7 +353635,7 @@ hw
 cq_ecou¡_waô
 ;
 
-488 i‡((
+491 i‡((
 pfvf
 ->
 Êags
@@ -353635,39 +353643,39 @@ pfvf
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ) ==
 
-489 
+492 
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ) {
-
-490 
-cmd
-->
-u£_ad≠tive_rx_cﬂÀs˚
- = 1;
-
-491 
-cmd
-->
-u£_ad≠tive_tx_cﬂÀs˚
- = 1;
 
 493 
 cmd
 ->
 u£_ad≠tive_rx_cﬂÀs˚
- = 0;
+ = 1;
 
 494 
 cmd
 ->
 u£_ad≠tive_tx_cﬂÀs˚
+ = 1;
+
+496 
+cmd
+->
+u£_ad≠tive_rx_cﬂÀs˚
  = 0;
 
-498 
+497 
+cmd
+->
+u£_ad≠tive_tx_cﬂÀs˚
+ = 0;
+
+501 
 	}
 }
 
-500 
+503 
 	$Ÿx2_£t_cﬂÀs˚
 (
 √t_devi˚
@@ -353675,13 +353683,13 @@ u£_ad≠tive_tx_cﬂÀs˚
 √tdev
 ,
 
-501 
+504 
 ëhtoﬁ_cﬂÀs˚
  *
 ec
 )
 
-503 
+506 
 Ÿx2_nic
  *
 pfvf
@@ -353691,7 +353699,7 @@ pfvf
 √tdev
 );
 
-504 
+507 
 Ÿx2_hw
  *
 hw
@@ -353699,17 +353707,17 @@ hw
 pfvf
 ->hw;
 
-505 
+508 
 u8
  
 ¥iv_cﬂÀs˚_°©us
 ;
 
-506 
+509 
 qidx
 ;
 
-508 i‡(
+511 i‡(
 ec
 ->
 rx_cﬂÀs˚_u£cs_úq
@@ -353717,7 +353725,7 @@ rx_cﬂÀs˚_u£cs_úq
 rx_max_cﬂÀs˚d_‰ames_úq
  ||
 
-509 
+512 
 ec
 ->
 tx_cﬂÀs˚_u£cs_úq
@@ -353725,7 +353733,7 @@ tx_cﬂÀs˚_u£cs_úq
 tx_max_cﬂÀs˚d_‰ames_úq
  ||
 
-510 
+513 
 ec
 ->
 °©s_block_cﬂÀs˚_u£cs
@@ -353733,7 +353741,7 @@ ec
 pkt_øã_low
  ||
 
-511 
+514 
 ec
 ->
 rx_cﬂÀs˚_u£cs_low
@@ -353741,7 +353749,7 @@ rx_cﬂÀs˚_u£cs_low
 rx_max_cﬂÀs˚d_‰ames_low
  ||
 
-512 
+515 
 ec
 ->
 tx_cﬂÀs˚_u£cs_low
@@ -353749,7 +353757,7 @@ tx_cﬂÀs˚_u£cs_low
 tx_max_cﬂÀs˚d_‰ames_low
  ||
 
-513 
+516 
 ec
 ->
 pkt_øã_high
@@ -353757,7 +353765,7 @@ pkt_øã_high
 rx_cﬂÀs˚_u£cs_high
  ||
 
-514 
+517 
 ec
 ->
 rx_max_cﬂÀs˚d_‰ames_high
@@ -353765,7 +353773,7 @@ rx_max_cﬂÀs˚d_‰ames_high
 tx_cﬂÀs˚_u£cs_high
  ||
 
-515 
+518 
 ec
 ->
 tx_max_cﬂÀs˚d_‰ames_high
@@ -353773,11 +353781,11 @@ tx_max_cﬂÀs˚d_‰ames_high
 øã_ßm∂e_öãrvÆ
 )
 
-516  -
+519  -
 EOPNOTSUPP
 ;
 
-518 i‡(!
+521 i‡(!
 ec
 ->
 rx_max_cﬂÀs˚d_‰ames
@@ -353785,7 +353793,7 @@ rx_max_cﬂÀs˚d_‰ames
 tx_max_cﬂÀs˚d_‰ames
 )
 
-521 i‡(
+524 i‡(
 ec
 ->
 u£_ad≠tive_rx_cﬂÀs˚
@@ -353793,17 +353801,17 @@ u£_ad≠tive_rx_cﬂÀs˚
 u£_ad≠tive_tx_cﬂÀs˚
 ) {
 
-522 
+525 
 	`√tdev_îr
 (
 √tdev
 , "adaptive-rx should be sameásádaptive-tx");
 
-523  -
+526  -
 EINVAL
 ;
 
-527 i‡((
+530 i‡((
 pfvf
 ->
 Êags
@@ -353811,21 +353819,21 @@ pfvf
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ) ==
 
-528 
+531 
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ) {
 
-529 
+532 
 ¥iv_cﬂÀs˚_°©us
  = 1;
 
-530 i‡(!
+533 i‡(!
 ec
 ->
 u£_ad≠tive_rx_cﬂÀs˚
 )
 
-531 
+534 
 pfvf
 ->
 Êags
@@ -353833,17 +353841,17 @@ pfvf
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ;
 
-533 
+536 
 ¥iv_cﬂÀs˚_°©us
  = 0;
 
-534 i‡(
+537 i‡(
 ec
 ->
 u£_ad≠tive_rx_cﬂÀs˚
 )
 
-535 
+538 
 pfvf
 ->
 Êags
@@ -353851,7 +353859,7 @@ pfvf
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ;
 
-541 
+544 
 ec
 ->
 rx_cﬂÀs˚_u£cs
@@ -353861,11 +353869,11 @@ rx_cﬂÀs˚_u£cs
 u32
 ,Éc->rx_coalesce_usecs,
 
-542 1, 
+545 1, 
 CQ_TIMER_THRESH_MAX
 );
 
-543 
+546 
 ec
 ->
 tx_cﬂÀs˚_u£cs
@@ -353875,11 +353883,11 @@ tx_cﬂÀs˚_u£cs
 u32
 ,Éc->tx_coalesce_usecs,
 
-544 1, 
+547 1, 
 CQ_TIMER_THRESH_MAX
 );
 
-549 i‡(
+552 i‡(
 hw
 ->
 cq_time_waô
@@ -353889,7 +353897,7 @@ ec
 rx_cﬂÀs˚_u£cs
 )
 
-550 
+553 
 hw
 ->
 cq_time_waô
@@ -353899,7 +353907,7 @@ ec
 tx_cﬂÀs˚_u£cs
 ;
 
-551 i‡(
+554 i‡(
 hw
 ->
 cq_time_waô
@@ -353909,7 +353917,7 @@ ec
 tx_cﬂÀs˚_u£cs
 )
 
-552 
+555 
 hw
 ->
 cq_time_waô
@@ -353919,7 +353927,7 @@ ec
 rx_cﬂÀs˚_u£cs
 ;
 
-554 
+557 
 hw
 ->
 cq_time_waô
@@ -353933,13 +353941,13 @@ ec
 rx_cﬂÀs˚_u£cs
 ,
 
-555 
+558 
 ec
 ->
 tx_cﬂÀs˚_u£cs
 );
 
-560 
+563 
 ec
 ->
 rx_max_cﬂÀs˚d_‰ames
@@ -353949,11 +353957,11 @@ rx_max_cﬂÀs˚d_‰ames
 u32
 ,Éc->rx_max_coalesced_frames,
 
-561 1, 
+564 1, 
 NAPI_POLL_WEIGHT
 );
 
-562 
+565 
 ec
 ->
 tx_max_cﬂÀs˚d_‰ames
@@ -353963,11 +353971,11 @@ tx_max_cﬂÀs˚d_‰ames
 u32
 ,Éc->tx_max_coalesced_frames,
 
-563 1, 
+566 1, 
 NAPI_POLL_WEIGHT
 );
 
-568 i‡(
+571 i‡(
 hw
 ->
 cq_ecou¡_waô
@@ -353977,7 +353985,7 @@ ec
 rx_max_cﬂÀs˚d_‰ames
 )
 
-569 
+572 
 hw
 ->
 cq_ecou¡_waô
@@ -353987,7 +353995,7 @@ ec
 tx_max_cﬂÀs˚d_‰ames
 ;
 
-570 i‡(
+573 i‡(
 hw
 ->
 cq_ecou¡_waô
@@ -353997,7 +354005,7 @@ ec
 tx_max_cﬂÀs˚d_‰ames
 )
 
-571 
+574 
 hw
 ->
 cq_ecou¡_waô
@@ -354007,7 +354015,7 @@ ec
 rx_max_cﬂÀs˚d_‰ames
 ;
 
-573 
+576 
 hw
 ->
 cq_ecou¡_waô
@@ -354021,17 +354029,17 @@ ec
 rx_max_cﬂÀs˚d_‰ames
 ,
 
-574 
+577 
 ec
 ->
 tx_max_cﬂÀs˚d_‰ames
 );
 
-580 i‡(
+583 i‡(
 ¥iv_cﬂÀs˚_°©us
  &&
 
-581 ((
+584 ((
 pfvf
 ->
 Êags
@@ -354039,11 +354047,11 @@ pfvf
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 ) !=
 
-582 
+585 
 OTX2_FLAG_ADPTV_INT_COAL_ENABLED
 )) {
 
-583 
+586 
 hw
 ->
 cq_time_waô
@@ -354051,7 +354059,7 @@ cq_time_waô
 CQ_TIMER_THRESH_DEFAULT
 ;
 
-584 
+587 
 hw
 ->
 cq_ecou¡_waô
@@ -354059,13 +354067,13 @@ cq_ecou¡_waô
 CQ_CQE_THRESH_DEFAULT
 ;
 
-587 i‡(
+590 i‡(
 	`√tif_ru¬ög
 (
 √tdev
 )) {
 
-588 
+591 
 qidx
  = 0; qidx < 
 pfvf
@@ -354075,7 +354083,7 @@ hw
 cöt_˙t
 ; qidx++)
 
-589 
+592 
 	`Ÿx2_c⁄fig_úq_cﬂÀscög
 (
 pfvf
@@ -354083,11 +354091,11 @@ pfvf
 qidx
 );
 
-593 
+596 
 	}
 }
 
-595 
+598 
 	$Ÿx2_gë_rss_hash_›ts
 (
 Ÿx2_nic
@@ -354095,13 +354103,13 @@ qidx
 pfvf
 ,
 
-596 
+599 
 ëhtoﬁ_rxnfc
  *
 nfc
 )
 
-598 
+601 
 Ÿx2_rss_öfo
  *
 rss
@@ -354113,19 +354121,19 @@ hw
 rss_öfo
 ;
 
-600 i‡(!(
+603 i‡(!(
 rss
 ->
 Êowkey_cfg
  &
 
-601 (
+604 (
 NIX_FLOW_KEY_TYPE_IPV4
  | 
 NIX_FLOW_KEY_TYPE_IPV6
 )))
 
-605 
+608 
 nfc
 ->
 d©a
@@ -354135,7 +354143,7 @@ RXH_IP_SRC
 RXH_IP_DST
 ;
 
-606 i‡(
+609 i‡(
 rss
 ->
 Êowkey_cfg
@@ -354143,7 +354151,7 @@ rss
 NIX_FLOW_KEY_TYPE_VLAN
 )
 
-607 
+610 
 nfc
 ->
 d©a
@@ -354151,21 +354159,21 @@ d©a
 RXH_VLAN
 ;
 
-609 
+612 
 nfc
 ->
 Êow_ty≥
 ) {
 
-610 
+613 
 TCP_V4_FLOW
 :
 
-611 
+614 
 TCP_V6_FLOW
 :
 
-612 i‡(
+615 i‡(
 rss
 ->
 Êowkey_cfg
@@ -354173,7 +354181,7 @@ rss
 NIX_FLOW_KEY_TYPE_TCP
 )
 
-613 
+616 
 nfc
 ->
 d©a
@@ -354183,15 +354191,15 @@ RXH_L4_B_0_1
 RXH_L4_B_2_3
 ;
 
-615 
+618 
 UDP_V4_FLOW
 :
 
-616 
+619 
 UDP_V6_FLOW
 :
 
-617 i‡(
+620 i‡(
 rss
 ->
 Êowkey_cfg
@@ -354199,7 +354207,7 @@ rss
 NIX_FLOW_KEY_TYPE_UDP
 )
 
-618 
+621 
 nfc
 ->
 d©a
@@ -354209,15 +354217,15 @@ RXH_L4_B_0_1
 RXH_L4_B_2_3
 ;
 
-620 
+623 
 SCTP_V4_FLOW
 :
 
-621 
+624 
 SCTP_V6_FLOW
 :
 
-622 i‡(
+625 i‡(
 rss
 ->
 Êowkey_cfg
@@ -354225,7 +354233,7 @@ rss
 NIX_FLOW_KEY_TYPE_SCTP
 )
 
-623 
+626 
 nfc
 ->
 d©a
@@ -354235,15 +354243,15 @@ RXH_L4_B_0_1
 RXH_L4_B_2_3
 ;
 
-625 
+628 
 AH_ESP_V4_FLOW
 :
 
-626 
+629 
 AH_ESP_V6_FLOW
 :
 
-627 i‡(
+630 i‡(
 rss
 ->
 Êowkey_cfg
@@ -354251,7 +354259,7 @@ rss
 NIX_FLOW_KEY_TYPE_ESP
 )
 
-628 
+631 
 nfc
 ->
 d©a
@@ -354261,39 +354269,39 @@ RXH_L4_B_0_1
 RXH_L4_B_2_3
 ;
 
-630 
+633 
 AH_V4_FLOW
 :
 
-631 
+634 
 ESP_V4_FLOW
 :
 
-632 
+635 
 IPV4_FLOW
 :
 
-634 
+637 
 AH_V6_FLOW
 :
 
-635 
+638 
 ESP_V6_FLOW
 :
 
-636 
+639 
 IPV6_FLOW
 :
 
-639  -
+642  -
 EINVAL
 ;
 
-643 
+646 
 	}
 }
 
-645 
+648 
 	$Ÿx2_£t_rss_hash_›ts
 (
 Ÿx2_nic
@@ -354301,13 +354309,13 @@ EINVAL
 pfvf
 ,
 
-646 
+649 
 ëhtoﬁ_rxnfc
  *
 nfc
 )
 
-648 
+651 
 Ÿx2_rss_öfo
  *
 rss
@@ -354319,7 +354327,7 @@ hw
 rss_öfo
 ;
 
-649 
+652 
 u32
  
 rxh_l4
@@ -354329,7 +354337,7 @@ RXH_L4_B_0_1
 RXH_L4_B_2_3
 ;
 
-650 
+653 
 u32
  
 rss_cfg
@@ -354339,13 +354347,13 @@ rss
 Êowkey_cfg
 ;
 
-652 i‡(!
+655 i‡(!
 rss
 ->
 íabÀ
 ) {
 
-653 
+656 
 	`√tdev_îr
 (
 pfvf
@@ -354353,11 +354361,11 @@ pfvf
 √tdev
 ,
 
-655  -
+658  -
 EIO
 ;
 
-659 i‡(!(
+662 i‡(!(
 nfc
 ->
 d©a
@@ -354367,11 +354375,11 @@ RXH_IP_SRC
 RXH_IP_DST
 ))
 
-660  -
+663  -
 EINVAL
 ;
 
-662 i‡(
+665 i‡(
 nfc
 ->
 d©a
@@ -354379,147 +354387,109 @@ d©a
 RXH_VLAN
 )
 
-663 
+666 
 rss_cfg
  |
 NIX_FLOW_KEY_TYPE_VLAN
 ;
 
-665 
+668 
 rss_cfg
  &~
 NIX_FLOW_KEY_TYPE_VLAN
 ;
 
-667 
+670 
 nfc
 ->
 Êow_ty≥
 ) {
 
-668 
+671 
 TCP_V4_FLOW
 :
 
-669 
+672 
 TCP_V6_FLOW
 :
 
-673 
+676 
 nfc
 ->
 d©a
  & 
 rxh_l4
 ) {
-
-675 
-rss_cfg
- &~
-NIX_FLOW_KEY_TYPE_TCP
-;
-
-677 (
-RXH_L4_B_0_1
- | 
-RXH_L4_B_2_3
-):
 
 678 
 rss_cfg
+ &~
+NIX_FLOW_KEY_TYPE_TCP
+;
+
+680 (
+RXH_L4_B_0_1
+ | 
+RXH_L4_B_2_3
+):
+
+681 
+rss_cfg
  |
 NIX_FLOW_KEY_TYPE_TCP
 ;
 
-681  -
+684  -
 EINVAL
 ;
 
-684 
+687 
 UDP_V4_FLOW
 :
 
-685 
+688 
 UDP_V6_FLOW
 :
 
-686 
+689 
 nfc
 ->
 d©a
  & 
 rxh_l4
 ) {
-
-688 
-rss_cfg
- &~
-NIX_FLOW_KEY_TYPE_UDP
-;
-
-690 (
-RXH_L4_B_0_1
- | 
-RXH_L4_B_2_3
-):
 
 691 
 rss_cfg
- |
+ &~
 NIX_FLOW_KEY_TYPE_UDP
 ;
 
-694  -
-EINVAL
-;
-
-697 
-SCTP_V4_FLOW
-:
-
-698 
-SCTP_V6_FLOW
-:
-
-699 
-nfc
-->
-d©a
- & 
-rxh_l4
-) {
-
-701 
-rss_cfg
- &~
-NIX_FLOW_KEY_TYPE_SCTP
-;
-
-703 (
+693 (
 RXH_L4_B_0_1
  | 
 RXH_L4_B_2_3
 ):
 
-704 
+694 
 rss_cfg
  |
-NIX_FLOW_KEY_TYPE_SCTP
+NIX_FLOW_KEY_TYPE_UDP
 ;
 
-707  -
+697  -
 EINVAL
 ;
 
-710 
-AH_ESP_V4_FLOW
+700 
+SCTP_V4_FLOW
 :
 
-711 
-AH_ESP_V6_FLOW
+701 
+SCTP_V6_FLOW
 :
 
-712 
+702 
 nfc
 ->
 d©a
@@ -354527,39 +354497,77 @@ d©a
 rxh_l4
 ) {
 
-714 
+704 
+rss_cfg
+ &~
+NIX_FLOW_KEY_TYPE_SCTP
+;
+
+706 (
+RXH_L4_B_0_1
+ | 
+RXH_L4_B_2_3
+):
+
+707 
+rss_cfg
+ |
+NIX_FLOW_KEY_TYPE_SCTP
+;
+
+710  -
+EINVAL
+;
+
+713 
+AH_ESP_V4_FLOW
+:
+
+714 
+AH_ESP_V6_FLOW
+:
+
+715 
+nfc
+->
+d©a
+ & 
+rxh_l4
+) {
+
+717 
 rss_cfg
  &~(
 NIX_FLOW_KEY_TYPE_ESP
  |
 
-715 
+718 
 NIX_FLOW_KEY_TYPE_AH
 );
 
-716 
+719 
 rss_cfg
  |
 NIX_FLOW_KEY_TYPE_VLAN
  |
 
-717 
+720 
 NIX_FLOW_KEY_TYPE_IPV4_PROTO
 ;
 
-719 (
+722 (
 RXH_L4_B_0_1
  | 
 RXH_L4_B_2_3
 ):
 
-723 i‡(
+726 i‡(
 rss_cfg
  & 
 NIX_FLOW_KEY_TYPE_VLAN
 ) {
 
-724 
+727 
 	`√tdev_îr
 (
 pfvf
@@ -354567,11 +354575,11 @@ pfvf
 √tdev
 ,
 
-726  -
+729  -
 EOPNOTSUPP
 ;
 
-729 
+732 
 rss_cfg
  |
 NIX_FLOW_KEY_TYPE_ESP
@@ -354579,25 +354587,25 @@ NIX_FLOW_KEY_TYPE_ESP
 NIX_FLOW_KEY_TYPE_AH
 ;
 
-734 
+737 
 rss_cfg
  &~
 NIX_FLOW_KEY_TYPE_IPV4_PROTO
 ;
 
-737  -
+740  -
 EINVAL
 ;
 
-740 
+743 
 IPV4_FLOW
 :
 
-741 
+744 
 IPV6_FLOW
 :
 
-742 
+745 
 rss_cfg
  = 
 NIX_FLOW_KEY_TYPE_IPV4
@@ -354605,11 +354613,11 @@ NIX_FLOW_KEY_TYPE_IPV4
 NIX_FLOW_KEY_TYPE_IPV6
 ;
 
-745  -
+748  -
 EINVAL
 ;
 
-748 
+751 
 rss
 ->
 Êowkey_cfg
@@ -354617,17 +354625,17 @@ rss
 rss_cfg
 ;
 
-749 
+752 
 	`Ÿx2_£t_Êowkey_cfg
 (
 pfvf
 );
 
-751 
+754 
 	}
 }
 
-753 
+756 
 	$Ÿx2_gë_rxnfc
 (
 √t_devi˚
@@ -354635,7 +354643,7 @@ pfvf
 dev
 ,
 
-754 
+757 
 ëhtoﬁ_rxnfc
  *
 nfc
@@ -354645,7 +354653,7 @@ u32
 ruÀs
 )
 
-756 
+759 
 boﬁ
  
 ¡u∂e
@@ -354657,7 +354665,7 @@ dev
 NETIF_F_NTUPLE
 );
 
-757 
+760 
 Ÿx2_nic
  *
 pfvf
@@ -354667,19 +354675,19 @@ pfvf
 dev
 );
 
-758 
+761 
 ªt
  = -
 EOPNOTSUPP
 ;
 
-760 i‡(
+763 i‡(
 	`Ÿx2_tc_Êowî_ruÀ_˙t
 (
 pfvf
 )) {
 
-761 
+764 
 	`√tdev_îr
 (
 pfvf
@@ -354687,21 +354695,21 @@ pfvf
 √tdev
 ,
 
-763  -
+766  -
 EINVAL
 ;
 
-766 
+769 
 nfc
 ->
 cmd
 ) {
 
-767 
+770 
 ETHTOOL_GRXRINGS
 :
 
-768 
+771 
 nfc
 ->
 d©a
@@ -354713,15 +354721,15 @@ hw
 rx_queues
 ;
 
-769 
+772 
 ªt
  = 0;
 
-771 
+774 
 ETHTOOL_GRXCLSRLCNT
 :
 
-772 i‡(
+775 i‡(
 	`√tif_ru¬ög
 (
 dev
@@ -354729,7 +354737,7 @@ dev
 ¡u∂e
 ) {
 
-773 
+776 
 nfc
 ->
 ruÀ_˙t
@@ -354741,15 +354749,15 @@ pfvf
 ƒ_Êows
 ;
 
-774 
+777 
 ªt
  = 0;
 
-777 
+780 
 ETHTOOL_GRXCLSRULE
 :
 
-778 i‡(
+781 i‡(
 	`√tif_ru¬ög
 (
 dev
@@ -354757,7 +354765,7 @@ dev
 ¡u∂e
 )
 
-779 
+782 
 ªt
  = 
 	`Ÿx2_gë_Êow
@@ -354771,11 +354779,11 @@ fs
 loˇti⁄
 );
 
-781 
+784 
 ETHTOOL_GRXCLSRLALL
 :
 
-782 i‡(
+785 i‡(
 	`√tif_ru¬ög
 (
 dev
@@ -354783,7 +354791,7 @@ dev
 ¡u∂e
 )
 
-783 
+786 
 ªt
  = 
 	`Ÿx2_gë_Æl_Êows
@@ -354795,11 +354803,11 @@ nfc
 ruÀs
 );
 
-785 
+788 
 ETHTOOL_GRXFH
 :
 
-786  
+789  
 	`Ÿx2_gë_rss_hash_›ts
 (
 pfvf
@@ -354807,15 +354815,15 @@ pfvf
 nfc
 );
 
-790  
+793  
 ªt
 ;
 
-791 
+794 
 	}
 }
 
-793 
+796 
 	$Ÿx2_£t_rxnfc
 (
 √t_devi˚
@@ -354827,7 +354835,7 @@ dev
 nfc
 )
 
-795 
+798 
 boﬁ
  
 ¡u∂e
@@ -354839,7 +354847,7 @@ dev
 NETIF_F_NTUPLE
 );
 
-796 
+799 
 Ÿx2_nic
  *
 pfvf
@@ -354849,23 +354857,23 @@ pfvf
 dev
 );
 
-797 
+800 
 ªt
  = -
 EOPNOTSUPP
 ;
 
-799 
+802 
 nfc
 ->
 cmd
 ) {
 
-800 
+803 
 ETHTOOL_SRXFH
 :
 
-801 
+804 
 ªt
  = 
 	`Ÿx2_£t_rss_hash_›ts
@@ -354875,11 +354883,11 @@ pfvf
 nfc
 );
 
-803 
+806 
 ETHTOOL_SRXCLSRLINS
 :
 
-804 i‡(
+807 i‡(
 	`√tif_ru¬ög
 (
 dev
@@ -354887,7 +354895,7 @@ dev
 ¡u∂e
 )
 
-805 
+808 
 ªt
  = 
 	`Ÿx2_add_Êow
@@ -354897,11 +354905,11 @@ pfvf
 nfc
 );
 
-807 
+810 
 ETHTOOL_SRXCLSRLDEL
 :
 
-808 i‡(
+811 i‡(
 	`√tif_ru¬ög
 (
 dev
@@ -354909,7 +354917,7 @@ dev
 ¡u∂e
 )
 
-809 
+812 
 ªt
  = 
 	`Ÿx2_ªmove_Êow
@@ -354923,15 +354931,15 @@ fs
 loˇti⁄
 );
 
-815  
+818  
 ªt
 ;
 
-816 
+819 
 	}
 }
 
-818 
+821 
 u32
  
 	$Ÿx2_gë_rxfh_key_size
@@ -354941,7 +354949,7 @@ u32
 √tdev
 )
 
-820 
+823 
 Ÿx2_nic
  *
 pfvf
@@ -354951,13 +354959,13 @@ pfvf
 √tdev
 );
 
-821 
+824 
 Ÿx2_rss_öfo
  *
 rss
 ;
 
-823 
+826 
 rss
  = &
 pfvf
@@ -354967,17 +354975,17 @@ hw
 rss_öfo
 ;
 
-825  (
+828  (
 rss
 ->
 key
 );
 
-826 
+829 
 	}
 }
 
-828 
+831 
 u32
  
 	$Ÿx2_gë_rxfh_ödú_size
@@ -354987,15 +354995,15 @@ u32
 dev
 )
 
-830  
+833  
 MAX_RSS_INDIR_TBL_SIZE
 ;
 
-831 
+834 
 	}
 }
 
-833 
+836 
 	$Ÿx2_rss_˘x_dñëe
 (
 Ÿx2_nic
@@ -355005,7 +355013,7 @@ pfvf
 ˘x_id
 )
 
-835 
+838 
 Ÿx2_rss_öfo
  *
 rss
@@ -355017,7 +355025,7 @@ hw
 rss_öfo
 ;
 
-837 
+840 
 	`Ÿx2_rss_˘x_Êow_dñ
 (
 pfvf
@@ -355025,7 +355033,7 @@ pfvf
 ˘x_id
 );
 
-838 
+841 
 	`k‰ì
 (
 rss
@@ -355035,7 +355043,7 @@ rss_˘x
 ˘x_id
 ]);
 
-839 
+842 
 rss
 ->
 rss_˘x
@@ -355045,11 +355053,11 @@ rss_˘x
 NULL
 ;
 
-842 
+845 
 	}
 }
 
-844 
+847 
 	$Ÿx2_rss_˘x_¸óã
 (
 Ÿx2_nic
@@ -355057,13 +355065,13 @@ NULL
 pfvf
 ,
 
-845 
+848 
 u32
  *
 rss_c⁄ãxt
 )
 
-847 
+850 
 Ÿx2_rss_öfo
  *
 rss
@@ -355075,19 +355083,19 @@ hw
 rss_öfo
 ;
 
-848 
+851 
 u8
  
 ˘x
 ;
 
-850 
+853 
 ˘x
  = 0; ctx < 
 MAX_RSS_GROUPS
 ; ctx++) {
 
-851 i‡(!
+854 i‡(!
 rss
 ->
 rss_˘x
@@ -355095,17 +355103,17 @@ rss_˘x
 ˘x
 ])
 
-854 i‡(
+857 i‡(
 ˘x
  =
 MAX_RSS_GROUPS
 )
 
-855  -
+858  -
 EINVAL
 ;
 
-857 
+860 
 rss
 ->
 rss_˘x
@@ -355117,7 +355125,7 @@ rss_˘x
 GFP_KERNEL
 );
 
-858 i‡(!
+861 i‡(!
 rss
 ->
 rss_˘x
@@ -355125,21 +355133,21 @@ rss_˘x
 ˘x
 ])
 
-859  -
+862  -
 ENOMEM
 ;
 
-860 *
+863 *
 rss_c⁄ãxt
  = 
 ˘x
 ;
 
-863 
+866 
 	}
 }
 
-866 
+869 
 	$Ÿx2_£t_rxfh_c⁄ãxt
 (
 √t_devi˚
@@ -355151,7 +355159,7 @@ u32
 ödú
 ,
 
-867 c⁄° 
+870 c⁄° 
 u8
  *
 hkey
@@ -355159,7 +355167,7 @@ hkey
 hfunc
 ,
 
-868 
+871 
 u32
  *
 rss_c⁄ãxt
@@ -355169,7 +355177,7 @@ boﬁ
 dñëe
 )
 
-870 
+873 
 Ÿx2_nic
  *
 pfvf
@@ -355179,25 +355187,25 @@ pfvf
 dev
 );
 
-871 
+874 
 Ÿx2_rss_˘x
  *
 rss_˘x
 ;
 
-872 
+875 
 Ÿx2_rss_öfo
  *
 rss
 ;
 
-873 
+876 
 ªt
 , 
 idx
 ;
 
-875 i‡(
+878 i‡(
 hfunc
  !
 ETH_RSS_HASH_NO_CHANGE
@@ -355205,27 +355213,27 @@ ETH_RSS_HASH_NO_CHANGE
 ETH_RSS_HASH_TOP
 )
 
-876  -
+879  -
 EOPNOTSUPP
 ;
 
-878 i‡(*
+881 i‡(*
 rss_c⁄ãxt
  !
 ETH_RXFH_CONTEXT_ALLOC
  &&
 
-879 *
+882 *
 rss_c⁄ãxt
  >
 MAX_RSS_GROUPS
 )
 
-880  -
+883  -
 EINVAL
 ;
 
-882 
+885 
 rss
  = &
 pfvf
@@ -355235,27 +355243,27 @@ hw
 rss_öfo
 ;
 
-884 i‡(!
+887 i‡(!
 rss
 ->
 íabÀ
 ) {
 
-885 
+888 
 	`√tdev_îr
 (
 dev
 , "RSS is disabled, cannot change settings\n");
 
-886  -
+889  -
 EIO
 ;
 
-889 i‡(
+892 i‡(
 hkey
 ) {
 
-890 
+893 
 	`mem˝y
 (
 rss
@@ -355265,17 +355273,17 @@ key
 hkey
 , (rss->key));
 
-891 
+894 
 	`Ÿx2_£t_rss_key
 (
 pfvf
 );
 
-893 i‡(
+896 i‡(
 dñëe
 )
 
-894  
+897  
 	`Ÿx2_rss_˘x_dñëe
 (
 pfvf
@@ -355283,13 +355291,13 @@ pfvf
 rss_c⁄ãxt
 );
 
-896 i‡(*
+899 i‡(*
 rss_c⁄ãxt
  =
 ETH_RXFH_CONTEXT_ALLOC
 ) {
 
-897 
+900 
 ªt
  = 
 	`Ÿx2_rss_˘x_¸óã
@@ -355299,19 +355307,19 @@ pfvf
 rss_c⁄ãxt
 );
 
-898 i‡(
+901 i‡(
 ªt
 )
 
-899  
+902  
 ªt
 ;
 
-901 i‡(
+904 i‡(
 ödú
 ) {
 
-902 
+905 
 rss_˘x
  = 
 rss
@@ -355319,7 +355327,7 @@ rss
 rss_c⁄ãxt
 ];
 
-903 
+906 
 idx
  = 0; idx < 
 rss
@@ -355327,7 +355335,7 @@ rss
 rss_size
 ; idx++)
 
-904 
+907 
 rss_˘x
 ->
 öd_tbl
@@ -355337,7 +355345,7 @@ idx
 ödú
 [idx];
 
-906 
+909 
 	`Ÿx2_£t_rss_èbÀ
 (
 pfvf
@@ -355345,11 +355353,11 @@ pfvf
 rss_c⁄ãxt
 );
 
-909 
+912 
 	}
 }
 
-911 
+914 
 	$Ÿx2_gë_rxfh_c⁄ãxt
 (
 √t_devi˚
@@ -355361,7 +355369,7 @@ u32
 ödú
 ,
 
-912 
+915 
 u8
  *
 hkey
@@ -355373,7 +355381,7 @@ u32
 rss_c⁄ãxt
 )
 
-914 
+917 
 Ÿx2_nic
  *
 pfvf
@@ -355383,25 +355391,25 @@ pfvf
 dev
 );
 
-915 
+918 
 Ÿx2_rss_˘x
  *
 rss_˘x
 ;
 
-916 
+919 
 Ÿx2_rss_öfo
  *
 rss
 ;
 
-917 
+920 
 idx
 , 
 rx_queues
 ;
 
-919 
+922 
 rss
  = &
 pfvf
@@ -355411,21 +355419,21 @@ hw
 rss_öfo
 ;
 
-921 i‡(
+924 i‡(
 hfunc
 )
 
-922 *
+925 *
 hfunc
  = 
 ETH_RSS_HASH_TOP
 ;
 
-924 i‡(!
+927 i‡(!
 ödú
 )
 
-927 i‡(!
+930 i‡(!
 rss
 ->
 íabÀ
@@ -355435,7 +355443,7 @@ rss_c⁄ãxt
 DEFAULT_RSS_CONTEXT_GROUP
 ) {
 
-928 
+931 
 rx_queues
  = 
 pfvf
@@ -355443,13 +355451,13 @@ pfvf
 hw
 .rx_queues;
 
-929 
+932 
 idx
  = 0; idx < 
 MAX_RSS_INDIR_TBL_SIZE
 ; idx++)
 
-930 
+933 
 ödú
 [
 idx
@@ -355459,17 +355467,17 @@ idx
 rx_queues
 );
 
-933 i‡(
+936 i‡(
 rss_c⁄ãxt
  >
 MAX_RSS_GROUPS
 )
 
-934  -
+937  -
 ENOENT
 ;
 
-936 
+939 
 rss_˘x
  = 
 rss
@@ -355477,19 +355485,19 @@ rss
 rss_c⁄ãxt
 ];
 
-937 i‡(!
+940 i‡(!
 rss_˘x
 )
 
-938  -
+941  -
 ENOENT
 ;
 
-940 i‡(
+943 i‡(
 ödú
 ) {
 
-941 
+944 
 idx
  = 0; idx < 
 rss
@@ -355497,7 +355505,7 @@ rss
 rss_size
 ; idx++)
 
-942 
+945 
 ödú
 [
 idx
@@ -355507,11 +355515,11 @@ rss_˘x
 öd_tbl
 [idx];
 
-944 i‡(
+947 i‡(
 hkey
 )
 
-945 
+948 
 	`mem˝y
 (
 hkey
@@ -355521,11 +355529,11 @@ rss
 key
 , (rss->key));
 
-948 
+951 
 	}
 }
 
-951 
+954 
 	$Ÿx2_gë_rxfh
 (
 √t_devi˚
@@ -355537,7 +355545,7 @@ u32
 ödú
 ,
 
-952 
+955 
 u8
  *
 hkey
@@ -355545,7 +355553,7 @@ hkey
 hfunc
 )
 
-954  
+957  
 	`Ÿx2_gë_rxfh_c⁄ãxt
 (
 dev
@@ -355557,15 +355565,15 @@ hkey
 hfunc
 ,
 
-955 
+958 
 DEFAULT_RSS_CONTEXT_GROUP
 );
 
-956 
+959 
 	}
 }
 
-959 
+962 
 	$Ÿx2_£t_rxfh
 (
 √t_devi˚
@@ -355577,7 +355585,7 @@ u32
 ödú
 ,
 
-960 c⁄° 
+963 c⁄° 
 u8
  *
 hkey
@@ -355585,7 +355593,7 @@ hkey
 hfunc
 )
 
-962 
+965 
 u32
  
 rss_c⁄ãxt
@@ -355593,7 +355601,7 @@ rss_c⁄ãxt
 DEFAULT_RSS_CONTEXT_GROUP
 ;
 
-964  
+967  
 	`Ÿx2_£t_rxfh_c⁄ãxt
 (
 dev
@@ -355607,11 +355615,11 @@ hfunc
 rss_c⁄ãxt
 , 0);
 
-965 
+968 
 	}
 }
 
-967 
+970 
 u32
  
 	$Ÿx2_gë_msgÀvñ
@@ -355621,7 +355629,7 @@ u32
 √tdev
 )
 
-969 
+972 
 Ÿx2_nic
  *
 pfvf
@@ -355631,17 +355639,17 @@ pfvf
 √tdev
 );
 
-971  
+974  
 pfvf
 ->
 msg_íabÀ
 ;
 
-972 
+975 
 	}
 }
 
-974 
+977 
 	$Ÿx2_£t_msgÀvñ
 (
 √t_devi˚
@@ -355653,7 +355661,7 @@ u32
 vÆ
 )
 
-976 
+979 
 Ÿx2_nic
  *
 pfvf
@@ -355663,7 +355671,7 @@ pfvf
 √tdev
 );
 
-978 
+981 
 pfvf
 ->
 msg_íabÀ
@@ -355671,11 +355679,11 @@ msg_íabÀ
 vÆ
 ;
 
-979 
+982 
 	}
 }
 
-981 
+984 
 u32
  
 	$Ÿx2_gë_lök
@@ -355685,7 +355693,7 @@ u32
 √tdev
 )
 
-983 
+986 
 Ÿx2_nic
  *
 pfvf
@@ -355695,7 +355703,7 @@ pfvf
 √tdev
 );
 
-986 i‡(
+989 i‡(
 	`is_Ÿx2_lbkvf
 (
 pfvf
@@ -355705,7 +355713,7 @@ pdev
 	`is_Ÿx2_sdpvf
 (pfvf->pdev))
 
-988  
+991  
 pfvf
 ->
 löfo
@@ -355713,11 +355721,11 @@ löfo
 lök_up
 ;
 
-989 
+992 
 	}
 }
 
-991 
+994 
 	$Ÿx2_gë_ts_öfo
 (
 √t_devi˚
@@ -355725,13 +355733,13 @@ lök_up
 √tdev
 ,
 
-992 
+995 
 ëhtoﬁ_ts_öfo
  *
 öfo
 )
 
-994 
+997 
 Ÿx2_nic
  *
 pfvf
@@ -355741,13 +355749,13 @@ pfvf
 √tdev
 );
 
-996 i‡(!
+999 i‡(!
 pfvf
 ->
 ±p
 )
 
-997  
+1000  
 	`ëhtoﬁ_›_gë_ts_öfo
 (
 √tdev
@@ -355755,7 +355763,7 @@ pfvf
 öfo
 );
 
-999 i‡(
+1002 i‡(
 	`is_Ÿx2_sdpvf
 (
 pfvf
@@ -355763,7 +355771,7 @@ pfvf
 pdev
 )) {
 
-1000 
+1003 
 öfo
 ->
 so_time°ampög
@@ -355771,43 +355779,43 @@ so_time°ampög
 SOF_TIMESTAMPING_TX_SOFTWARE
  |
 
-1001 
+1004 
 SOF_TIMESTAMPING_RX_SOFTWARE
  |
 
-1002 
+1005 
 SOF_TIMESTAMPING_SOFTWARE
 ;
 
-1006 
+1009 
 öfo
 ->
 so_time°ampög
  = 
 SOF_TIMESTAMPING_TX_SOFTWARE
- |
-
-1007 
-SOF_TIMESTAMPING_RX_SOFTWARE
- |
-
-1008 
-SOF_TIMESTAMPING_SOFTWARE
- |
-
-1009 
-SOF_TIMESTAMPING_TX_HARDWARE
  |
 
 1010 
-SOF_TIMESTAMPING_RX_HARDWARE
+SOF_TIMESTAMPING_RX_SOFTWARE
  |
 
 1011 
+SOF_TIMESTAMPING_SOFTWARE
+ |
+
+1012 
+SOF_TIMESTAMPING_TX_HARDWARE
+ |
+
+1013 
+SOF_TIMESTAMPING_RX_HARDWARE
+ |
+
+1014 
 SOF_TIMESTAMPING_RAW_HARDWARE
 ;
 
-1013 
+1016 
 öfo
 ->
 phc_ödex
@@ -355817,7 +355825,7 @@ phc_ödex
 pfvf
 );
 
-1015 
+1018 
 öfo
 ->
 tx_ty≥s
@@ -355829,7 +355837,7 @@ HWTSTAMP_TX_OFF
 HWTSTAMP_TX_ON
 );
 
-1016 i‡(
+1019 i‡(
 	`ã°_bô
 (
 CN10K_PTP_ONESTEP
@@ -355841,7 +355849,7 @@ hw
 ˇp_Êag
 ))
 
-1017 
+1020 
 öfo
 ->
 tx_ty≥s
@@ -355851,7 +355859,7 @@ tx_ty≥s
 HWTSTAMP_TX_ONESTEP_SYNC
 );
 
-1019 
+1022 
 öfo
 ->
 rx_fûãrs
@@ -355861,17 +355869,17 @@ rx_fûãrs
 HWTSTAMP_FILTER_NONE
 ) |
 
-1020 
+1023 
 	`BIT
 (
 HWTSTAMP_FILTER_ALL
 );
 
-1023 
+1026 
 	}
 }
 
-1025 
+1028 
 cgx_fw_d©a
  *
 	$Ÿx2_gë_fwd©a
@@ -355881,7 +355889,7 @@ cgx_fw_d©a
 pfvf
 )
 
-1027 
+1030 
 cgx_fw_d©a
  *
 r•
@@ -355889,17 +355897,17 @@ r•
 NULL
 ;
 
-1028 
+1031 
 msg_ªq
  *
 ªq
 ;
 
-1029 
+1032 
 îr
  = 0;
 
-1031 
+1034 
 	`muãx_lock
 (&
 pfvf
@@ -355909,7 +355917,7 @@ mbox
 lock
 );
 
-1032 
+1035 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_cgx_gë_aux_lök_öfo
@@ -355919,11 +355927,11 @@ pfvf
 mbox
 );
 
-1033 i‡(!
+1036 i‡(!
 ªq
 ) {
 
-1034 
+1037 
 	`muãx_u∆ock
 (&
 pfvf
@@ -355933,13 +355941,13 @@ mbox
 lock
 );
 
-1035  
+1038  
 	`ERR_PTR
 (-
 ENOMEM
 );
 
-1038 
+1041 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -355949,17 +355957,17 @@ pfvf
 mbox
 );
 
-1039 i‡(!
+1042 i‡(!
 îr
 ) {
 
-1040 
+1043 
 r•
  = (
 cgx_fw_d©a
  *)
 
-1041 
+1044 
 	`Ÿx2_mbox_gë_r•
 (&
 pfvf
@@ -355971,7 +355979,7 @@ mbox
 hdr
 );
 
-1043 
+1046 
 r•
  = 
 	`ERR_PTR
@@ -355979,7 +355987,7 @@ r•
 îr
 );
 
-1046 
+1049 
 	`muãx_u∆ock
 (&
 pfvf
@@ -355989,15 +355997,15 @@ mbox
 lock
 );
 
-1047  
+1050  
 r•
 ;
 
-1048 
+1051 
 	}
 }
 
-1050 
+1053 
 	$Ÿx2_gë_„˝¨am
 (
 √t_devi˚
@@ -356005,13 +356013,13 @@ r•
 √tdev
 ,
 
-1051 
+1054 
 ëhtoﬁ_„˝¨am
  *
 „˝¨am
 )
 
-1053 
+1056 
 Ÿx2_nic
  *
 pfvf
@@ -356021,35 +356029,35 @@ pfvf
 √tdev
 );
 
-1054 
+1057 
 cgx_fw_d©a
  *
 r•
 ;
 
-1055 c⁄° 
+1058 c⁄° 
 „c
 [] = {
 
-1056 
+1059 
 ETHTOOL_FEC_OFF
 ,
 
-1057 
+1060 
 ETHTOOL_FEC_BASER
 ,
 
-1058 
+1061 
 ETHTOOL_FEC_RS
 ,
 
-1059 
+1062 
 ETHTOOL_FEC_BASER
  | 
 ETHTOOL_FEC_RS
 
 
-1062 i‡(
+1065 i‡(
 pfvf
 ->
 löfo
@@ -356059,7 +356067,7 @@ löfo
 	`ARRAY_SIZE
 (fec))
 
-1063 
+1066 
 „˝¨am
 ->
 a˘ive_„c
@@ -356071,7 +356079,7 @@ pfvf
 löfo
 .fec];
 
-1065 
+1068 
 r•
  = 
 	`Ÿx2_gë_fwd©a
@@ -356079,19 +356087,19 @@ r•
 pfvf
 );
 
-1066 i‡(
+1069 i‡(
 	`IS_ERR
 (
 r•
 ))
 
-1067  
+1070  
 	`PTR_ERR
 (
 r•
 );
 
-1069 i‡(
+1072 i‡(
 r•
 ->
 fwd©a
@@ -356103,7 +356111,7 @@ suµ‹ãd_„c
 „c
 )) {
 
-1070 i‡(!
+1073 i‡(!
 r•
 ->
 fwd©a
@@ -356111,7 +356119,7 @@ fwd©a
 suµ‹ãd_„c
 )
 
-1071 
+1074 
 „˝¨am
 ->
 „c
@@ -356119,7 +356127,7 @@ suµ‹ãd_„c
 ETHTOOL_FEC_NONE
 ;
 
-1073 
+1076 
 „˝¨am
 ->
 „c
@@ -356131,11 +356139,11 @@ fwd©a
 suµ‹ãd_„c
 ];
 
-1076 
+1079 
 	}
 }
 
-1078 
+1081 
 	$Ÿx2_£t_„˝¨am
 (
 √t_devi˚
@@ -356143,13 +356151,13 @@ suµ‹ãd_„c
 √tdev
 ,
 
-1079 
+1082 
 ëhtoﬁ_„˝¨am
  *
 „˝¨am
 )
 
-1081 
+1084 
 Ÿx2_nic
  *
 pfvf
@@ -356159,13 +356167,13 @@ pfvf
 √tdev
 );
 
-1082 
+1085 
 mbox
  *mbox = &
 pfvf
 ->mbox;
 
-1083 
+1086 
 „c_mode
  *
 ªq
@@ -356173,53 +356181,53 @@ pfvf
 r•
 ;
 
-1084 
+1087 
 îr
  = 0, 
 „c
  = 0;
 
-1086 
+1089 
 „˝¨am
 ->
 „c
 ) {
 
-1088 
+1091 
 ETHTOOL_FEC_OFF
 :
 
-1089 
-ETHTOOL_FEC_AUTO
-:
-
-1090 
-„c
- = 
-OTX2_FEC_OFF
-;
-
 1092 
-ETHTOOL_FEC_RS
+ETHTOOL_FEC_AUTO
 :
 
 1093 
 „c
  = 
-OTX2_FEC_RS
+OTX2_FEC_OFF
 ;
 
 1095 
-ETHTOOL_FEC_BASER
+ETHTOOL_FEC_RS
 :
 
 1096 
 „c
  = 
+OTX2_FEC_RS
+;
+
+1098 
+ETHTOOL_FEC_BASER
+:
+
+1099 
+„c
+ = 
 OTX2_FEC_BASER
 ;
 
-1099 
+1102 
 	`√tdev_w¨n
 (
 pfvf
@@ -356227,17 +356235,17 @@ pfvf
 √tdev
 , "Unsupported FEC mode: %d",
 
-1100 
+1103 
 „˝¨am
 ->
 „c
 );
 
-1101  -
+1104  -
 EINVAL
 ;
 
-1104 i‡(
+1107 i‡(
 „c
  =
 pfvf
@@ -356245,7 +356253,7 @@ pfvf
 löfo
 .fec)
 
-1107 
+1110 
 	`muãx_lock
 (&
 mbox
@@ -356253,7 +356261,7 @@ mbox
 lock
 );
 
-1108 
+1111 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_cgx_£t_„c_∑øm
@@ -356263,27 +356271,27 @@ pfvf
 mbox
 );
 
-1109 i‡(!
+1112 i‡(!
 ªq
 ) {
 
-1110 
+1113 
 îr
  = -
 ENOMEM
 ;
 
-1111 
+1114 
 íd
 ;
 
-1113 
+1116 
 ªq
 ->
 „c
  = fec;
 
-1114 
+1117 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -356293,15 +356301,15 @@ pfvf
 mbox
 );
 
-1115 i‡(
+1118 i‡(
 îr
 )
 
-1116 
+1119 
 íd
 ;
 
-1118 
+1121 
 r•
  = (
 „c_mode
@@ -356313,19 +356321,19 @@ pfvf
 mbox
 .mbox,
 
-1119 0, &
+1122 0, &
 ªq
 ->
 hdr
 );
 
-1120 i‡(
+1123 i‡(
 r•
 ->
 „c
  >= 0)
 
-1121 
+1124 
 pfvf
 ->
 löfo
@@ -356335,7 +356343,7 @@ löfo
 r•
 ->fec;
 
-1123 
+1126 
 îr
  = 
 r•
@@ -356343,11 +356351,11 @@ r•
 „c
 ;
 
-1124 
+1127 
 íd
 :
 
-1125 
+1128 
 	`muãx_u∆ock
 (&
 mbox
@@ -356355,15 +356363,15 @@ mbox
 lock
 );
 
-1126  
+1129  
 îr
 ;
 
-1127 
+1130 
 	}
 }
 
-1129 
+1132 
 	$Ÿx2_gë_„c_öfo
 (
 u64
@@ -356373,97 +356381,97 @@ u64
 ªq_mode
 ,
 
-1130 
+1133 
 ëhtoﬁ_lök_k£âögs
  *
 lök_k£âögs
 )
 
-1132 
+1135 
 	`__ETHTOOL_DECLARE_LINK_MODE_MASK
 (
 Ÿx2_„c_modes
 ) = { 0, };
 
-1134 
+1137 
 ödex
 ) {
 
-1135 
+1138 
 OTX2_FEC_NONE
 :
 
-1136 
+1139 
 	`lökmode_£t_bô
 (
 ETHTOOL_LINK_MODE_FEC_NONE_BIT
 ,
 
-1137 
+1140 
 Ÿx2_„c_modes
 );
 
-1139 
+1142 
 OTX2_FEC_BASER
 :
 
-1140 
+1143 
 	`lökmode_£t_bô
 (
 ETHTOOL_LINK_MODE_FEC_BASER_BIT
 ,
 
-1141 
+1144 
 Ÿx2_„c_modes
 );
 
-1143 
+1146 
 OTX2_FEC_RS
 :
 
-1144 
+1147 
 	`lökmode_£t_bô
 (
 ETHTOOL_LINK_MODE_FEC_RS_BIT
 ,
 
-1145 
+1148 
 Ÿx2_„c_modes
 );
 
-1147 
+1150 
 OTX2_FEC_BASER
  | 
 OTX2_FEC_RS
 :
 
-1148 
+1151 
 	`lökmode_£t_bô
 (
 ETHTOOL_LINK_MODE_FEC_BASER_BIT
 ,
 
-1149 
+1152 
 Ÿx2_„c_modes
 );
 
-1150 
+1153 
 	`lökmode_£t_bô
 (
 ETHTOOL_LINK_MODE_FEC_RS_BIT
 ,
 
-1151 
+1154 
 Ÿx2_„c_modes
 );
 
-1156 i‡(
+1159 i‡(
 ªq_mode
  =
 OTX2_MODE_ADVERTISED
 )
 
-1157 
+1160 
 	`lökmode_‹
 (
 lök_k£âögs
@@ -356472,46 +356480,46 @@ lök_modes
 .
 advîtisög
 ,
-
-1158 
-lök_k£âögs
-->
-lök_modes
-.
-advîtisög
-,
-
-1159 
-Ÿx2_„c_modes
-);
 
 1161 
-	`lökmode_‹
-(
 lök_k£âögs
 ->
 lök_modes
 .
-suµ‹ãd
+advîtisög
 ,
 
 1162 
-lök_k£âögs
-->
-lök_modes
-.
-suµ‹ãd
-,
-
-1163 
 Ÿx2_„c_modes
 );
 
 1164 
+	`lökmode_‹
+(
+lök_k£âögs
+->
+lök_modes
+.
+suµ‹ãd
+,
+
+1165 
+lök_k£âögs
+->
+lök_modes
+.
+suµ‹ãd
+,
+
+1166 
+Ÿx2_„c_modes
+);
+
+1167 
 	}
 }
 
-1166 
+1169 
 	$Ÿx2_gë_lök_mode_öfo
 (
 u64
@@ -356519,213 +356527,213 @@ u64
 lök_mode_bm≠
 ,
 
-1167 
+1170 
 boﬁ
  
 ªq_mode
 ,
 
-1168 
+1171 
 ëhtoﬁ_lök_k£âögs
 
 
-1169 *
+1172 *
 lök_k£âögs
 )
 
-1171 
+1174 
 	`__ETHTOOL_DECLARE_LINK_MODE_MASK
 (
 Ÿx2_lök_modes
 ) = { 0, };
 
-1172 c⁄° 
+1175 c⁄° 
 Ÿx2_sgmii_„©uªs
 [6] = {
 
-1173 
+1176 
 ETHTOOL_LINK_MODE_10ba£T_HÆf_BIT
 ,
 
-1174 
+1177 
 ETHTOOL_LINK_MODE_10ba£T_FuŒ_BIT
 ,
 
-1175 
+1178 
 ETHTOOL_LINK_MODE_100ba£T_HÆf_BIT
 ,
 
-1176 
+1179 
 ETHTOOL_LINK_MODE_100ba£T_FuŒ_BIT
 ,
 
-1177 
+1180 
 ETHTOOL_LINK_MODE_1000ba£T_HÆf_BIT
 ,
 
-1178 
+1181 
 ETHTOOL_LINK_MODE_1000ba£T_FuŒ_BIT
 ,
 
-1181 c⁄° 
+1184 c⁄° 
 cgx_lök_mode
 [38] = {
 
-1183 
+1186 
 ETHTOOL_LINK_MODE_1000ba£X_FuŒ_BIT
 ,
 
-1184 
+1187 
 ETHTOOL_LINK_MODE_10000ba£T_FuŒ_BIT
 ,
 
-1185 
+1188 
 ETHTOOL_LINK_MODE_10000ba£SR_FuŒ_BIT
 ,
 
-1186 
+1189 
 ETHTOOL_LINK_MODE_10000ba£LR_FuŒ_BIT
 ,
 
-1187 
+1190 
 ETHTOOL_LINK_MODE_10000ba£KR_FuŒ_BIT
 ,
 
-1188 
+1191 
 ETHTOOL_LINK_MODE_20000ba£MLD2_FuŒ_BIT
 ,
 
-1189 
+1192 
 ETHTOOL_LINK_MODE_25000ba£SR_FuŒ_BIT
 ,
 
-1190 
+1193 
 ETHTOOL_LINK_MODE_10000ba£R_FEC_BIT
 ,
 
-1191 
+1194 
 ETHTOOL_LINK_MODE_20000ba£KR2_FuŒ_BIT
 ,
 
-1192 
+1195 
 ETHTOOL_LINK_MODE_25000ba£CR_FuŒ_BIT
 ,
 
-1193 
+1196 
 ETHTOOL_LINK_MODE_25000ba£KR_FuŒ_BIT
 ,
 
-1194 
+1197 
 ETHTOOL_LINK_MODE_40000ba£SR4_FuŒ_BIT
 ,
 
-1195 
+1198 
 ETHTOOL_LINK_MODE_40000ba£LR4_FuŒ_BIT
 ,
 
-1196 
+1199 
 ETHTOOL_LINK_MODE_40000ba£CR4_FuŒ_BIT
 ,
 
-1197 
+1200 
 ETHTOOL_LINK_MODE_40000ba£KR4_FuŒ_BIT
 ,
 
-1198 
+1201 
 ETHTOOL_LINK_MODE_10000ba£KX4_FuŒ_BIT
 ,
 
-1199 
+1202 
 ETHTOOL_LINK_MODE_50000ba£SR2_FuŒ_BIT
 ,
 
-1200 
+1203 
 ETHTOOL_LINK_MODE_50000ba£DR_FuŒ_BIT
 ,
 
-1201 
+1204 
 ETHTOOL_LINK_MODE_56000ba£KR4_FuŒ_BIT
 ,
 
-1202 
+1205 
 ETHTOOL_LINK_MODE_50000ba£CR2_FuŒ_BIT
 ,
 
-1203 
+1206 
 ETHTOOL_LINK_MODE_50000ba£KR2_FuŒ_BIT
 ,
 
-1204 
+1207 
 ETHTOOL_LINK_MODE_10000ba£LRM_FuŒ_BIT
 ,
 
-1205 
+1208 
 ETHTOOL_LINK_MODE_100000ba£SR4_FuŒ_BIT
 ,
 
-1206 
+1209 
 ETHTOOL_LINK_MODE_100000ba£LR4_ER4_FuŒ_BIT
 ,
 
-1207 
+1210 
 ETHTOOL_LINK_MODE_100000ba£CR4_FuŒ_BIT
 ,
 
-1208 
+1211 
 ETHTOOL_LINK_MODE_100000ba£KR4_FuŒ_BIT
 ,
 
-1209 
+1212 
 ETHTOOL_LINK_MODE_50000ba£SR_FuŒ_BIT
 ,
 
-1210 
+1213 
 ETHTOOL_LINK_MODE_50000ba£LR_ER_FR_FuŒ_BIT
 ,
 
-1211 
+1214 
 ETHTOOL_LINK_MODE_50000ba£CR_FuŒ_BIT
 ,
 
-1212 
+1215 
 ETHTOOL_LINK_MODE_50000ba£KR_FuŒ_BIT
 ,
 
-1213 
+1216 
 ETHTOOL_LINK_MODE_100000ba£SR2_FuŒ_BIT
 ,
 
-1214 
+1217 
 ETHTOOL_LINK_MODE_100000ba£LR2_ER2_FR2_FuŒ_BIT
 ,
 
-1215 
+1218 
 ETHTOOL_LINK_MODE_100000ba£CR2_FuŒ_BIT
 ,
 
-1216 
+1219 
 ETHTOOL_LINK_MODE_100000ba£KR2_FuŒ_BIT
 ,
 
-1217 
+1220 
 ETHTOOL_LINK_MODE_1000ba£KX_FuŒ_BIT
 ,
 
-1218 
+1221 
 ETHTOOL_LINK_MODE_56000ba£CR4_FuŒ_BIT
 ,
 
-1219 
+1222 
 ETHTOOL_LINK_MODE_56000ba£SR4_FuŒ_BIT
 
 
-1221 
+1224 
 u8
  
 bô
 ;
 
-1223 
+1226 
 	`f‹_óch_£t_bô
 (
 bô
@@ -356733,33 +356741,33 @@ bô
 lök_mode_bm≠
 ,
 
-1224 
+1227 
 	`ARRAY_SIZE
 (
 cgx_lök_mode
 )) {
 
-1226 i‡(
+1229 i‡(
 bô
  == 0)
 
-1227 
+1230 
 	`lökmode_£t_bô_¨øy
 (
 Ÿx2_sgmii_„©uªs
 ,
 
-1228 
+1231 
 	`ARRAY_SIZE
 (
 Ÿx2_sgmii_„©uªs
 ),
 
-1229 
+1232 
 Ÿx2_lök_modes
 );
 
-1231 
+1234 
 	`lökmode_£t_bô
 (
 cgx_lök_mode
@@ -356769,13 +356777,13 @@ bô
 Ÿx2_lök_modes
 );
 
-1234 i‡(
+1237 i‡(
 ªq_mode
  =
 OTX2_MODE_ADVERTISED
 )
 
-1235 
+1238 
 	`lökmode_‹
 (
 lök_k£âögs
@@ -356784,46 +356792,46 @@ lök_modes
 .
 advîtisög
 ,
-
-1236 
-lök_k£âögs
-->
-lök_modes
-.
-advîtisög
-,
-
-1237 
-Ÿx2_lök_modes
-);
 
 1239 
-	`lökmode_‹
-(
 lök_k£âögs
 ->
 lök_modes
 .
-suµ‹ãd
+advîtisög
 ,
 
 1240 
-lök_k£âögs
-->
-lök_modes
-.
-suµ‹ãd
-,
-
-1241 
 Ÿx2_lök_modes
 );
 
 1242 
+	`lökmode_‹
+(
+lök_k£âögs
+->
+lök_modes
+.
+suµ‹ãd
+,
+
+1243 
+lök_k£âögs
+->
+lök_modes
+.
+suµ‹ãd
+,
+
+1244 
+Ÿx2_lök_modes
+);
+
+1245 
 	}
 }
 
-1244 
+1247 
 	$Ÿx2_gë_moduÀ_öfo
 (
 √t_devi˚
@@ -356831,13 +356839,13 @@ suµ‹ãd
 √tdev
 ,
 
-1245 
+1248 
 ëhtoﬁ_modöfo
  *
 modöfo
 )
 
-1247 
+1250 
 Ÿx2_nic
  *
 pfvf
@@ -356847,13 +356855,13 @@ pfvf
 √tdev
 );
 
-1248 
+1251 
 cgx_fw_d©a
  *
 r•
 ;
 
-1250 
+1253 
 r•
  = 
 	`Ÿx2_gë_fwd©a
@@ -356861,19 +356869,19 @@ r•
 pfvf
 );
 
-1251 i‡(
+1254 i‡(
 	`IS_ERR
 (
 r•
 ))
 
-1252  
+1255  
 	`PTR_ERR
 (
 r•
 );
 
-1254 
+1257 
 modöfo
 ->
 ty≥
@@ -356887,7 +356895,7 @@ sÂ_ì¥om
 sff_id
 ;
 
-1255 
+1258 
 modöfo
 ->
 ì¥om_Àn
@@ -356895,11 +356903,11 @@ modöfo
 SFP_EEPROM_SIZE
 ;
 
-1257 
+1260 
 	}
 }
 
-1259 
+1262 
 	$Ÿx2_gë_moduÀ_ì¥om
 (
 √t_devi˚
@@ -356907,19 +356915,19 @@ SFP_EEPROM_SIZE
 √tdev
 ,
 
-1260 
+1263 
 ëhtoﬁ_ì¥om
  *
 ì
 ,
 
-1261 
+1264 
 u8
  *
 d©a
 )
 
-1263 
+1266 
 Ÿx2_nic
  *
 pfvf
@@ -356929,13 +356937,13 @@ pfvf
 √tdev
 );
 
-1264 
+1267 
 cgx_fw_d©a
  *
 r•
 ;
 
-1266 
+1269 
 r•
  = 
 	`Ÿx2_gë_fwd©a
@@ -356943,19 +356951,19 @@ r•
 pfvf
 );
 
-1267 i‡(
+1270 i‡(
 	`IS_ERR
 (
 r•
 ))
 
-1268  
+1271  
 	`PTR_ERR
 (
 r•
 );
 
-1270 
+1273 
 	`mem˝y
 (
 d©a
@@ -356973,11 +356981,11 @@ buf
 Àn
 );
 
-1273 
+1276 
 	}
 }
 
-1275 
+1278 
 	$Ÿx2_gë_lök_k£âögs
 (
 √t_devi˚
@@ -356985,13 +356993,13 @@ buf
 √tdev
 ,
 
-1276 
+1279 
 ëhtoﬁ_lök_k£âögs
  *
 cmd
 )
 
-1278 
+1281 
 Ÿx2_nic
  *
 pfvf
@@ -357001,7 +357009,7 @@ pfvf
 √tdev
 );
 
-1279 
+1282 
 cgx_fw_d©a
  *
 r•
@@ -357009,7 +357017,7 @@ r•
 NULL
 ;
 
-1281 
+1284 
 cmd
 ->
 ba£
@@ -357023,7 +357031,7 @@ löfo
 fuŒ_du∂ex
 ;
 
-1282 
+1285 
 cmd
 ->
 ba£
@@ -357035,7 +357043,7 @@ pfvf
 löfo
 .speed;
 
-1283 
+1286 
 cmd
 ->
 ba£
@@ -357049,7 +357057,7 @@ löfo
 ™
 ;
 
-1285 
+1288 
 r•
  = 
 	`Ÿx2_gë_fwd©a
@@ -357057,19 +357065,19 @@ r•
 pfvf
 );
 
-1286 i‡(
+1289 i‡(
 	`IS_ERR
 (
 r•
 ))
 
-1287  
+1290  
 	`PTR_ERR
 (
 r•
 );
 
-1289 i‡(
+1292 i‡(
 r•
 ->
 fwd©a
@@ -357077,21 +357085,21 @@ fwd©a
 suµ‹ãd_™
 )
 
-1290 
+1293 
 	`ëhtoﬁ_lök_k£âögs_add_lök_mode
 (
 cmd
 ,
 
-1291 
+1294 
 suµ‹ãd
 ,
 
-1292 
+1295 
 Aut⁄eg
 );
 
-1294 
+1297 
 	`Ÿx2_gë_lök_mode_öfo
 (
 r•
@@ -357101,13 +357109,13 @@ fwd©a
 advîti£d_lök_modes
 ,
 
-1295 
+1298 
 OTX2_MODE_ADVERTISED
 , 
 cmd
 );
 
-1296 
+1299 
 	`Ÿx2_gë_„c_öfo
 (
 r•
@@ -357117,13 +357125,13 @@ fwd©a
 advîti£d_„c
 ,
 
-1297 
+1300 
 OTX2_MODE_ADVERTISED
 , 
 cmd
 );
 
-1298 
+1301 
 	`Ÿx2_gë_lök_mode_öfo
 (
 r•
@@ -357133,13 +357141,13 @@ fwd©a
 suµ‹ãd_lök_modes
 ,
 
-1299 
+1302 
 OTX2_MODE_SUPPORTED
 , 
 cmd
 );
 
-1300 
+1303 
 	`Ÿx2_gë_„c_öfo
 (
 r•
@@ -357149,17 +357157,17 @@ fwd©a
 suµ‹ãd_„c
 ,
 
-1301 
+1304 
 OTX2_MODE_SUPPORTED
 , 
 cmd
 );
 
-1303 
+1306 
 	}
 }
 
-1305 
+1308 
 	$Ÿx2_gë_advîti£d_mode
 (c⁄° 
 ëhtoﬁ_lök_k£âögs
@@ -357167,19 +357175,19 @@ cmd
 cmd
 ,
 
-1306 
+1309 
 u64
  *
 mode
 )
 
-1308 
+1311 
 u32
  
 bô_pos
 ;
 
-1313 
+1316 
 bô_pos
  = 
 	`föd_fú°_bô
@@ -357191,33 +357199,33 @@ lök_modes
 advîtisög
 ,
 
-1314 
+1317 
 __ETHTOOL_LINK_MODE_MASK_NBITS
 );
 
-1315 i‡(
+1318 i‡(
 bô_pos
  !
 __ETHTOOL_LINK_MODE_MASK_NBITS
 )
 
-1316 *
+1319 *
 mode
  = 
 bô_pos
 ;
 
-1317 
+1320 
 	}
 }
 
-1319 
+1322 
 	#OTX2_OVERWRITE_DEF
  1
 
 	)
 
-1320 
+1323 
 	$Ÿx2_£t_lök_k£âögs
 (
 √t_devi˚
@@ -357225,13 +357233,13 @@ bô_pos
 √tdev
 ,
 
-1321 c⁄° 
+1324 c⁄° 
 ëhtoﬁ_lök_k£âögs
  *
 cmd
 )
 
-1323 
+1326 
 Ÿx2_nic
  *
 pf
@@ -357241,29 +357249,29 @@ pf
 √tdev
 );
 
-1324 
+1327 
 ëhtoﬁ_lök_k£âögs
  
 cur_ks
 ;
 
-1325 
+1328 
 cgx_£t_lök_mode_ªq
  *
 ªq
 ;
 
-1326 
+1329 
 mbox
  *mbox = &
 pf
 ->mbox;
 
-1327 
+1330 
 îr
  = 0;
 
-1329 
+1332 
 	`mem£t
 (&
 cur_ks
@@ -357271,7 +357279,7 @@ cur_ks
 ëhtoﬁ_lök_k£âögs
 ));
 
-1331 i‡(!
+1334 i‡(!
 	`ëhtoﬁ_vÆid©e_•ìd
 (
 cmd
@@ -357281,7 +357289,7 @@ ba£
 •ìd
 ) ||
 
-1332 !
+1335 !
 	`ëhtoﬁ_vÆid©e_du∂ex
 (
 cmd
@@ -357291,11 +357299,11 @@ ba£
 du∂ex
 ))
 
-1333  -
+1336  -
 EINVAL
 ;
 
-1335 i‡(
+1338 i‡(
 cmd
 ->
 ba£
@@ -357305,7 +357313,7 @@ aut⁄eg
 AUTONEG_ENABLE
  &&
 
-1336 
+1339 
 cmd
 ->
 ba£
@@ -357315,11 +357323,11 @@ aut⁄eg
 AUTONEG_DISABLE
 )
 
-1337  -
+1340  -
 EINVAL
 ;
 
-1339 
+1342 
 	`Ÿx2_gë_lök_k£âögs
 (
 √tdev
@@ -357327,7 +357335,7 @@ EINVAL
 cur_ks
 );
 
-1342 i‡(!
+1345 i‡(!
 	`bôm≠_sub£t
 (
 cmd
@@ -357337,7 +357345,7 @@ lök_modes
 advîtisög
 ,
 
-1343 
+1346 
 cur_ks
 .
 lök_modes
@@ -357345,15 +357353,15 @@ lök_modes
 suµ‹ãd
 ,
 
-1344 
+1347 
 __ETHTOOL_LINK_MODE_MASK_NBITS
 ))
 
-1345  -
+1348  -
 EINVAL
 ;
 
-1347 
+1350 
 	`muãx_lock
 (&
 mbox
@@ -357361,7 +357369,7 @@ mbox
 lock
 );
 
-1348 
+1351 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_cgx_£t_lök_mode
@@ -357371,21 +357379,21 @@ pf
 mbox
 );
 
-1349 i‡(!
+1352 i‡(!
 ªq
 ) {
 
-1350 
+1353 
 îr
  = -
 ENOMEM
 ;
 
-1351 
+1354 
 íd
 ;
 
-1354 i‡(
+1357 i‡(
 cmd
 ->
 ba£
@@ -357395,7 +357403,7 @@ phy_addªss
 OTX2_OVERWRITE_DEF
 ) {
 
-1355 
+1358 
 ªq
 ->
 ¨gs
@@ -357407,7 +357415,7 @@ cmd
 ba£
 .speed;
 
-1359 
+1362 
 ªq
 ->
 ¨gs
@@ -357419,7 +357427,7 @@ cmd
 ba£
 .duplex ^ 0x1;
 
-1360 
+1363 
 ªq
 ->
 ¨gs
@@ -357433,7 +357441,7 @@ ba£
 aut⁄eg
 ;
 
-1362 
+1365 
 ªq
 ->
 ¨gs
@@ -357443,7 +357451,7 @@ aut⁄eg
 SPEED_UNKNOWN
 ;
 
-1363 
+1366 
 ªq
 ->
 ¨gs
@@ -357453,7 +357461,7 @@ du∂ex
 DUPLEX_UNKNOWN
 ;
 
-1364 
+1367 
 ªq
 ->
 ¨gs
@@ -357463,7 +357471,7 @@ DUPLEX_UNKNOWN
 AUTONEG_UNKNOWN
 ;
 
-1367 
+1370 
 	`Ÿx2_gë_advîti£d_mode
 (
 cmd
@@ -357475,7 +357483,7 @@ cmd
 mode
 );
 
-1369 
+1372 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -357485,11 +357493,11 @@ pf
 mbox
 );
 
-1370 
+1373 
 íd
 :
 
-1371 
+1374 
 	`muãx_u∆ock
 (&
 mbox
@@ -357497,15 +357505,15 @@ mbox
 lock
 );
 
-1372  
+1375  
 îr
 ;
 
-1373 
+1376 
 	}
 }
 
-1375 
+1378 
 u32
  
 	$Ÿx2_gë_¥iv_Êags
@@ -357515,7 +357523,7 @@ u32
 √tdev
 )
 
-1377 
+1380 
 Ÿx2_nic
  *
 pfvf
@@ -357525,13 +357533,13 @@ pfvf
 √tdev
 );
 
-1378 
+1381 
 cgx_fw_d©a
  *
 r•
 ;
 
-1380 
+1383 
 r•
  = 
 	`Ÿx2_gë_fwd©a
@@ -357539,13 +357547,13 @@ r•
 pfvf
 );
 
-1382 i‡(
+1385 i‡(
 	`IS_ERR
 (
 r•
 )) {
 
-1383 
+1386 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -357553,7 +357561,7 @@ pfvf
 OTX2_PRIV_FLAG_PAM4
 ;
 
-1385 i‡(
+1388 i‡(
 r•
 ->
 fwd©a
@@ -357565,7 +357573,7 @@ misc
 mod_ty≥
 )
 
-1386 
+1389 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -357573,7 +357581,7 @@ pfvf
 OTX2_PRIV_FLAG_PAM4
 ;
 
-1388 
+1391 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -357581,17 +357589,17 @@ pfvf
 OTX2_PRIV_FLAG_PAM4
 ;
 
-1391  
+1394  
 pfvf
 ->
 ëhtoﬁ_Êags
 ;
 
-1392 
+1395 
 	}
 }
 
-1394 
+1397 
 	$Ÿx2_£t_phy_mod_ty≥
 (
 √t_devi˚
@@ -357603,7 +357611,7 @@ boﬁ
 íabÀ
 )
 
-1396 
+1399 
 Ÿx2_nic
  *
 pfvf
@@ -357613,25 +357621,25 @@ pfvf
 √tdev
 );
 
-1397 
+1400 
 cgx_phy_mod_ty≥
  *
 ªq
 ;
 
-1398 
+1401 
 cgx_fw_d©a
  *
 fwd
 ;
 
-1399 
+1402 
 rc
  = -
 EAGAIN
 ;
 
-1401 
+1404 
 fwd
  = 
 	`Ÿx2_gë_fwd©a
@@ -357639,17 +357647,17 @@ fwd
 pfvf
 );
 
-1402 i‡(
+1405 i‡(
 	`IS_ERR
 (
 fwd
 ))
 
-1403  -
+1406  -
 EAGAIN
 ;
 
-1406 i‡(!
+1409 i‡(!
 fwd
 ->
 fwd©a
@@ -357661,11 +357669,11 @@ misc
 ˇn_ch™ge_mod_ty≥
 )
 
-1407  -
+1410  -
 EOPNOTSUPP
 ;
 
-1409 
+1412 
 	`muãx_lock
 (&
 pfvf
@@ -357675,7 +357683,7 @@ mbox
 lock
 );
 
-1410 
+1413 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_cgx_£t_phy_mod_ty≥
@@ -357685,15 +357693,15 @@ pfvf
 mbox
 );
 
-1411 i‡(!
+1414 i‡(!
 ªq
 )
 
-1412 
+1415 
 íd
 ;
 
-1414 
+1417 
 ªq
 ->
 mod
@@ -357701,7 +357709,7 @@ mod
 íabÀ
 ;
 
-1416 i‡(!
+1419 i‡(!
 	`Ÿx2_sync_mbox_msg
 (&
 pfvf
@@ -357709,15 +357717,15 @@ pfvf
 mbox
 ))
 
-1417 
+1420 
 rc
  = 0;
 
-1418 
+1421 
 íd
 :
 
-1419 
+1422 
 	`muãx_u∆ock
 (&
 pfvf
@@ -357727,15 +357735,15 @@ mbox
 lock
 );
 
-1420  
+1423  
 rc
 ;
 
-1421 
+1424 
 	}
 }
 
-1423 
+1426 
 	$Ÿx2_£t_≈c_∑r£_mode
 (
 Ÿx2_nic
@@ -357747,25 +357755,25 @@ boﬁ
 unböd
 )
 
-1425 
+1428 
 ≈c_£t_pköd
  *
 ªq
 ;
 
-1426 
+1429 
 u32
  
 öãrÁ˚_mode
  = 0;
 
-1427 
+1430 
 rc
  = -
 EAGAIN
 ;
 
-1429 i‡(
+1432 i‡(
 	`OTX2_IS_DEF_MODE_ENABLED
 (
 pfvf
@@ -357773,7 +357781,7 @@ pfvf
 ëhtoﬁ_Êags
 ))
 
-1432 
+1435 
 	`muãx_lock
 (&
 pfvf
@@ -357783,7 +357791,7 @@ mbox
 lock
 );
 
-1433 
+1436 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_≈c_£t_pköd
@@ -357793,19 +357801,19 @@ pfvf
 mbox
 );
 
-1434 i‡(!
+1437 i‡(!
 ªq
 )
 
-1435 
+1438 
 íd
 ;
 
-1437 i‡(
+1440 i‡(
 unböd
 ) {
 
-1438 
+1441 
 ªq
 ->
 mode
@@ -357813,36 +357821,14 @@ mode
 OTX2_PRIV_FLAGS_DEFAULT
 ;
 
-1439 
+1442 
 öãrÁ˚_mode
  = 
 OTX2_PRIV_FLAG_DEF_MODE
 ;
 
-1440 } i‡(
-	`OTX2_IS_HIGIG2_ENABLED
-(
-pfvf
-->
-ëhtoﬁ_Êags
-)) {
-
-1441 
-ªq
-->
-mode
- = 
-OTX2_PRIV_FLAGS_HIGIG
-;
-
-1442 
-öãrÁ˚_mode
- = 
-OTX2_PRIV_FLAG_HIGIG2_HDR
-;
-
 1443 } i‡(
-	`OTX2_IS_EDSA_ENABLED
+	`OTX2_IS_HIGIG2_ENABLED
 (
 pfvf
 ->
@@ -357854,16 +357840,38 @@ pfvf
 ->
 mode
  = 
-OTX2_PRIV_FLAGS_EDSA
+OTX2_PRIV_FLAGS_HIGIG
 ;
 
 1445 
 öãrÁ˚_mode
  = 
-OTX2_PRIV_FLAG_EDSA_HDR
+OTX2_PRIV_FLAG_HIGIG2_HDR
 ;
 
 1446 } i‡(
+	`OTX2_IS_EDSA_ENABLED
+(
+pfvf
+->
+ëhtoﬁ_Êags
+)) {
+
+1447 
+ªq
+->
+mode
+ = 
+OTX2_PRIV_FLAGS_EDSA
+;
+
+1448 
+öãrÁ˚_mode
+ = 
+OTX2_PRIV_FLAG_EDSA_HDR
+;
+
+1449 } i‡(
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -357871,7 +357879,7 @@ pfvf
 OTX2_PRIV_FLAG_FDSA_HDR
 ) {
 
-1447 
+1450 
 ªq
 ->
 mode
@@ -357879,13 +357887,13 @@ mode
 OTX2_PRIV_FLAGS_FDSA
 ;
 
-1448 
+1451 
 öãrÁ˚_mode
  = 
 OTX2_PRIV_FLAG_FDSA_HDR
 ;
 
-1450 
+1453 
 ªq
 ->
 mode
@@ -357893,13 +357901,13 @@ mode
 OTX2_PRIV_FLAGS_DEFAULT
 ;
 
-1451 
+1454 
 öãrÁ˚_mode
  = 
 OTX2_PRIV_FLAG_DEF_MODE
 ;
 
-1454 
+1457 
 ªq
 ->
 dú
@@ -357907,7 +357915,7 @@ dú
 PKIND_RX
 ;
 
-1457 i‡(
+1460 i‡(
 ªq
 ->
 mode
@@ -357915,7 +357923,7 @@ mode
 OTX2_PRIV_FLAGS_HIGIG
  ||
 
-1458 
+1461 
 ªq
 ->
 mode
@@ -357923,7 +357931,7 @@ mode
 OTX2_PRIV_FLAGS_DEFAULT
 )
 
-1459 
+1462 
 ªq
 ->
 dú
@@ -357931,7 +357939,7 @@ dú
 PKIND_TX
 ;
 
-1461 i‡(!
+1464 i‡(!
 	`Ÿx2_sync_mbox_msg
 (&
 pfvf
@@ -357939,11 +357947,11 @@ pfvf
 mbox
 ))
 
-1462 
+1465 
 rc
  = 0;
 
-1464 
+1467 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -357951,11 +357959,11 @@ pfvf
 öãrÁ˚_mode
 ;
 
-1465 
+1468 
 íd
 :
 
-1466 
+1469 
 	`muãx_u∆ock
 (&
 pfvf
@@ -357965,15 +357973,15 @@ mbox
 lock
 );
 
-1467  
+1470  
 rc
 ;
 
-1468 
+1471 
 	}
 }
 
-1470 
+1473 
 	$Ÿx2_íabÀ_addl_hódî
 (
 √t_devi˚
@@ -357983,7 +357991,7 @@ rc
 bôpos
 ,
 
-1471 
+1474 
 u32
  
 Àn
@@ -357993,7 +358001,7 @@ boﬁ
 íabÀ
 )
 
-1473 
+1476 
 Ÿx2_nic
  *
 pfvf
@@ -358003,7 +358011,7 @@ pfvf
 √tdev
 );
 
-1474 
+1477 
 boﬁ
  
 if_up
@@ -358013,11 +358021,11 @@ if_up
 √tdev
 );
 
-1476 i‡(
+1479 i‡(
 íabÀ
 ) {
 
-1477 
+1480 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358027,7 +358035,7 @@ pfvf
 bôpos
 );
 
-1478 
+1481 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358035,7 +358043,7 @@ pfvf
 OTX2_PRIV_FLAG_DEF_MODE
 ;
 
-1480 
+1483 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358045,21 +358053,21 @@ pfvf
 bôpos
 );
 
-1481 
+1484 
 Àn
  = 0;
 
-1484 i‡(
+1487 i‡(
 if_up
 )
 
-1485 
+1488 
 	`Ÿx2_°›
 (
 √tdev
 );
 
-1488 
+1491 
 pfvf
 ->
 addl_mtu
@@ -358067,7 +358075,7 @@ addl_mtu
 Àn
 ;
 
-1493 i‡(
+1496 i‡(
 	`OTX2_IS_HIGIG2_ENABLED
 (
 pfvf
@@ -358075,33 +358083,33 @@ pfvf
 ëhtoﬁ_Êags
 ))
 
-1494 
+1497 
 pfvf
 ->
 xåa_hdr
  = 16;
 
-1496 
+1499 
 pfvf
 ->
 xåa_hdr
  = 0;
 
-1499 i‡(
+1502 i‡(
 if_up
 ) {
 
-1500 
+1503 
 	`Ÿx2_›í
 (
 √tdev
 );
 
-1502 i‡(!
+1505 i‡(!
 íabÀ
 )
 
-1503 
+1506 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358109,11 +358117,11 @@ pfvf
 OTX2_PRIV_FLAG_DEF_MODE
 ;
 
-1507 
+1510 
 	}
 }
 
-1512 
+1515 
 	$Ÿx2_ídis_vfvœn_ruÀs
 (
 Ÿx2_nic
@@ -358125,17 +358133,17 @@ boﬁ
 íabÀ
 )
 
-1514 
+1517 
 vfvœn
  *
 ruÀ
 ;
 
-1515 
+1518 
 vf
 ;
 
-1517 
+1520 
 vf
  = 0; v‡< 
 	`pci_num_vf
@@ -358145,11 +358153,11 @@ pfvf
 pdev
 ); vf++) {
 
-1519 i‡(
+1522 i‡(
 íabÀ
 ) {
 
-1520 
+1523 
 	`Ÿx2_do_£t_vf_vœn
 (
 pfvf
@@ -358157,7 +358165,7 @@ pfvf
 vf
 , 0, 0, 0);
 
-1522 
+1525 
 ruÀ
  = &
 pfvf
@@ -358167,7 +358175,7 @@ vf_c⁄figs
 vf
 ].rule;
 
-1523 
+1526 
 	`Ÿx2_do_£t_vf_vœn
 (
 pfvf
@@ -358181,17 +358189,17 @@ vœn
 qos
 ,
 
-1524 
+1527 
 ruÀ
 ->
 ¥Ÿo
 );
 
-1527 
+1530 
 	}
 }
 
-1529 
+1532 
 	$Ÿx2_£t_¥iv_Êags
 (
 √t_devi˚
@@ -358203,7 +358211,7 @@ u32
 √w_Êags
 )
 
-1531 
+1534 
 Ÿx2_nic
  *
 pfvf
@@ -358213,7 +358221,7 @@ pfvf
 √tdev
 );
 
-1532 
+1535 
 boﬁ
  
 íabÀ
@@ -358221,25 +358229,25 @@ boﬁ
 Ál£
 ;
 
-1533 
+1536 
 bôƒ
 , 
 rc
  = 0;
 
-1534 
+1537 
 u32
  
 chg_Êags
 ;
 
-1537 
+1540 
 	`Ÿx2_gë_¥iv_Êags
 (
 √tdev
 );
 
-1539 
+1542 
 chg_Êags
  = 
 √w_Êags
@@ -358249,21 +358257,21 @@ pfvf
 ëhtoﬁ_Êags
 ;
 
-1540 i‡(!
+1543 i‡(!
 chg_Êags
 )
 
-1544 i‡(
+1547 i‡(
 	`hweight32
 (
 chg_Êags
 ) != 1)
 
-1545  -
+1548  -
 EINVAL
 ;
 
-1547 
+1550 
 bôƒ
  = 
 	`ffs
@@ -358271,7 +358279,7 @@ bôƒ
 chg_Êags
 ) - 1;
 
-1548 i‡(
+1551 i‡(
 √w_Êags
  & 
 	`BIT
@@ -358279,13 +358287,13 @@ chg_Êags
 bôƒ
 ))
 
-1549 
+1552 
 íabÀ
  = 
 åue
 ;
 
-1551 i‡((
+1554 i‡((
 	`BIT
 (
 bôƒ
@@ -358299,27 +358307,27 @@ pfvf
 OTX2_FLAG_RX_TSTAMP_ENABLED
 )) {
 
-1552 
+1555 
 	`√tdev_öfo
 (
 √tdev
 , "Can'tÉnableÑequested mode when PTP HWÅimestamping is ON\n");
 
-1553  -
+1556  -
 EINVAL
 ;
 
-1556 
+1559 
 	`BIT
 (
 bôƒ
 )) {
 
-1557 
+1560 
 OTX2_PRIV_FLAG_PAM4
 :
 
-1558 
+1561 
 rc
  = 
 	`Ÿx2_£t_phy_mod_ty≥
@@ -358329,11 +358337,11 @@ rc
 íabÀ
 );
 
-1560 
+1563 
 OTX2_PRIV_FLAG_EDSA_HDR
 :
 
-1562 i‡(
+1565 i‡(
 íabÀ
  && 
 	`OTX2_IS_INTFMOD_SET
@@ -358343,17 +358351,17 @@ pfvf
 ëhtoﬁ_Êags
 )) {
 
-1563 
+1566 
 	`√tdev_öfo
 (
 √tdev
 ,
 
-1565  -
+1568  -
 EINVAL
 ;
 
-1567  
+1570  
 	`Ÿx2_íabÀ_addl_hódî
 (
 √tdev
@@ -358361,17 +358369,17 @@ EINVAL
 bôƒ
 ,
 
-1568 
+1571 
 OTX2_EDSA_HDR_LEN
 , 
 íabÀ
 );
 
-1570 
+1573 
 OTX2_PRIV_FLAG_HIGIG2_HDR
 :
 
-1571 i‡(
+1574 i‡(
 	`ã°_bô
 (
 CN10K_RPM
@@ -358383,11 +358391,11 @@ hw
 ˇp_Êag
 ))
 
-1572  -
+1575  -
 EOPNOTSUPP
 ;
 
-1574 i‡(
+1577 i‡(
 íabÀ
  && 
 	`OTX2_IS_INTFMOD_SET
@@ -358397,17 +358405,17 @@ pfvf
 ëhtoﬁ_Êags
 )) {
 
-1575 
+1578 
 	`√tdev_öfo
 (
 √tdev
 ,
 
-1577  -
+1580  -
 EINVAL
 ;
 
-1579  
+1582  
 	`Ÿx2_íabÀ_addl_hódî
 (
 √tdev
@@ -358415,17 +358423,17 @@ EINVAL
 bôƒ
 ,
 
-1580 
+1583 
 OTX2_HIGIG2_HDR_LEN
 , 
 íabÀ
 );
 
-1582 
+1585 
 OTX2_PRIV_FLAG_FDSA_HDR
 :
 
-1583 i‡(
+1586 i‡(
 íabÀ
  && 
 	`OTX2_IS_INTFMOD_SET
@@ -358435,17 +358443,17 @@ pfvf
 ëhtoﬁ_Êags
 )) {
 
-1584 
+1587 
 	`√tdev_öfo
 (
 √tdev
 ,
 
-1586  -
+1589  -
 EINVAL
 ;
 
-1588 
+1591 
 	`Ÿx2_íabÀ_addl_hódî
 (
 √tdev
@@ -358453,23 +358461,23 @@ EINVAL
 bôƒ
 ,
 
-1589 
+1592 
 OTX2_FDSA_HDR_LEN
 , 
 íabÀ
 );
 
-1590 i‡(
+1593 i‡(
 íabÀ
 )
 
-1591 
+1594 
 	`√tdev_w¨n
 (
 √tdev
 ,
 
-1593 
+1596 
 	`Ÿx2_ídis_vfvœn_ruÀs
 (
 pfvf
@@ -358477,15 +358485,15 @@ pfvf
 íabÀ
 );
 
-1600 i‡(!
+1603 i‡(!
 rc
 ) {
 
-1601 i‡(
+1604 i‡(
 íabÀ
 )
 
-1602 
+1605 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358495,7 +358503,7 @@ pfvf
 bôƒ
 );
 
-1604 
+1607 
 pfvf
 ->
 ëhtoﬁ_Êags
@@ -358505,213 +358513,213 @@ pfvf
 bôƒ
 );
 
-1607  
+1610  
 rc
 ;
 
-1608 
+1611 
 	}
 }
 
-1610 
+1613 
 ëhtoﬁ_›s
  
 	gŸx2_ëhtoﬁ_›s
  = {
 
-1611 .
+1614 .
 gë_lök
  = 
 Ÿx2_gë_lök
 ,
 
-1612 .
+1615 .
 	ggë_drvöfo
  = 
 Ÿx2_gë_drvöfo
 ,
 
-1613 .
+1616 .
 	ggë_°rögs
  = 
 Ÿx2_gë_°rögs
 ,
 
-1614 .
+1617 .
 	ggë_ëhtoﬁ_°©s
  = 
 Ÿx2_gë_ëhtoﬁ_°©s
 ,
 
-1615 .
+1618 .
 	ggë_s£t_cou¡
  = 
 Ÿx2_gë_s£t_cou¡
 ,
 
-1616 .
+1619 .
 	g£t_ch™√ls
  = 
 Ÿx2_£t_ch™√ls
 ,
 
-1617 .
+1620 .
 	ggë_ch™√ls
  = 
 Ÿx2_gë_ch™√ls
 ,
 
-1618 .
+1621 .
 	ggë_rög∑øm
  = 
 Ÿx2_gë_rög∑øm
 ,
 
-1619 .
+1622 .
 	g£t_rög∑øm
  = 
 Ÿx2_£t_rög∑øm
 ,
 
-1620 .
+1623 .
 	ggë_cﬂÀs˚
  = 
 Ÿx2_gë_cﬂÀs˚
 ,
 
-1621 .
+1624 .
 	g£t_cﬂÀs˚
  = 
 Ÿx2_£t_cﬂÀs˚
 ,
 
-1622 .
+1625 .
 	ggë_rxnfc
  = 
 Ÿx2_gë_rxnfc
 ,
 
-1623 .
+1626 .
 	g£t_rxnfc
  = 
 Ÿx2_£t_rxnfc
 ,
 
-1624 .
+1627 .
 	ggë_rxfh_key_size
  = 
 Ÿx2_gë_rxfh_key_size
 ,
 
-1625 .
+1628 .
 	ggë_rxfh_ödú_size
  = 
 Ÿx2_gë_rxfh_ödú_size
 ,
 
-1626 .
+1629 .
 	ggë_rxfh
  = 
 Ÿx2_gë_rxfh
 ,
 
-1627 .
+1630 .
 	g£t_rxfh
  = 
 Ÿx2_£t_rxfh
 ,
 
-1628 .
+1631 .
 	ggë_rxfh_c⁄ãxt
  = 
 Ÿx2_gë_rxfh_c⁄ãxt
 ,
 
-1629 .
+1632 .
 	g£t_rxfh_c⁄ãxt
  = 
 Ÿx2_£t_rxfh_c⁄ãxt
 ,
 
-1630 .
+1633 .
 	ggë_ts_öfo
  = 
 Ÿx2_gë_ts_öfo
 ,
 
-1631 .
+1634 .
 	ggë_msgÀvñ
  = 
 Ÿx2_gë_msgÀvñ
 ,
 
-1632 .
+1635 .
 	g£t_msgÀvñ
  = 
 Ÿx2_£t_msgÀvñ
 ,
 
-1633 .
+1636 .
 	ggë_lök_k£âögs
  = 
 Ÿx2_gë_lök_k£âögs
 ,
 
-1634 .
+1637 .
 	g£t_lök_k£âögs
  = 
 Ÿx2_£t_lök_k£âögs
 ,
 
-1635 .
+1638 .
 	ggë_∑u£∑øm
  = 
 Ÿx2_gë_∑u£∑øm
 ,
 
-1636 .
+1639 .
 	g£t_∑u£∑øm
  = 
 Ÿx2_£t_∑u£∑øm
 ,
 
-1637 .
+1640 .
 	ggë_„˝¨am
  = 
 Ÿx2_gë_„˝¨am
 ,
 
-1638 .
+1641 .
 	g£t_„˝¨am
  = 
 Ÿx2_£t_„˝¨am
 ,
 
-1639 .
+1642 .
 	ggë_moduÀ_öfo
  = 
 Ÿx2_gë_moduÀ_öfo
 ,
 
-1640 .
+1643 .
 	ggë_moduÀ_ì¥om
  = 
 Ÿx2_gë_moduÀ_ì¥om
 ,
 
-1641 .
+1644 .
 	ggë_¥iv_Êags
  = 
 Ÿx2_gë_¥iv_Êags
 ,
 
-1642 .
+1645 .
 	g£t_¥iv_Êags
  = 
 Ÿx2_£t_¥iv_Êags
 ,
 
-1645 
+1648 
 	$Ÿx2_£t_ëhtoﬁ_›s
 (
 √t_devi˚
@@ -358719,7 +358727,7 @@ gë_lök
 √tdev
 )
 
-1647 
+1650 
 √tdev
 ->
 ëhtoﬁ_›s
@@ -358727,11 +358735,11 @@ gë_lök
 Ÿx2_ëhtoﬁ_›s
 ;
 
-1648 
+1651 
 	}
 }
 
-1651 
+1654 
 	$Ÿx2vf_gë_drvöfo
 (
 √t_devi˚
@@ -358739,13 +358747,13 @@ gë_lök
 √tdev
 ,
 
-1652 
+1655 
 ëhtoﬁ_drvöfo
  *
 öfo
 )
 
-1654 
+1657 
 Ÿx2_nic
  *
 vf
@@ -358755,7 +358763,7 @@ vf
 √tdev
 );
 
-1656 
+1659 
 	`°æ˝y
 (
 öfo
@@ -358765,7 +358773,7 @@ drivî
 DRV_VF_NAME
 , (info->driver));
 
-1657 
+1660 
 	`°æ˝y
 (
 öfo
@@ -358779,11 +358787,11 @@ vf
 pdev
 ), (info->bus_info));
 
-1658 
+1661 
 	}
 }
 
-1660 
+1663 
 	$Ÿx2vf_gë_°rögs
 (
 √t_devi˚
@@ -358799,7 +358807,7 @@ u8
 d©a
 )
 
-1662 
+1665 
 Ÿx2_nic
  *
 vf
@@ -358809,23 +358817,23 @@ vf
 √tdev
 );
 
-1663 
+1666 
 °©s
 ;
 
-1665 i‡(
+1668 i‡(
 s£t
  !
 ETH_SS_STATS
 )
 
-1668 
+1671 
 °©s
  = 0; sèt†< 
 Ÿx2_n_dev_°©s
 ; stats++) {
 
-1669 
+1672 
 	`mem˝y
 (
 d©a
@@ -358839,19 +358847,19 @@ d©a
 ETH_GSTRING_LEN
 );
 
-1670 
+1673 
 d©a
  +
 ETH_GSTRING_LEN
 ;
 
-1673 
+1676 
 °©s
  = 0; sèt†< 
 Ÿx2_n_drv_°©s
 ; stats++) {
 
-1674 
+1677 
 	`mem˝y
 (
 d©a
@@ -358865,13 +358873,13 @@ d©a
 ETH_GSTRING_LEN
 );
 
-1675 
+1678 
 d©a
  +
 ETH_GSTRING_LEN
 ;
 
-1678 
+1681 
 	`Ÿx2_gë_q£t_°rögs
 (
 vf
@@ -358879,23 +358887,23 @@ vf
 d©a
 , 0);
 
-1680 
+1683 
 	`°r˝y
 (
 d©a
 , "reset_count");
 
-1681 
+1684 
 d©a
  +
 ETH_GSTRING_LEN
 ;
 
-1682 
+1685 
 	}
 }
 
-1684 
+1687 
 	$Ÿx2vf_gë_ëhtoﬁ_°©s
 (
 √t_devi˚
@@ -358903,7 +358911,7 @@ ETH_GSTRING_LEN
 √tdev
 ,
 
-1685 
+1688 
 ëhtoﬁ_°©s
  *
 °©s
@@ -358913,7 +358921,7 @@ u64
 d©a
 )
 
-1687 
+1690 
 Ÿx2_nic
  *
 vf
@@ -358923,23 +358931,23 @@ vf
 √tdev
 );
 
-1688 
+1691 
 °©
 ;
 
-1690 
+1693 
 	`Ÿx2_gë_dev_°©s
 (
 vf
 );
 
-1691 
+1694 
 °©
  = 0; sèà< 
 Ÿx2_n_dev_°©s
 ; stat++)
 
-1692 *(
+1695 *(
 d©a
 ++Ë((
 u64
@@ -358951,7 +358959,7 @@ hw
 dev_°©s
 )
 
-1693 [
+1696 [
 Ÿx2_dev_°©s
 [
 °©
@@ -358959,13 +358967,13 @@ dev_°©s
 ödex
 ];
 
-1695 
+1698 
 °©
  = 0; sèà< 
 Ÿx2_n_drv_°©s
 ; stat++)
 
-1696 *(
+1699 *(
 d©a
 ++Ë
 	`©omic_ªad
@@ -358979,7 +358987,7 @@ hw
 drv_°©s
 )
 
-1697 [
+1700 [
 Ÿx2_drv_°©s
 [
 °©
@@ -358987,7 +358995,7 @@ drv_°©s
 ödex
 ]);
 
-1699 
+1702 
 	`Ÿx2_gë_q£t_°©s
 (
 vf
@@ -358997,7 +359005,7 @@ vf
 d©a
 );
 
-1700 *(
+1703 *(
 d©a
 ++Ë
 vf
@@ -359005,11 +359013,11 @@ vf
 ª£t_cou¡
 ;
 
-1701 
+1704 
 	}
 }
 
-1703 
+1706 
 	$Ÿx2vf_gë_s£t_cou¡
 (
 √t_devi˚
@@ -359019,7 +359027,7 @@ vf
 s£t
 )
 
-1705 
+1708 
 Ÿx2_nic
  *
 vf
@@ -359029,27 +359037,27 @@ vf
 √tdev
 );
 
-1706 
+1709 
 q°©s_cou¡
 ;
 
-1708 i‡(
+1711 i‡(
 s£t
  !
 ETH_SS_STATS
 )
 
-1709  -
+1712  -
 EINVAL
 ;
 
-1711 
+1714 
 q°©s_cou¡
  = 
 Ÿx2_n_queue_°©s
  *
 
-1712 (
+1715 (
 vf
 ->
 hw
@@ -359059,7 +359067,7 @@ rx_queues
 tx_queues
  +
 
-1713 
+1716 
 vf
 ->
 hw
@@ -359067,7 +359075,7 @@ hw
 tc_tx_queues
 );
 
-1715  
+1718  
 Ÿx2_n_dev_°©s
  + 
 Ÿx2_n_drv_°©s
@@ -359075,11 +359083,11 @@ tc_tx_queues
 q°©s_cou¡
  + 1;
 
-1716 
+1719 
 	}
 }
 
-1718 
+1721 
 	$Ÿx2vf_gë_lök_k£âögs
 (
 √t_devi˚
@@ -359087,13 +359095,13 @@ q°©s_cou¡
 √tdev
 ,
 
-1719 
+1722 
 ëhtoﬁ_lök_k£âögs
  *
 cmd
 )
 
-1721 
+1724 
 Ÿx2_nic
  *
 pfvf
@@ -359103,7 +359111,7 @@ pfvf
 √tdev
 );
 
-1723 i‡(
+1726 i‡(
 	`is_Ÿx2_lbkvf
 (
 pfvf
@@ -359113,7 +359121,7 @@ pdev
 	`is_Ÿx2_sdpvf
 (pfvf->pdev)) {
 
-1724 
+1727 
 cmd
 ->
 ba£
@@ -359123,7 +359131,7 @@ du∂ex
 DUPLEX_FULL
 ;
 
-1725 
+1728 
 cmd
 ->
 ba£
@@ -359133,7 +359141,7 @@ ba£
 SPEED_100000
 ;
 
-1727  
+1730  
 	`Ÿx2_gë_lök_k£âögs
 (
 √tdev
@@ -359141,167 +359149,167 @@ SPEED_100000
 cmd
 );
 
-1730 
+1733 
 	}
 }
 
-1731 c⁄° 
+1734 c⁄° 
 ëhtoﬁ_›s
  
 	gŸx2vf_ëhtoﬁ_›s
  = {
 
-1732 .
+1735 .
 gë_lök
  = 
 Ÿx2_gë_lök
 ,
 
-1733 .
+1736 .
 	ggë_drvöfo
  = 
 Ÿx2vf_gë_drvöfo
 ,
 
-1734 .
+1737 .
 	ggë_°rögs
  = 
 Ÿx2vf_gë_°rögs
 ,
 
-1735 .
+1738 .
 	ggë_ëhtoﬁ_°©s
  = 
 Ÿx2vf_gë_ëhtoﬁ_°©s
 ,
 
-1736 .
+1739 .
 	ggë_s£t_cou¡
  = 
 Ÿx2vf_gë_s£t_cou¡
 ,
 
-1737 .
+1740 .
 	g£t_ch™√ls
  = 
 Ÿx2_£t_ch™√ls
 ,
 
-1738 .
+1741 .
 	ggë_ch™√ls
  = 
 Ÿx2_gë_ch™√ls
 ,
 
-1739 .
+1742 .
 	ggë_rxnfc
  = 
 Ÿx2_gë_rxnfc
 ,
 
-1740 .
+1743 .
 	g£t_rxnfc
  = 
 Ÿx2_£t_rxnfc
 ,
 
-1741 .
+1744 .
 	ggë_rxfh_key_size
  = 
 Ÿx2_gë_rxfh_key_size
 ,
 
-1742 .
+1745 .
 	ggë_rxfh_ödú_size
  = 
 Ÿx2_gë_rxfh_ödú_size
 ,
 
-1743 .
+1746 .
 	ggë_rxfh
  = 
 Ÿx2_gë_rxfh
 ,
 
-1744 .
+1747 .
 	g£t_rxfh
  = 
 Ÿx2_£t_rxfh
 ,
 
-1745 .
+1748 .
 	ggë_rxfh_c⁄ãxt
  = 
 Ÿx2_gë_rxfh_c⁄ãxt
 ,
 
-1746 .
+1749 .
 	g£t_rxfh_c⁄ãxt
  = 
 Ÿx2_£t_rxfh_c⁄ãxt
 ,
 
-1747 .
+1750 .
 	ggë_rög∑øm
  = 
 Ÿx2_gë_rög∑øm
 ,
 
-1748 .
+1751 .
 	g£t_rög∑øm
  = 
 Ÿx2_£t_rög∑øm
 ,
 
-1749 .
+1752 .
 	ggë_cﬂÀs˚
  = 
 Ÿx2_gë_cﬂÀs˚
 ,
 
-1750 .
+1753 .
 	g£t_cﬂÀs˚
  = 
 Ÿx2_£t_cﬂÀs˚
 ,
 
-1751 .
+1754 .
 	ggë_msgÀvñ
  = 
 Ÿx2_gë_msgÀvñ
 ,
 
-1752 .
+1755 .
 	g£t_msgÀvñ
  = 
 Ÿx2_£t_msgÀvñ
 ,
 
-1753 .
+1756 .
 	ggë_∑u£∑øm
  = 
 Ÿx2_gë_∑u£∑øm
 ,
 
-1754 .
+1757 .
 	g£t_∑u£∑øm
  = 
 Ÿx2_£t_∑u£∑øm
 ,
 
-1755 .
+1758 .
 	ggë_lök_k£âögs
  = 
 Ÿx2vf_gë_lök_k£âögs
 ,
 
-1756 .
+1759 .
 	ggë_ts_öfo
  = 
 Ÿx2_gë_ts_öfo
 ,
 
-1759 
+1762 
 	$Ÿx2vf_£t_ëhtoﬁ_›s
 (
 √t_devi˚
@@ -359309,7 +359317,7 @@ gë_lök
 √tdev
 )
 
-1761 
+1764 
 √tdev
 ->
 ëhtoﬁ_›s
@@ -359317,11 +359325,11 @@ gë_lök
 Ÿx2vf_ëhtoﬁ_›s
 ;
 
-1762 
+1765 
 	}
 }
 
-1763 
+1766 
 EXPORT_SYMBOL
 (
 Ÿx2vf_£t_ëhtoﬁ_›s
@@ -388801,7 +388809,13 @@ max_m™tisß
 tmp
 ;
 
-93 i‡(
+92 
+u64
+ 
+shi·
+;
+
+94 i‡(
 	`is_dev_Ÿx2
 (
 nic
@@ -388809,31 +388823,31 @@ nic
 pdev
 )) {
 
-94 
+95 
 max_bur°
  = 
 MAX_BURST_SIZE
 ;
 
-95 
+96 
 max_m™tisß
  = 
 MAX_BURST_MANTISSA
 ;
 
-97 
+98 
 max_bur°
  = 
 CN10K_MAX_BURST_SIZE
 ;
 
-98 
+99 
 max_m™tisß
  = 
 CN10K_MAX_BURST_MANTISSA
 ;
 
-105 
+106 
 bur°
  = 
 	`mö_t
@@ -388843,11 +388857,11 @@ u32
 max_bur°
 );
 
-106 i‡(
+107 i‡(
 bur°
-) {
+ > 1) {
 
-107 *
+108 *
 bur°_exp
  = 
 	`ûog2
@@ -388855,7 +388869,7 @@ bur°_exp
 bur°
 ) ? ilog2(burst) - 1 : 0;
 
-108 
+109 
 tmp
  = 
 bur°
@@ -388863,43 +388877,61 @@ bur°
 	`rounddown_pow_of_two
 (burst);
 
-109 i‡(
+110 i‡(
 bur°
  < 
 max_m™tisß
 )
 
-110 *
+111 *
 bur°_m™tisß
  = 
 tmp
  * 2;
 
-112 *
+113 
+shi·
+ = *
+bur°_exp
+ - 7;
+
+114 i‡(
+shi·
+ > 63)
+
+115 
+d⁄e
+;
+
+117 *
 bur°_m™tisß
  = 
 tmp
- / (1ULL << (*
-bur°_exp
- - 7));
+ / (1ULL << 
+shi·
+);
 
-114 *
+122 
+d⁄e
+:
+
+123 *
 bur°_exp
  = 
 MAX_BURST_EXPONENT
 ;
 
-115 *
+124 *
 bur°_m™tisß
  = 
 max_m™tisß
 ;
 
-117 
+125 
 	}
 }
 
-119 
+127 
 	$Ÿx2_gë_egªss_øã_cfg
 (
 u64
@@ -388911,7 +388943,7 @@ u32
 exp
 ,
 
-120 
+128 
 u32
  *
 m™tisß
@@ -388919,27 +388951,27 @@ m™tisß
 div_exp
 )
 
-122 
+130 
 u64
  
 tmp
 ;
 
-123 
+131 
 u32
  
 shi·
 ;
 
-136 *
+144 *
 div_exp
  = 0;
 
-138 i‡(
+146 i‡(
 maxøã
  > 1) {
 
-139 *
+147 *
 exp
  = 
 	`ûog2
@@ -388947,7 +388979,7 @@ exp
 maxøã
 ) ? ilog2(maxrate) - 1 : 0;
 
-140 
+148 
 tmp
  = 
 maxøã
@@ -388955,33 +388987,33 @@ maxøã
 	`rounddown_pow_of_two
 (maxrate);
 
-141 i‡(
+149 i‡(
 maxøã
  < 
 MAX_RATE_MANTISSA
 )
 
-142 *
+150 *
 m™tisß
  = 
 tmp
  * 2;
 
-144 
+152 
 shi·
  = *
 exp
  - 7;
 
-145 i‡(
+153 i‡(
 shi·
  > 63)
 
-146 
+154 
 dißbÀ_øã_limô
 ;
 
-148 *
+156 *
 m™tisß
  = 
 tmp
@@ -388989,27 +389021,27 @@ tmp
 shi·
 );
 
-153 
+161 
 dißbÀ_øã_limô
 :
 
-155 *
+163 *
 exp
  = 
 MAX_RATE_EXPONENT
 ;
 
-156 *
+164 *
 m™tisß
  = 
 MAX_RATE_MANTISSA
 ;
 
-157 
+165 
 	}
 }
 
-159 
+167 
 u64
  
 	$Ÿx2_gë_txschq_øã_ªgvÆ
@@ -389019,7 +389051,7 @@ u64
 nic
 ,
 
-160 
+168 
 u64
  
 maxøã
@@ -389029,7 +389061,7 @@ u32
 bur°
 )
 
-162 
+170 
 u32
  
 bur°_exp
@@ -389037,7 +389069,7 @@ bur°_exp
 bur°_m™tisß
 ;
 
-163 
+171 
 u32
  
 exp
@@ -389047,13 +389079,13 @@ m™tisß
 div_exp
 ;
 
-164 
+172 
 u64
  
 ªgvÆ
  = 0;
 
-167 
+175 
 	`Ÿx2_gë_egªss_bur°_cfg
 (
 nic
@@ -389065,7 +389097,7 @@ bur°_exp
 bur°_m™tisß
 );
 
-168 
+176 
 	`Ÿx2_gë_egªss_øã_cfg
 (
 maxøã
@@ -389077,7 +389109,7 @@ m™tisß
 div_exp
 );
 
-170 i‡(
+178 i‡(
 	`is_dev_Ÿx2
 (
 nic
@@ -389085,7 +389117,7 @@ nic
 pdev
 )) {
 
-171 
+179 
 ªgvÆ
  = 
 	`FIELD_PREP
@@ -389097,7 +389129,7 @@ u64
 bur°_exp
 ) |
 
-172 
+180 
 	`FIELD_PREP
 (
 TLX_BURST_MANTISSA
@@ -389107,7 +389139,7 @@ u64
 bur°_m™tisß
 ) |
 
-173 
+181 
 	`FIELD_PREP
 (
 TLX_RATE_DIVIDER_EXPONENT
@@ -389115,7 +389147,7 @@ TLX_RATE_DIVIDER_EXPONENT
 div_exp
 ) |
 
-174 
+182 
 	`FIELD_PREP
 (
 TLX_RATE_EXPONENT
@@ -389123,7 +389155,7 @@ TLX_RATE_EXPONENT
 exp
 ) |
 
-175 
+183 
 	`FIELD_PREP
 (
 TLX_RATE_MANTISSA
@@ -389133,7 +389165,7 @@ m™tisß
 	`BIT_ULL
 (0);
 
-177 
+185 
 ªgvÆ
  = 
 	`FIELD_PREP
@@ -389145,7 +389177,7 @@ u64
 bur°_exp
 ) |
 
-178 
+186 
 	`FIELD_PREP
 (
 CN10K_TLX_BURST_MANTISSA
@@ -389155,7 +389187,7 @@ u64
 bur°_m™tisß
 ) |
 
-179 
+187 
 	`FIELD_PREP
 (
 TLX_RATE_DIVIDER_EXPONENT
@@ -389163,7 +389195,7 @@ TLX_RATE_DIVIDER_EXPONENT
 div_exp
 ) |
 
-180 
+188 
 	`FIELD_PREP
 (
 TLX_RATE_EXPONENT
@@ -389171,7 +389203,7 @@ TLX_RATE_EXPONENT
 exp
 ) |
 
-181 
+189 
 	`FIELD_PREP
 (
 TLX_RATE_MANTISSA
@@ -389181,15 +389213,15 @@ m™tisß
 	`BIT_ULL
 (0);
 
-184  
+192  
 ªgvÆ
 ;
 
-185 
+193 
 	}
 }
 
-187 
+195 
 	$Ÿx2_£t_m©chÆl_egªss_øã
 (
 Ÿx2_nic
@@ -389197,7 +389229,7 @@ m™tisß
 nic
 ,
 
-188 
+196 
 u32
  
 bur°
@@ -389207,7 +389239,7 @@ u64
 maxøã
 )
 
-190 
+198 
 Ÿx2_hw
  *
 hw
@@ -389215,19 +389247,19 @@ hw
 nic
 ->hw;
 
-191 
+199 
 nix_txschq_c⁄fig
  *
 ªq
 ;
 
-192 
+200 
 txschq
 , 
 îr
 ;
 
-195 
+203 
 txschq
  = 
 hw
@@ -389237,7 +389269,7 @@ txschq_li°
 NIX_TXSCH_LVL_TL4
 ][0];
 
-197 
+205 
 	`muãx_lock
 (&
 nic
@@ -389247,7 +389279,7 @@ mbox
 lock
 );
 
-198 
+206 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_nix_txschq_cfg
@@ -389257,11 +389289,11 @@ nic
 mbox
 );
 
-199 i‡(!
+207 i‡(!
 ªq
 ) {
 
-200 
+208 
 	`muãx_u∆ock
 (&
 nic
@@ -389271,11 +389303,11 @@ mbox
 lock
 );
 
-201  -
+209  -
 ENOMEM
 ;
 
-204 
+212 
 ªq
 ->
 lvl
@@ -389283,13 +389315,13 @@ lvl
 NIX_TXSCH_LVL_TL4
 ;
 
-205 
+213 
 ªq
 ->
 num_ªgs
  = 1;
 
-206 
+214 
 ªq
 ->
 ªg
@@ -389299,7 +389331,7 @@ num_ªgs
 txschq
 );
 
-207 
+215 
 ªq
 ->
 ªgvÆ
@@ -389313,7 +389345,7 @@ maxøã
 bur°
 );
 
-209 
+217 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -389323,7 +389355,7 @@ nic
 mbox
 );
 
-210 
+218 
 	`muãx_u∆ock
 (&
 nic
@@ -389333,15 +389365,15 @@ mbox
 lock
 );
 
-211  
+219  
 îr
 ;
 
-212 
+220 
 	}
 }
 
-214 
+222 
 	$Ÿx2_tc_vÆid©e_Êow
 (
 Ÿx2_nic
@@ -389349,19 +389381,19 @@ lock
 nic
 ,
 
-215 
+223 
 Êow_a˘i⁄
  *
 a˘i⁄s
 ,
 
-216 
+224 
 √éök_ext_ack
  *
 exèck
 )
 
-218 i‡(
+226 i‡(
 nic
 ->
 Êags
@@ -389369,53 +389401,53 @@ nic
 OTX2_FLAG_INTF_DOWN
 ) {
 
-219 
+227 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "InterfaceÇot initialized");
 
-220  -
+228  -
 EINVAL
 ;
 
-223 i‡(!
+231 i‡(!
 	`Êow_a˘i⁄_has_íåõs
 (
 a˘i⁄s
 )) {
 
-224 
+232 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "MATCHALL offload called withÇoáction");
 
-225  -
+233  -
 EINVAL
 ;
 
-228 i‡(!
+236 i‡(!
 	`Êow_ofÊﬂd_has_⁄e_a˘i⁄
 (
 a˘i⁄s
 )) {
 
-229 
+237 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-231  -
+239  -
 EINVAL
 ;
 
-234 
+242 
 	}
 }
 
-236 
+244 
 	$Ÿx2_tc_egªss_m©chÆl_ö°Æl
 (
 Ÿx2_nic
@@ -389423,13 +389455,13 @@ EINVAL
 nic
 ,
 
-237 
+245 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s
 )
 
-239 
+247 
 √éök_ext_ack
  *
 exèck
@@ -389439,7 +389471,7 @@ exèck
 comm⁄
 .extack;
 
-240 
+248 
 Êow_a˘i⁄
  *
 a˘i⁄s
@@ -389451,23 +389483,23 @@ ruÀ
 a˘i⁄
 ;
 
-241 
+249 
 Êow_a˘i⁄_íåy
  *
 íåy
 ;
 
-242 
+250 
 u64
  
 øã
 ;
 
-243 
+251 
 îr
 ;
 
-245 
+253 
 îr
  = 
 	`Ÿx2_tc_vÆid©e_Êow
@@ -389479,15 +389511,15 @@ a˘i⁄s
 exèck
 );
 
-246 i‡(
+254 i‡(
 îr
 )
 
-247  
+255  
 îr
 ;
 
-249 i‡(
+257 i‡(
 nic
 ->
 Êags
@@ -389495,17 +389527,17 @@ nic
 OTX2_FLAG_TC_MATCHALL_EGRESS_ENABLED
 ) {
 
-250 
+258 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-252  -
+260  -
 ENOMEM
 ;
 
-255 
+263 
 íåy
  = &
 ˛s
@@ -389517,17 +389549,17 @@ a˘i⁄
 íåõs
 [0];
 
-256 
+264 
 íåy
 ->
 id
 ) {
 
-257 
+265 
 FLOW_ACTION_POLICE
 :
 
-258 i‡(
+266 i‡(
 íåy
 ->
 pﬁi˚
@@ -389535,17 +389567,17 @@ pﬁi˚
 øã_pkt_ps
 ) {
 
-259 
+267 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "QoS offloadÇot supportÖacketsÖer second");
 
-260  -
+268  -
 EOPNOTSUPP
 ;
 
-263 
+271 
 øã
  = 
 íåy
@@ -389555,7 +389587,7 @@ pﬁi˚
 øã_byãs_ps
  * 8;
 
-264 
+272 
 øã
  = 
 	`max_t
@@ -389563,7 +389595,7 @@ pﬁi˚
 u64
 ,Ñate / 1000000, 1);
 
-265 
+273 
 îr
  = 
 	`Ÿx2_£t_m©chÆl_egªss_øã
@@ -389579,15 +389611,15 @@ bur°
 øã
 );
 
-266 i‡(
+274 i‡(
 îr
 )
 
-267  
+275  
 îr
 ;
 
-268 
+276 
 nic
 ->
 Êags
@@ -389595,21 +389627,21 @@ nic
 OTX2_FLAG_TC_MATCHALL_EGRESS_ENABLED
 ;
 
-271 
+279 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-273  -
+281  -
 EOPNOTSUPP
 ;
 
-277 
+285 
 	}
 }
 
-279 
+287 
 	$Ÿx2_tc_egªss_m©chÆl_dñëe
 (
 Ÿx2_nic
@@ -389617,13 +389649,13 @@ EOPNOTSUPP
 nic
 ,
 
-280 
+288 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s
 )
 
-282 
+290 
 √éök_ext_ack
  *
 exèck
@@ -389633,11 +389665,11 @@ exèck
 comm⁄
 .extack;
 
-283 
+291 
 îr
 ;
 
-285 i‡(
+293 i‡(
 nic
 ->
 Êags
@@ -389645,17 +389677,17 @@ nic
 OTX2_FLAG_INTF_DOWN
 ) {
 
-286 
+294 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "InterfaceÇot initialized");
 
-287  -
+295  -
 EINVAL
 ;
 
-290 
+298 
 îr
  = 
 	`Ÿx2_£t_m©chÆl_egªss_øã
@@ -389663,7 +389695,7 @@ EINVAL
 nic
 , 0, 0);
 
-291 
+299 
 nic
 ->
 Êags
@@ -389671,15 +389703,15 @@ nic
 OTX2_FLAG_TC_MATCHALL_EGRESS_ENABLED
 ;
 
-292  
+300  
 îr
 ;
 
-293 
+301 
 	}
 }
 
-295 
+303 
 	$Ÿx2_tc_a˘_£t_pﬁi˚
 (
 Ÿx2_nic
@@ -389687,19 +389719,19 @@ OTX2_FLAG_TC_MATCHALL_EGRESS_ENABLED
 nic
 ,
 
-296 
+304 
 Ÿx2_tc_Êow
  *
 node
 ,
 
-297 
+305 
 Êow_˛s_ofÊﬂd
  *
 f
 ,
 
-298 
+306 
 u64
  
 øã
@@ -389711,7 +389743,7 @@ bur°
 m¨k
 ,
 
-299 
+307 
 ≈c_ö°Æl_Êow_ªq
  *
 ªq
@@ -389721,7 +389753,7 @@ boﬁ
 µs
 )
 
-301 
+309 
 √éök_ext_ack
  *
 exèck
@@ -389731,7 +389763,7 @@ f
 comm⁄
 .extack;
 
-302 
+310 
 Ÿx2_hw
  *
 hw
@@ -389739,13 +389771,13 @@ hw
 nic
 ->hw;
 
-303 
+311 
 rq_idx
 , 
 rc
 ;
 
-305 
+313 
 rq_idx
  = 
 	`föd_fú°_zîo_bô
@@ -389759,7 +389791,7 @@ hw
 rx_queues
 );
 
-306 i‡(
+314 i‡(
 rq_idx
  >
 hw
@@ -389767,17 +389799,17 @@ hw
 rx_queues
 ) {
 
-307 
+315 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "PoliceáctionÑulesÉxceeded");
 
-308  -
+316  -
 EINVAL
 ;
 
-311 
+319 
 	`muãx_lock
 (&
 nic
@@ -389787,7 +389819,7 @@ mbox
 lock
 );
 
-313 
+321 
 rc
  = 
 	`˙10k_Æloc_Àaf_¥ofûe
@@ -389799,11 +389831,11 @@ node
 Àaf_¥ofûe
 );
 
-314 i‡(
+322 i‡(
 rc
 ) {
 
-315 
+323 
 	`muãx_u∆ock
 (&
 nic
@@ -389813,11 +389845,11 @@ mbox
 lock
 );
 
-316  
+324  
 rc
 ;
 
-319 
+327 
 rc
  = 
 	`˙10k_£t_ùﬁi˚r_øã
@@ -389835,15 +389867,15 @@ bur°
 µs
 );
 
-320 i‡(
+328 i‡(
 rc
 )
 
-321 
+329 
 ‰ì_Àaf
 ;
 
-323 
+331 
 rc
  = 
 	`˙10k_m≠_unm≠_rq_pﬁi˚r
@@ -389859,15 +389891,15 @@ node
 åue
 );
 
-324 i‡(
+332 i‡(
 rc
 )
 
-325 
+333 
 ‰ì_Àaf
 ;
 
-327 
+335 
 	`muãx_u∆ock
 (&
 nic
@@ -389877,7 +389909,7 @@ mbox
 lock
 );
 
-329 
+337 
 ªq
 ->
 m©ch_id
@@ -389885,7 +389917,7 @@ m©ch_id
 m¨k
  & 0xFFFFULL;
 
-330 
+338 
 ªq
 ->
 ödex
@@ -389893,7 +389925,7 @@ m¨k
 rq_idx
 ;
 
-331 
+339 
 ªq
 ->
 ›
@@ -389901,7 +389933,7 @@ rq_idx
 NIX_RX_ACTIONOP_UCAST
 ;
 
-332 
+340 
 	`£t_bô
 (
 rq_idx
@@ -389911,7 +389943,7 @@ nic
 rq_bm≠
 );
 
-333 
+341 
 node
 ->
 is_a˘_pﬁi˚
@@ -389919,7 +389951,7 @@ is_a˘_pﬁi˚
 åue
 ;
 
-334 
+342 
 node
 ->
 rq
@@ -389927,11 +389959,11 @@ rq
 rq_idx
 ;
 
-338 
+346 
 ‰ì_Àaf
 :
 
-339 i‡(
+347 i‡(
 	`˙10k_‰ì_Àaf_¥ofûe
 (
 nic
@@ -389941,7 +389973,7 @@ node
 Àaf_¥ofûe
 ))
 
-340 
+348 
 	`√tdev_îr
 (
 nic
@@ -389949,13 +389981,13 @@ nic
 √tdev
 ,
 
-342 
+350 
 node
 ->
 Àaf_¥ofûe
 );
 
-343 
+351 
 	`muãx_u∆ock
 (&
 nic
@@ -389965,15 +389997,15 @@ mbox
 lock
 );
 
-344  
+352  
 rc
 ;
 
-345 
+353 
 	}
 }
 
-347 
+355 
 	$Ÿx2_tc_∑r£_a˘i⁄s
 (
 Ÿx2_nic
@@ -389981,29 +390013,29 @@ rc
 nic
 ,
 
-348 
+356 
 Êow_a˘i⁄
  *flow_action,
 
-349 
+357 
 ≈c_ö°Æl_Êow_ªq
  *
 ªq
 ,
 
-350 
+358 
 Êow_˛s_ofÊﬂd
  *
 f
 ,
 
-351 
+359 
 Ÿx2_tc_Êow
  *
 node
 )
 
-353 
+361 
 √éök_ext_ack
  *
 exèck
@@ -390013,25 +390045,25 @@ f
 comm⁄
 .extack;
 
-354 
+362 
 Êow_a˘i⁄_íåy
  *
 a˘
 ;
 
-355 
+363 
 √t_devi˚
  *
 èrgë
 ;
 
-356 
+364 
 Ÿx2_nic
  *
 ¥iv
 ;
 
-357 
+365 
 u32
  
 bur°
@@ -390039,13 +390071,13 @@ bur°
 m¨k
  = 0;
 
-358 
+366 
 u8
  
 ƒ_pﬁi˚
  = 0;
 
-359 
+367 
 boﬁ
  
 µs
@@ -390053,33 +390085,33 @@ boﬁ
 Ál£
 ;
 
-360 
+368 
 u64
  
 øã
 ;
 
-361 
+369 
 i
 ;
 
-363 i‡(!
+371 i‡(!
 	`Êow_a˘i⁄_has_íåõs
 (
 Êow_a˘i⁄
 )) {
 
-364 
+372 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "noÅcáctions specified");
 
-365  -
+373  -
 EINVAL
 ;
 
-368 
+376 
 	`Êow_a˘i⁄_f‹_óch
 (
 i
@@ -390089,17 +390121,17 @@ a˘
 Êow_a˘i⁄
 ) {
 
-369 
+377 
 a˘
 ->
 id
 ) {
 
-370 
+378 
 FLOW_ACTION_DROP
 :
 
-371 
+379 
 ªq
 ->
 ›
@@ -390107,11 +390139,11 @@ FLOW_ACTION_DROP
 NIX_RX_ACTIONOP_DROP
 ;
 
-373 
+381 
 FLOW_ACTION_ACCEPT
 :
 
-374 
+382 
 ªq
 ->
 ›
@@ -390119,11 +390151,11 @@ FLOW_ACTION_ACCEPT
 NIX_RX_ACTION_DEFAULT
 ;
 
-376 
+384 
 FLOW_ACTION_REDIRECT_INGRESS
 :
 
-377 
+385 
 èrgë
  = 
 a˘
@@ -390131,7 +390163,7 @@ a˘
 dev
 ;
 
-378 
+386 
 ¥iv
  = 
 	`√tdev_¥iv
@@ -390139,7 +390171,7 @@ dev
 èrgë
 );
 
-380 i‡(
+388 i‡(
 	`rvu_gë_pf
 (
 nic
@@ -390149,17 +390181,17 @@ pcifunc
 ¥iv
 ->pcifunc)) {
 
-381 
+389 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-383  -
+391  -
 EOPNOTSUPP
 ;
 
-385 
+393 
 ªq
 ->
 vf
@@ -390171,7 +390203,7 @@ pcifunc
 RVU_PFVF_FUNC_MASK
 ;
 
-386 
+394 
 ªq
 ->
 ›
@@ -390179,11 +390211,11 @@ RVU_PFVF_FUNC_MASK
 NIX_RX_ACTION_DEFAULT
 ;
 
-388 
+396 
 FLOW_ACTION_VLAN_POP
 :
 
-389 
+397 
 ªq
 ->
 vèg0_vÆid
@@ -390191,7 +390223,7 @@ vèg0_vÆid
 åue
 ;
 
-391 
+399 
 ªq
 ->
 vèg0_ty≥
@@ -390199,11 +390231,11 @@ vèg0_ty≥
 NIX_AF_LFX_RX_VTAG_TYPE7
 ;
 
-393 
+401 
 FLOW_ACTION_POLICE
 :
 
-395 i‡(
+403 i‡(
 	`is_dev_Ÿx2
 (
 nic
@@ -390211,48 +390243,22 @@ nic
 pdev
 )) {
 
-396 
+404 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-398  -
+406  -
 EOPNOTSUPP
 ;
 
-401 i‡(
+409 i‡(
 a˘
 ->
 pﬁi˚
 .
 øã_byãs_ps
- > 0) {
-
-402 
-øã
- = 
-a˘
-->
-pﬁi˚
-.
-øã_byãs_ps
- * 8;
-
-403 
-bur°
- = 
-a˘
-->
-pﬁi˚
-.burst;
-
-404 } i‡(
-a˘
-->
-pﬁi˚
-.
-øã_pkt_ps
  > 0) {
 
 410 
@@ -390262,10 +390268,36 @@ a˘
 ->
 pﬁi˚
 .
-øã_pkt_ps
+øã_byãs_ps
  * 8;
 
 411 
+bur°
+ = 
+a˘
+->
+pﬁi˚
+.burst;
+
+412 } i‡(
+a˘
+->
+pﬁi˚
+.
+øã_pkt_ps
+ > 0) {
+
+418 
+øã
+ = 
+a˘
+->
+pﬁi˚
+.
+øã_pkt_ps
+ * 8;
+
+419 
 bur°
  = 
 a˘
@@ -390275,49 +390307,49 @@ pﬁi˚
 bur°_pkt
 ;
 
-412 
+420 
 µs
  = 
 åue
 ;
 
-414 
+422 
 ƒ_pﬁi˚
 ++;
 
-416 
+424 
 FLOW_ACTION_MARK
 :
 
-417 
+425 
 m¨k
  = 
 a˘
 ->mark;
 
-420  -
+428  -
 EOPNOTSUPP
 ;
 
-424 i‡(
+432 i‡(
 ƒ_pﬁi˚
  > 1) {
 
-425 
+433 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-427  -
+435  -
 EOPNOTSUPP
 ;
 
-430 i‡(
+438 i‡(
 ƒ_pﬁi˚
 )
 
-431  
+439  
 	`Ÿx2_tc_a˘_£t_pﬁi˚
 (
 nic
@@ -390331,7 +390363,7 @@ f
 bur°
 ,
 
-432 
+440 
 m¨k
 , 
 ªq
@@ -390339,11 +390371,11 @@ m¨k
 µs
 );
 
-435 
+443 
 	}
 }
 
-437 
+445 
 	$Ÿx2_tc_¥ï¨e_Êow
 (
 Ÿx2_nic
@@ -390355,19 +390387,19 @@ nic
 node
 ,
 
-438 
+446 
 Êow_˛s_ofÊﬂd
  *
 f
 ,
 
-439 
+447 
 ≈c_ö°Æl_Êow_ªq
  *
 ªq
 )
 
-441 
+449 
 √éök_ext_ack
  *
 exèck
@@ -390377,7 +390409,7 @@ f
 comm⁄
 .extack;
 
-442 
+450 
 Êow_msg
  *
 Êow_•ec
@@ -390387,7 +390419,7 @@ comm⁄
 ∑ckë
 ;
 
-443 
+451 
 Êow_msg
  *
 Êow_mask
@@ -390397,25 +390429,25 @@ comm⁄
 mask
 ;
 
-444 
+452 
 Êow_dis£˘‹
  *
 dis£˘‹
 ;
 
-445 
+453 
 Êow_ruÀ
  *
 ruÀ
 ;
 
-446 
+454 
 u8
  
 ù_¥Ÿo
  = 0;
 
-448 
+456 
 ruÀ
  = 
 	`Êow_˛s_ofÊﬂd_Êow_ruÀ
@@ -390423,7 +390455,7 @@ ruÀ
 f
 );
 
-449 
+457 
 dis£˘‹
  = 
 ruÀ
@@ -390431,61 +390463,61 @@ ruÀ
 m©ch
 .dissector;
 
-451 i‡((
+459 i‡((
 dis£˘‹
 ->
 u£d_keys
  &
 
-452 ~(
+460 ~(
 	`BIT
 (
 FLOW_DISSECTOR_KEY_CONTROL
 ) |
 
-453 
+461 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_BASIC
 ) |
 
-454 
+462 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_ETH_ADDRS
 ) |
 
-455 
+463 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_VLAN
 ) |
 
-456 
+464 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_IPV4_ADDRS
 ) |
 
-457 
+465 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_IPV6_ADDRS
 ) |
 
-458 
+466 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_PORTS
 ) |
 
-459 
+467 
 	`BIT
 (
 FLOW_DISSECTOR_KEY_IP
 )))) {
 
-460 
+468 
 	`√tdev_öfo
 (
 nic
@@ -390493,17 +390525,17 @@ nic
 √tdev
 , "unsupported flow used key 0x%x",
 
-461 
+469 
 dis£˘‹
 ->
 u£d_keys
 );
 
-462  -
+470  -
 EOPNOTSUPP
 ;
 
-465 i‡(
+473 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -390511,13 +390543,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_BASIC
 )) {
 
-466 
+474 
 Êow_m©ch_basic
  
 m©ch
 ;
 
-468 
+476 
 	`Êow_ruÀ_m©ch_basic
 (
 ruÀ
@@ -390525,7 +390557,7 @@ ruÀ
 m©ch
 );
 
-471 
+479 
 Êow_•ec
 ->
 ëy≥
@@ -390537,7 +390569,7 @@ key
 n_¥Ÿo
 ;
 
-472 
+480 
 Êow_mask
 ->
 ëy≥
@@ -390549,7 +390581,7 @@ mask
 n_¥Ÿo
 ;
 
-473 
+481 
 ªq
 ->
 „©uªs
@@ -390559,7 +390591,7 @@ n_¥Ÿo
 NPC_ETYPE
 );
 
-475 i‡(
+483 i‡(
 m©ch
 .
 mask
@@ -390567,7 +390599,7 @@ mask
 ù_¥Ÿo
  &&
 
-476 (
+484 (
 m©ch
 .
 key
@@ -390577,7 +390609,7 @@ key
 IPPROTO_TCP
  &&
 
-477 
+485 
 m©ch
 .
 key
@@ -390587,7 +390619,7 @@ key
 IPPROTO_UDP
  &&
 
-478 
+486 
 m©ch
 .
 key
@@ -390597,7 +390629,7 @@ key
 IPPROTO_SCTP
  &&
 
-479 
+487 
 m©ch
 .
 key
@@ -390607,7 +390639,7 @@ key
 IPPROTO_ICMP
  &&
 
-480 
+488 
 m©ch
 .
 key
@@ -390617,7 +390649,7 @@ key
 IPPROTO_ICMPV6
 )) {
 
-481 
+489 
 	`√tdev_öfo
 (
 nic
@@ -390625,7 +390657,7 @@ nic
 √tdev
 ,
 
-483 
+491 
 m©ch
 .
 key
@@ -390633,11 +390665,11 @@ key
 ù_¥Ÿo
 );
 
-484  -
+492  -
 EOPNOTSUPP
 ;
 
-486 i‡(
+494 i‡(
 m©ch
 .
 mask
@@ -390645,7 +390677,7 @@ mask
 ù_¥Ÿo
 )
 
-487 
+495 
 ù_¥Ÿo
  = 
 m©ch
@@ -390653,74 +390685,10 @@ m©ch
 key
 ->ip_proto;
 
-489 i‡(
+497 i‡(
 ù_¥Ÿo
  =
 IPPROTO_UDP
-)
-
-490 
-ªq
-->
-„©uªs
- |
-	`BIT_ULL
-(
-NPC_IPPROTO_UDP
-);
-
-491 i‡(
-ù_¥Ÿo
- =
-IPPROTO_TCP
-)
-
-492 
-ªq
-->
-„©uªs
- |
-	`BIT_ULL
-(
-NPC_IPPROTO_TCP
-);
-
-493 i‡(
-ù_¥Ÿo
- =
-IPPROTO_SCTP
-)
-
-494 
-ªq
-->
-„©uªs
- |
-	`BIT_ULL
-(
-NPC_IPPROTO_SCTP
-);
-
-495 i‡(
-ù_¥Ÿo
- =
-IPPROTO_ICMP
-)
-
-496 
-ªq
-->
-„©uªs
- |
-	`BIT_ULL
-(
-NPC_IPPROTO_ICMP
-);
-
-497 i‡(
-ù_¥Ÿo
- =
-IPPROTO_ICMPV6
 )
 
 498 
@@ -390730,10 +390698,74 @@ IPPROTO_ICMPV6
  |
 	`BIT_ULL
 (
+NPC_IPPROTO_UDP
+);
+
+499 i‡(
+ù_¥Ÿo
+ =
+IPPROTO_TCP
+)
+
+500 
+ªq
+->
+„©uªs
+ |
+	`BIT_ULL
+(
+NPC_IPPROTO_TCP
+);
+
+501 i‡(
+ù_¥Ÿo
+ =
+IPPROTO_SCTP
+)
+
+502 
+ªq
+->
+„©uªs
+ |
+	`BIT_ULL
+(
+NPC_IPPROTO_SCTP
+);
+
+503 i‡(
+ù_¥Ÿo
+ =
+IPPROTO_ICMP
+)
+
+504 
+ªq
+->
+„©uªs
+ |
+	`BIT_ULL
+(
+NPC_IPPROTO_ICMP
+);
+
+505 i‡(
+ù_¥Ÿo
+ =
+IPPROTO_ICMPV6
+)
+
+506 
+ªq
+->
+„©uªs
+ |
+	`BIT_ULL
+(
 NPC_IPPROTO_ICMP6
 );
 
-501 i‡(
+509 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -390741,13 +390773,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_CONTROL
 )) {
 
-502 
+510 
 Êow_m©ch_c⁄åﬁ
  
 m©ch
 ;
 
-504 
+512 
 	`Êow_ruÀ_m©ch_c⁄åﬁ
 (
 ruÀ
@@ -390755,7 +390787,7 @@ ruÀ
 m©ch
 );
 
-505 i‡(
+513 i‡(
 m©ch
 .
 mask
@@ -390765,7 +390797,7 @@ mask
 FLOW_DIS_FIRST_FRAG
 ) {
 
-506 
+514 
 	`√tdev_öfo
 (
 nic
@@ -390773,11 +390805,11 @@ nic
 √tdev
 , "HW doesn't support frag first/later");
 
-507  -
+515  -
 EOPNOTSUPP
 ;
 
-510 i‡(
+518 i‡(
 m©ch
 .
 mask
@@ -390787,7 +390819,7 @@ mask
 FLOW_DIS_IS_FRAGMENT
 ) {
 
-511 i‡(
+519 i‡(
 	`¡ohs
 (
 Êow_•ec
@@ -390797,19 +390829,19 @@ FLOW_DIS_IS_FRAGMENT
 ETH_P_IP
 ) {
 
-512 
+520 
 Êow_•ec
 ->
 ù_Êag
  = 0x20;
 
-513 
+521 
 Êow_mask
 ->
 ù_Êag
  = 0xff;
 
-514 
+522 
 ªq
 ->
 „©uªs
@@ -390819,7 +390851,7 @@ ETH_P_IP
 NPC_IPFRAG_IPV4
 );
 
-515 } i‡(
+523 } i‡(
 	`¡ohs
 (
 Êow_•ec
@@ -390829,7 +390861,7 @@ NPC_IPFRAG_IPV4
 ETH_P_IPV6
 ) {
 
-516 
+524 
 Êow_•ec
 ->
 √xt_hódî
@@ -390837,13 +390869,13 @@ ETH_P_IPV6
 IPPROTO_FRAGMENT
 ;
 
-517 
+525 
 Êow_mask
 ->
 √xt_hódî
  = 0xff;
 
-518 
+526 
 ªq
 ->
 „©uªs
@@ -390853,7 +390885,7 @@ IPPROTO_FRAGMENT
 NPC_IPFRAG_IPV6
 );
 
-520 
+528 
 	`√tdev_öfo
 (
 nic
@@ -390861,11 +390893,11 @@ nic
 √tdev
 , "flow-type should beÉither IPv4ánd IPv6");
 
-521  -
+529  -
 EOPNOTSUPP
 ;
 
-526 i‡(
+534 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -390873,13 +390905,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_ETH_ADDRS
 )) {
 
-527 
+535 
 Êow_m©ch_ëh_addrs
  
 m©ch
 ;
 
-529 
+537 
 	`Êow_ruÀ_m©ch_ëh_addrs
 (
 ruÀ
@@ -390887,7 +390919,7 @@ ruÀ
 m©ch
 );
 
-530 i‡(!
+538 i‡(!
 	`is_zîo_ëhî_addr
 (
 m©ch
@@ -390897,17 +390929,17 @@ mask
 §c
 )) {
 
-531 
+539 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "src mac matchÇot supported");
 
-532  -
+540  -
 EOPNOTSUPP
 ;
 
-535 i‡(!
+543 i‡(!
 	`is_zîo_ëhî_addr
 (
 m©ch
@@ -390917,7 +390949,7 @@ mask
 d°
 )) {
 
-536 
+544 
 	`ëhî_addr_c›y
 (
 Êow_•ec
@@ -390933,7 +390965,7 @@ key
 d°
 );
 
-537 
+545 
 	`ëhî_addr_c›y
 (
 Êow_mask
@@ -390941,7 +390973,7 @@ d°
 dmac
 ,
 
-538 (
+546 (
 u8
  *)&
 m©ch
@@ -390951,7 +390983,7 @@ mask
 d°
 );
 
-539 
+547 
 ªq
 ->
 „©uªs
@@ -390961,7 +390993,7 @@ d°
 NPC_DMAC
 );
 
-543 i‡(
+551 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -390969,13 +391001,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_IP
 )) {
 
-544 
+552 
 Êow_m©ch_ù
  
 m©ch
 ;
 
-546 
+554 
 	`Êow_ruÀ_m©ch_ù
 (
 ruÀ
@@ -390983,7 +391015,7 @@ ruÀ
 m©ch
 );
 
-547 i‡((
+555 i‡((
 	`¡ohs
 (
 Êow_•ec
@@ -390993,7 +391025,7 @@ m©ch
 ETH_P_IP
 ) &&
 
-548 
+556 
 m©ch
 .
 mask
@@ -391001,17 +391033,17 @@ mask
 tos
 ) {
 
-549 
+557 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "tosÇot supported");
 
-550  -
+558  -
 EOPNOTSUPP
 ;
 
-552 i‡(
+560 i‡(
 m©ch
 .
 mask
@@ -391019,17 +391051,17 @@ mask
 âl
 ) {
 
-553 
+561 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "ttlÇot supported");
 
-554  -
+562  -
 EOPNOTSUPP
 ;
 
-556 
+564 
 Êow_•ec
 ->
 tos
@@ -391039,7 +391071,7 @@ m©ch
 key
 ->tos;
 
-557 
+565 
 Êow_mask
 ->
 tos
@@ -391049,7 +391081,7 @@ m©ch
 mask
 ->tos;
 
-558 
+566 
 ªq
 ->
 „©uªs
@@ -391059,7 +391091,7 @@ mask
 NPC_TOS
 );
 
-561 i‡(
+569 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -391067,13 +391099,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_VLAN
 )) {
 
-562 
+570 
 Êow_m©ch_vœn
  
 m©ch
 ;
 
-563 
+571 
 u16
  
 vœn_tci
@@ -391081,7 +391113,7 @@ vœn_tci
 vœn_tci_mask
 ;
 
-565 
+573 
 	`Êow_ruÀ_m©ch_vœn
 (
 ruÀ
@@ -391089,7 +391121,7 @@ ruÀ
 m©ch
 );
 
-567 i‡(
+575 i‡(
 	`¡ohs
 (
 m©ch
@@ -391101,7 +391133,7 @@ vœn_çid
 ETH_P_8021Q
 ) {
 
-568 
+576 
 	`√tdev_îr
 (
 nic
@@ -391109,7 +391141,7 @@ nic
 √tdev
 , "vlanÅpid 0x%xÇot supported\n",
 
-569 
+577 
 	`¡ohs
 (
 m©ch
@@ -391119,11 +391151,11 @@ key
 vœn_çid
 ));
 
-570  -
+578  -
 EOPNOTSUPP
 ;
 
-573 i‡(
+581 i‡(
 m©ch
 .
 mask
@@ -391131,7 +391163,7 @@ mask
 vœn_id
  ||
 
-574 
+582 
 m©ch
 .
 mask
@@ -391139,7 +391171,7 @@ mask
 vœn_dei
  ||
 
-575 
+583 
 m©ch
 .
 mask
@@ -391147,7 +391179,7 @@ mask
 vœn_¥i‹ôy
 ) {
 
-576 
+584 
 vœn_tci
  = 
 m©ch
@@ -391157,7 +391189,7 @@ key
 vœn_id
  |
 
-577 
+585 
 m©ch
 .
 key
@@ -391165,7 +391197,7 @@ key
 vœn_dei
  << 12 |
 
-578 
+586 
 m©ch
 .
 key
@@ -391173,7 +391205,7 @@ key
 vœn_¥i‹ôy
  << 13;
 
-580 
+588 
 vœn_tci_mask
  = 
 m©ch
@@ -391183,7 +391215,7 @@ mask
 vœn_id
  |
 
-581 
+589 
 m©ch
 .
 mask
@@ -391191,7 +391223,7 @@ mask
 vœn_dei
  << 12 |
 
-582 
+590 
 m©ch
 .
 mask
@@ -391199,7 +391231,7 @@ mask
 vœn_¥i‹ôy
  << 13;
 
-584 
+592 
 Êow_•ec
 ->
 vœn_tci
@@ -391207,7 +391239,7 @@ vœn_tci
 	`ht⁄s
 (vlan_tci);
 
-585 
+593 
 Êow_mask
 ->
 vœn_tci
@@ -391217,7 +391249,7 @@ vœn_tci
 vœn_tci_mask
 );
 
-586 
+594 
 ªq
 ->
 „©uªs
@@ -391227,7 +391259,7 @@ vœn_tci_mask
 NPC_OUTER_VID
 );
 
-590 i‡(
+598 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -391235,13 +391267,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_IPV4_ADDRS
 )) {
 
-591 
+599 
 Êow_m©ch_ùv4_addrs
  
 m©ch
 ;
 
-593 
+601 
 	`Êow_ruÀ_m©ch_ùv4_addrs
 (
 ruÀ
@@ -391249,7 +391281,7 @@ ruÀ
 m©ch
 );
 
-595 
+603 
 Êow_•ec
 ->
 ù4d°
@@ -391261,7 +391293,7 @@ key
 d°
 ;
 
-596 
+604 
 Êow_mask
 ->
 ù4d°
@@ -391273,7 +391305,7 @@ mask
 d°
 ;
 
-597 
+605 
 ªq
 ->
 „©uªs
@@ -391283,7 +391315,7 @@ d°
 NPC_DIP_IPV4
 );
 
-599 
+607 
 Êow_•ec
 ->
 ù4§c
@@ -391295,7 +391327,7 @@ key
 §c
 ;
 
-600 
+608 
 Êow_mask
 ->
 ù4§c
@@ -391307,7 +391339,7 @@ mask
 §c
 ;
 
-601 
+609 
 ªq
 ->
 „©uªs
@@ -391317,7 +391349,7 @@ mask
 NPC_SIP_IPV4
 );
 
-602 } i‡(
+610 } i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -391325,13 +391357,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_IPV6_ADDRS
 )) {
 
-603 
+611 
 Êow_m©ch_ùv6_addrs
  
 m©ch
 ;
 
-605 
+613 
 	`Êow_ruÀ_m©ch_ùv6_addrs
 (
 ruÀ
@@ -391339,7 +391371,7 @@ ruÀ
 m©ch
 );
 
-607 i‡(
+615 i‡(
 	`ùv6_addr_lo›back
 (&
 m©ch
@@ -391349,7 +391381,7 @@ key
 d°
 ) ||
 
-608 
+616 
 	`ùv6_addr_lo›back
 (&
 m©ch
@@ -391359,17 +391391,17 @@ key
 §c
 )) {
 
-609 
+617 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-611  -
+619  -
 EOPNOTSUPP
 ;
 
-614 i‡(!
+622 i‡(!
 	`ùv6_addr_™y
 (&
 m©ch
@@ -391379,7 +391411,7 @@ mask
 d°
 )) {
 
-615 
+623 
 	`mem˝y
 (&
 Êow_•ec
@@ -391387,7 +391419,7 @@ d°
 ù6d°
 ,
 
-616 (
+624 (
 ö6_addr
  *)&
 m©ch
@@ -391397,13 +391429,13 @@ key
 d°
 ,
 
-617 (
+625 (
 Êow_•ec
 ->
 ù6d°
 ));
 
-618 
+626 
 	`mem˝y
 (&
 Êow_mask
@@ -391411,7 +391443,7 @@ d°
 ù6d°
 ,
 
-619 (
+627 (
 ö6_addr
  *)&
 m©ch
@@ -391421,13 +391453,13 @@ mask
 d°
 ,
 
-620 (
+628 (
 Êow_•ec
 ->
 ù6d°
 ));
 
-621 
+629 
 ªq
 ->
 „©uªs
@@ -391437,7 +391469,7 @@ d°
 NPC_DIP_IPV6
 );
 
-624 i‡(!
+632 i‡(!
 	`ùv6_addr_™y
 (&
 m©ch
@@ -391447,7 +391479,7 @@ mask
 §c
 )) {
 
-625 
+633 
 	`mem˝y
 (&
 Êow_•ec
@@ -391455,7 +391487,7 @@ mask
 ù6§c
 ,
 
-626 (
+634 (
 ö6_addr
  *)&
 m©ch
@@ -391465,13 +391497,13 @@ key
 §c
 ,
 
-627 (
+635 (
 Êow_•ec
 ->
 ù6§c
 ));
 
-628 
+636 
 	`mem˝y
 (&
 Êow_mask
@@ -391479,7 +391511,7 @@ key
 ù6§c
 ,
 
-629 (
+637 (
 ö6_addr
  *)&
 m©ch
@@ -391489,13 +391521,13 @@ mask
 §c
 ,
 
-630 (
+638 (
 Êow_•ec
 ->
 ù6§c
 ));
 
-631 
+639 
 ªq
 ->
 „©uªs
@@ -391505,7 +391537,7 @@ mask
 NPC_SIP_IPV6
 );
 
-635 i‡(
+643 i‡(
 	`Êow_ruÀ_m©ch_key
 (
 ruÀ
@@ -391513,13 +391545,13 @@ ruÀ
 FLOW_DISSECTOR_KEY_PORTS
 )) {
 
-636 
+644 
 Êow_m©ch_p‹ts
  
 m©ch
 ;
 
-638 
+646 
 	`Êow_ruÀ_m©ch_p‹ts
 (
 ruÀ
@@ -391527,7 +391559,7 @@ ruÀ
 m©ch
 );
 
-640 
+648 
 Êow_•ec
 ->
 dp‹t
@@ -391539,7 +391571,7 @@ key
 d°
 ;
 
-641 
+649 
 Êow_mask
 ->
 dp‹t
@@ -391551,19 +391583,19 @@ mask
 d°
 ;
 
-643 i‡(
+651 i‡(
 Êow_mask
 ->
 dp‹t
 ) {
 
-644 i‡(
+652 i‡(
 ù_¥Ÿo
  =
 IPPROTO_UDP
 )
 
-645 
+653 
 ªq
 ->
 „©uªs
@@ -391573,13 +391605,13 @@ IPPROTO_UDP
 NPC_DPORT_UDP
 );
 
-646 i‡(
+654 i‡(
 ù_¥Ÿo
  =
 IPPROTO_TCP
 )
 
-647 
+655 
 ªq
 ->
 „©uªs
@@ -391589,13 +391621,13 @@ IPPROTO_TCP
 NPC_DPORT_TCP
 );
 
-648 i‡(
+656 i‡(
 ù_¥Ÿo
  =
 IPPROTO_SCTP
 )
 
-649 
+657 
 ªq
 ->
 „©uªs
@@ -391605,7 +391637,7 @@ IPPROTO_SCTP
 NPC_DPORT_SCTP
 );
 
-652 
+660 
 Êow_•ec
 ->
 •‹t
@@ -391617,7 +391649,7 @@ key
 §c
 ;
 
-653 
+661 
 Êow_mask
 ->
 •‹t
@@ -391629,19 +391661,19 @@ mask
 §c
 ;
 
-655 i‡(
+663 i‡(
 Êow_mask
 ->
 •‹t
 ) {
 
-656 i‡(
+664 i‡(
 ù_¥Ÿo
  =
 IPPROTO_UDP
 )
 
-657 
+665 
 ªq
 ->
 „©uªs
@@ -391651,13 +391683,13 @@ IPPROTO_UDP
 NPC_SPORT_UDP
 );
 
-658 i‡(
+666 i‡(
 ù_¥Ÿo
  =
 IPPROTO_TCP
 )
 
-659 
+667 
 ªq
 ->
 „©uªs
@@ -391667,13 +391699,13 @@ IPPROTO_TCP
 NPC_SPORT_TCP
 );
 
-660 i‡(
+668 i‡(
 ù_¥Ÿo
  =
 IPPROTO_SCTP
 )
 
-661 
+669 
 ªq
 ->
 „©uªs
@@ -391683,7 +391715,7 @@ IPPROTO_SCTP
 NPC_SPORT_SCTP
 );
 
-665  
+673  
 	`Ÿx2_tc_∑r£_a˘i⁄s
 (
 nic
@@ -391699,11 +391731,11 @@ f
 node
 );
 
-666 
+674 
 	}
 }
 
-668 
+676 
 	$Ÿx2_dñ_mˇm_Êow_íåy
 (
 Ÿx2_nic
@@ -391715,17 +391747,17 @@ u16
 íåy
 )
 
-670 
+678 
 ≈c_dñëe_Êow_ªq
  *
 ªq
 ;
 
-671 
+679 
 îr
 ;
 
-673 
+681 
 	`muãx_lock
 (&
 nic
@@ -391735,7 +391767,7 @@ mbox
 lock
 );
 
-674 
+682 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_≈c_dñëe_Êow
@@ -391745,11 +391777,11 @@ nic
 mbox
 );
 
-675 i‡(!
+683 i‡(!
 ªq
 ) {
 
-676 
+684 
 	`muãx_u∆ock
 (&
 nic
@@ -391759,17 +391791,17 @@ mbox
 lock
 );
 
-677  -
+685  -
 ENOMEM
 ;
 
-680 
+688 
 ªq
 ->
 íåy
  =Éntry;
 
-683 
+691 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -391779,11 +391811,11 @@ nic
 mbox
 );
 
-684 i‡(
+692 i‡(
 îr
 ) {
 
-685 
+693 
 	`√tdev_îr
 (
 nic
@@ -391791,11 +391823,11 @@ nic
 √tdev
 , "FailedÅo delete MCAM flowÉntry %d\n",
 
-686 
+694 
 íåy
 );
 
-687 
+695 
 	`muãx_u∆ock
 (&
 nic
@@ -391805,11 +391837,11 @@ mbox
 lock
 );
 
-688  -
+696  -
 EFAULT
 ;
 
-690 
+698 
 	`muãx_u∆ock
 (&
 nic
@@ -391819,11 +391851,11 @@ mbox
 lock
 );
 
-693 
+701 
 	}
 }
 
-695 
+703 
 	$Ÿx2_tc_dñ_Êow
 (
 Ÿx2_nic
@@ -391831,13 +391863,13 @@ lock
 nic
 ,
 
-696 
+704 
 Êow_˛s_ofÊﬂd
  *
 tc_Êow_cmd
 )
 
-698 
+706 
 Ÿx2_Êow_c⁄fig
  *
 Êow_cfg
@@ -391845,7 +391877,7 @@ tc_Êow_cmd
 nic
 ->flow_cfg;
 
-699 
+707 
 Ÿx2_tc_öfo
  *
 tc_öfo
@@ -391853,17 +391885,17 @@ tc_öfo
 nic
 ->tc_info;
 
-700 
+708 
 Ÿx2_tc_Êow
  *
 Êow_node
 ;
 
-701 
+709 
 îr
 ;
 
-703 
+711 
 Êow_node
  = 
 	`rhashèbÀ_lookup_Á°
@@ -391873,23 +391905,23 @@ tc_öfo
 Êow_èbÀ
 ,
 
-704 &
+712 &
 tc_Êow_cmd
 ->
 cookõ
 ,
 
-705 
+713 
 tc_öfo
 ->
 Êow_ht_∑øms
 );
 
-706 i‡(!
+714 i‡(!
 Êow_node
 ) {
 
-707 
+715 
 	`√tdev_îr
 (
 nic
@@ -391897,23 +391929,23 @@ nic
 √tdev
 , "tc flowÇot found for cookie 0x%lx\n",
 
-708 
+716 
 tc_Êow_cmd
 ->
 cookõ
 );
 
-709  -
+717  -
 EINVAL
 ;
 
-712 i‡(
+720 i‡(
 Êow_node
 ->
 is_a˘_pﬁi˚
 ) {
 
-713 
+721 
 	`muãx_lock
 (&
 nic
@@ -391923,7 +391955,7 @@ mbox
 lock
 );
 
-715 
+723 
 îr
  = 
 	`˙10k_m≠_unm≠_rq_pﬁi˚r
@@ -391935,7 +391967,7 @@ nic
 rq
 ,
 
-716 
+724 
 Êow_node
 ->
 Àaf_¥ofûe
@@ -391943,11 +391975,11 @@ rq
 Ál£
 );
 
-717 i‡(
+725 i‡(
 îr
 )
 
-718 
+726 
 	`√tdev_îr
 (
 nic
@@ -391955,7 +391987,7 @@ nic
 √tdev
 ,
 
-720 
+728 
 Êow_node
 ->
 rq
@@ -391963,7 +391995,7 @@ rq
 Àaf_¥ofûe
 );
 
-722 
+730 
 îr
  = 
 	`˙10k_‰ì_Àaf_¥ofûe
@@ -391975,11 +392007,11 @@ nic
 Àaf_¥ofûe
 );
 
-723 i‡(
+731 i‡(
 îr
 )
 
-724 
+732 
 	`√tdev_îr
 (
 nic
@@ -391987,13 +392019,13 @@ nic
 √tdev
 ,
 
-726 
+734 
 Êow_node
 ->
 Àaf_¥ofûe
 );
 
-728 
+736 
 	`__˛ór_bô
 (
 Êow_node
@@ -392005,7 +392037,7 @@ nic
 rq_bm≠
 );
 
-730 
+738 
 	`muãx_u∆ock
 (&
 nic
@@ -392015,7 +392047,7 @@ mbox
 lock
 );
 
-733 
+741 
 	`Ÿx2_dñ_mˇm_Êow_íåy
 (
 nic
@@ -392025,7 +392057,7 @@ nic
 íåy
 );
 
-735 
+743 
 	`WARN_ON
 (
 	`rhashèbÀ_ªmove_Á°
@@ -392037,13 +392069,13 @@ tc_öfo
 Êow_èbÀ
 ,
 
-736 &
+744 &
 Êow_node
 ->
 node
 ,
 
-737 
+745 
 nic
 ->
 tc_öfo
@@ -392051,7 +392083,7 @@ tc_öfo
 Êow_ht_∑øms
 ));
 
-738 
+746 
 	`k‰ì_rcu
 (
 Êow_node
@@ -392059,7 +392091,7 @@ tc_öfo
 rcu
 );
 
-740 
+748 
 	`˛ór_bô
 (
 Êow_node
@@ -392071,17 +392103,17 @@ tc_öfo
 tc_íåõs_bôm≠
 );
 
-741 
+749 
 Êow_cfg
 ->
 ƒ_Êows
 --;
 
-744 
+752 
 	}
 }
 
-746 
+754 
 	$Ÿx2_tc_add_Êow
 (
 Ÿx2_nic
@@ -392089,13 +392121,13 @@ tc_íåõs_bôm≠
 nic
 ,
 
-747 
+755 
 Êow_˛s_ofÊﬂd
  *
 tc_Êow_cmd
 )
 
-749 
+757 
 √éök_ext_ack
  *
 exèck
@@ -392105,7 +392137,7 @@ tc_Êow_cmd
 comm⁄
 .extack;
 
-750 
+758 
 Ÿx2_Êow_c⁄fig
  *
 Êow_cfg
@@ -392113,7 +392145,7 @@ comm⁄
 nic
 ->flow_cfg;
 
-751 
+759 
 Ÿx2_tc_öfo
  *
 tc_öfo
@@ -392121,7 +392153,7 @@ tc_öfo
 nic
 ->tc_info;
 
-752 
+760 
 Ÿx2_tc_Êow
  *
 √w_node
@@ -392129,7 +392161,7 @@ nic
 ﬁd_node
 ;
 
-753 
+761 
 ≈c_ö°Æl_Êow_ªq
  *
 ªq
@@ -392137,13 +392169,13 @@ nic
 dummy
 ;
 
-754 
+762 
 rc
 , 
 îr
 ;
 
-756 i‡(!(
+764 i‡(!(
 nic
 ->
 Êags
@@ -392151,11 +392183,11 @@ nic
 OTX2_FLAG_TC_FLOWER_SUPPORT
 ))
 
-757  -
+765  -
 ENOMEM
 ;
 
-759 i‡(
+767 i‡(
 	`bôm≠_fuŒ
 (
 tc_öfo
@@ -392167,17 +392199,17 @@ tc_íåõs_bôm≠
 max_Êows
 )) {
 
-760 
+768 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-762  -
+770  -
 ENOMEM
 ;
 
-766 
+774 
 √w_node
  = 
 	`kzÆloc
@@ -392185,15 +392217,15 @@ ENOMEM
 GFP_KERNEL
 );
 
-767 i‡(!
+775 i‡(!
 √w_node
 )
 
-768  -
+776  -
 ENOMEM
 ;
 
-769 
+777 
 	`•ö_lock_öô
 (&
 √w_node
@@ -392201,7 +392233,7 @@ ENOMEM
 lock
 );
 
-770 
+778 
 √w_node
 ->
 cookõ
@@ -392209,7 +392241,7 @@ cookõ
 tc_Êow_cmd
 ->cookie;
 
-772 
+780 
 	`mem£t
 (&
 dummy
@@ -392217,7 +392249,7 @@ dummy
 ≈c_ö°Æl_Êow_ªq
 ));
 
-774 
+782 
 rc
  = 
 	`Ÿx2_tc_¥ï¨e_Êow
@@ -392231,11 +392263,11 @@ tc_Êow_cmd
 dummy
 );
 
-775 i‡(
+783 i‡(
 rc
 ) {
 
-776 
+784 
 	`k‰ì_rcu
 (
 √w_node
@@ -392243,11 +392275,11 @@ rc
 rcu
 );
 
-777  
+785  
 rc
 ;
 
-781 
+789 
 ﬁd_node
  = 
 	`rhashèbÀ_lookup_Á°
@@ -392257,23 +392289,23 @@ tc_öfo
 Êow_èbÀ
 ,
 
-782 &
+790 &
 tc_Êow_cmd
 ->
 cookõ
 ,
 
-783 
+791 
 tc_öfo
 ->
 Êow_ht_∑øms
 );
 
-784 i‡(
+792 i‡(
 ﬁd_node
 )
 
-785 
+793 
 	`Ÿx2_tc_dñ_Êow
 (
 nic
@@ -392281,7 +392313,7 @@ nic
 tc_Êow_cmd
 );
 
-787 
+795 
 	`muãx_lock
 (&
 nic
@@ -392291,7 +392323,7 @@ mbox
 lock
 );
 
-788 
+796 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_≈c_ö°Æl_Êow
@@ -392301,11 +392333,11 @@ nic
 mbox
 );
 
-789 i‡(!
+797 i‡(!
 ªq
 ) {
 
-790 
+798 
 	`muãx_u∆ock
 (&
 nic
@@ -392315,17 +392347,17 @@ mbox
 lock
 );
 
-791 
+799 
 rc
  = -
 ENOMEM
 ;
 
-792 
+800 
 ‰ì_Àaf
 ;
 
-795 
+803 
 	`mem˝y
 (&
 dummy
@@ -392337,7 +392369,7 @@ hdr
 mbox_msghdr
 ));
 
-796 
+804 
 	`mem˝y
 (
 ªq
@@ -392347,7 +392379,7 @@ dummy
 ≈c_ö°Æl_Êow_ªq
 ));
 
-798 
+806 
 √w_node
 ->
 bôpos
@@ -392359,13 +392391,13 @@ tc_öfo
 tc_íåõs_bôm≠
 ,
 
-799 
+807 
 Êow_cfg
 ->
 max_Êows
 );
 
-800 
+808 
 ªq
 ->
 ch™√l
@@ -392377,7 +392409,7 @@ hw
 rx_ch™_ba£
 ;
 
-801 
+809 
 ªq
 ->
 íåy
@@ -392393,7 +392425,7 @@ max_Êows
 bôpos
  - 1];
 
-802 
+810 
 ªq
 ->
 ötf
@@ -392401,13 +392433,13 @@ bôpos
 NIX_INTF_RX
 ;
 
-803 
+811 
 ªq
 ->
 £t_˙å
  = 1;
 
-804 
+812 
 √w_node
 ->
 íåy
@@ -392415,7 +392447,7 @@ NIX_INTF_RX
 ªq
 ->entry;
 
-807 
+815 
 rc
  = 
 	`Ÿx2_sync_mbox_msg
@@ -392425,17 +392457,17 @@ nic
 mbox
 );
 
-808 i‡(
+816 i‡(
 rc
 ) {
 
-809 
+817 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "FailedÅo install MCAM flowÉntry");
 
-810 
+818 
 	`muãx_u∆ock
 (&
 nic
@@ -392445,7 +392477,7 @@ mbox
 lock
 );
 
-811 
+819 
 	`k‰ì_rcu
 (
 √w_node
@@ -392453,11 +392485,11 @@ lock
 rcu
 );
 
-812 
+820 
 ‰ì_Àaf
 ;
 
-814 
+822 
 	`muãx_u∆ock
 (&
 nic
@@ -392467,7 +392499,7 @@ mbox
 lock
 );
 
-817 
+825 
 rc
  = 
 	`rhashèbÀ_ö£π_Á°
@@ -392483,7 +392515,7 @@ tc_öfo
 node
 ,
 
-818 
+826 
 nic
 ->
 tc_öfo
@@ -392491,11 +392523,11 @@ tc_öfo
 Êow_ht_∑øms
 );
 
-819 i‡(
+827 i‡(
 rc
 ) {
 
-820 
+828 
 	`Ÿx2_dñ_mˇm_Êow_íåy
 (
 nic
@@ -392505,7 +392537,7 @@ nic
 íåy
 );
 
-821 
+829 
 	`k‰ì_rcu
 (
 √w_node
@@ -392513,11 +392545,11 @@ nic
 rcu
 );
 
-822 
+830 
 ‰ì_Àaf
 ;
 
-825 
+833 
 	`£t_bô
 (
 √w_node
@@ -392529,23 +392561,23 @@ tc_öfo
 tc_íåõs_bôm≠
 );
 
-826 
+834 
 Êow_cfg
 ->
 ƒ_Êows
 ++;
 
-830 
+838 
 ‰ì_Àaf
 :
 
-831 i‡(
+839 i‡(
 √w_node
 ->
 is_a˘_pﬁi˚
 ) {
 
-832 
+840 
 	`muãx_lock
 (&
 nic
@@ -392555,7 +392587,7 @@ mbox
 lock
 );
 
-834 
+842 
 îr
  = 
 	`˙10k_m≠_unm≠_rq_pﬁi˚r
@@ -392567,7 +392599,7 @@ nic
 rq
 ,
 
-835 
+843 
 √w_node
 ->
 Àaf_¥ofûe
@@ -392575,11 +392607,11 @@ rq
 Ál£
 );
 
-836 i‡(
+844 i‡(
 îr
 )
 
-837 
+845 
 	`√tdev_îr
 (
 nic
@@ -392587,7 +392619,7 @@ nic
 √tdev
 ,
 
-839 
+847 
 √w_node
 ->
 rq
@@ -392595,7 +392627,7 @@ rq
 Àaf_¥ofûe
 );
 
-840 
+848 
 îr
  = 
 	`˙10k_‰ì_Àaf_¥ofûe
@@ -392607,11 +392639,11 @@ nic
 Àaf_¥ofûe
 );
 
-841 i‡(
+849 i‡(
 îr
 )
 
-842 
+850 
 	`√tdev_îr
 (
 nic
@@ -392619,13 +392651,13 @@ nic
 √tdev
 ,
 
-844 
+852 
 √w_node
 ->
 Àaf_¥ofûe
 );
 
-846 
+854 
 	`__˛ór_bô
 (
 √w_node
@@ -392637,7 +392669,7 @@ nic
 rq_bm≠
 );
 
-848 
+856 
 	`muãx_u∆ock
 (&
 nic
@@ -392647,15 +392679,15 @@ mbox
 lock
 );
 
-851  
+859  
 rc
 ;
 
-852 
+860 
 	}
 }
 
-854 
+862 
 	$Ÿx2_tc_gë_Êow_°©s
 (
 Ÿx2_nic
@@ -392663,13 +392695,13 @@ rc
 nic
 ,
 
-855 
+863 
 Êow_˛s_ofÊﬂd
  *
 tc_Êow_cmd
 )
 
-857 
+865 
 Ÿx2_tc_öfo
  *
 tc_öfo
@@ -392677,35 +392709,35 @@ tc_öfo
 nic
 ->tc_info;
 
-858 
+866 
 ≈c_mˇm_gë_°©s_ªq
  *
 ªq
 ;
 
-859 
+867 
 ≈c_mˇm_gë_°©s_r•
  *
 r•
 ;
 
-860 
+868 
 Ÿx2_tc_Êow_°©s
  *
 °©s
 ;
 
-861 
+869 
 Ÿx2_tc_Êow
  *
 Êow_node
 ;
 
-862 
+870 
 îr
 ;
 
-864 
+872 
 Êow_node
  = 
 	`rhashèbÀ_lookup_Á°
@@ -392715,23 +392747,23 @@ tc_öfo
 Êow_èbÀ
 ,
 
-865 &
+873 &
 tc_Êow_cmd
 ->
 cookõ
 ,
 
-866 
+874 
 tc_öfo
 ->
 Êow_ht_∑øms
 );
 
-867 i‡(!
+875 i‡(!
 Êow_node
 ) {
 
-868 
+876 
 	`√tdev_öfo
 (
 nic
@@ -392739,17 +392771,17 @@ nic
 √tdev
 , "tc flowÇot found for cookie %lx",
 
-869 
+877 
 tc_Êow_cmd
 ->
 cookõ
 );
 
-870  -
+878  -
 EINVAL
 ;
 
-873 
+881 
 	`muãx_lock
 (&
 nic
@@ -392759,7 +392791,7 @@ mbox
 lock
 );
 
-875 
+883 
 ªq
  = 
 	`Ÿx2_mbox_Æloc_msg_≈c_mˇm_íåy_°©s
@@ -392769,11 +392801,11 @@ nic
 mbox
 );
 
-876 i‡(!
+884 i‡(!
 ªq
 ) {
 
-877 
+885 
 	`muãx_u∆ock
 (&
 nic
@@ -392783,11 +392815,11 @@ mbox
 lock
 );
 
-878  -
+886  -
 ENOMEM
 ;
 
-881 
+889 
 ªq
 ->
 íåy
@@ -392795,7 +392827,7 @@ ENOMEM
 Êow_node
 ->entry;
 
-883 
+891 
 îr
  = 
 	`Ÿx2_sync_mbox_msg
@@ -392805,11 +392837,11 @@ nic
 mbox
 );
 
-884 i‡(
+892 i‡(
 îr
 ) {
 
-885 
+893 
 	`√tdev_îr
 (
 nic
@@ -392817,13 +392849,13 @@ nic
 √tdev
 , "FailedÅo get stats for MCAM flowÉntry %d\n",
 
-886 
+894 
 ªq
 ->
 íåy
 );
 
-887 
+895 
 	`muãx_u∆ock
 (&
 nic
@@ -392833,11 +392865,11 @@ mbox
 lock
 );
 
-888  -
+896  -
 EFAULT
 ;
 
-891 
+899 
 r•
  = (
 ≈c_mˇm_gë_°©s_r•
@@ -392845,7 +392877,7 @@ r•
 Ÿx2_mbox_gë_r•
 
 
-892 (&
+900 (&
 nic
 ->
 mbox
@@ -392855,13 +392887,13 @@ mbox
 hdr
 );
 
-893 i‡(
+901 i‡(
 	`IS_ERR
 (
 r•
 )) {
 
-894 
+902 
 	`muãx_u∆ock
 (&
 nic
@@ -392871,13 +392903,13 @@ mbox
 lock
 );
 
-895  
+903  
 	`PTR_ERR
 (
 r•
 );
 
-898 
+906 
 	`muãx_u∆ock
 (&
 nic
@@ -392887,23 +392919,23 @@ mbox
 lock
 );
 
-900 i‡(!
+908 i‡(!
 r•
 ->
 °©_ía
 )
 
-901  -
+909  -
 EINVAL
 ;
 
-903 
+911 
 °©s
  = &
 Êow_node
 ->stats;
 
-905 
+913 
 	`•ö_lock
 (&
 Êow_node
@@ -392911,7 +392943,7 @@ EINVAL
 lock
 );
 
-906 
+914 
 	`Êow_°©s_upd©e
 (&
 tc_Êow_cmd
@@ -392925,7 +392957,7 @@ r•
 pkts
 , 0x0);
 
-907 
+915 
 °©s
 ->
 pkts
@@ -392935,7 +392967,7 @@ r•
 °©
 ;
 
-908 
+916 
 	`•ö_u∆ock
 (&
 Êow_node
@@ -392943,11 +392975,11 @@ r•
 lock
 );
 
-911 
+919 
 	}
 }
 
-913 
+921 
 	$Ÿx2_£tup_tc_˛s_Êowî
 (
 Ÿx2_nic
@@ -392955,23 +392987,23 @@ lock
 nic
 ,
 
-914 
+922 
 Êow_˛s_ofÊﬂd
  *
 ˛s_Êowî
 )
 
-916 
+924 
 ˛s_Êowî
 ->
 comm™d
 ) {
 
-917 
+925 
 FLOW_CLS_REPLACE
 :
 
-918  
+926  
 	`Ÿx2_tc_add_Êow
 (
 nic
@@ -392979,11 +393011,11 @@ nic
 ˛s_Êowî
 );
 
-919 
+927 
 FLOW_CLS_DESTROY
 :
 
-920  
+928  
 	`Ÿx2_tc_dñ_Êow
 (
 nic
@@ -392991,11 +393023,11 @@ nic
 ˛s_Êowî
 );
 
-921 
+929 
 FLOW_CLS_STATS
 :
 
-922  
+930  
 	`Ÿx2_tc_gë_Êow_°©s
 (
 nic
@@ -393003,15 +393035,15 @@ nic
 ˛s_Êowî
 );
 
-924  -
+932  -
 EOPNOTSUPP
 ;
 
-926 
+934 
 	}
 }
 
-928 
+936 
 	$Ÿx2_tc_ögªss_m©chÆl_ö°Æl
 (
 Ÿx2_nic
@@ -393019,13 +393051,13 @@ EOPNOTSUPP
 nic
 ,
 
-929 
+937 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s
 )
 
-931 
+939 
 √éök_ext_ack
  *
 exèck
@@ -393035,7 +393067,7 @@ exèck
 comm⁄
 .extack;
 
-932 
+940 
 Êow_a˘i⁄
  *
 a˘i⁄s
@@ -393047,23 +393079,23 @@ ruÀ
 a˘i⁄
 ;
 
-933 
+941 
 Êow_a˘i⁄_íåy
  *
 íåy
 ;
 
-934 
+942 
 u64
  
 øã
 ;
 
-935 
+943 
 îr
 ;
 
-937 
+945 
 îr
  = 
 	`Ÿx2_tc_vÆid©e_Êow
@@ -393075,15 +393107,15 @@ a˘i⁄s
 exèck
 );
 
-938 i‡(
+946 i‡(
 îr
 )
 
-939  
+947  
 îr
 ;
 
-941 i‡(
+949 i‡(
 nic
 ->
 Êags
@@ -393091,17 +393123,17 @@ nic
 OTX2_FLAG_TC_MATCHALL_INGRESS_ENABLED
 ) {
 
-942 
+950 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-944  -
+952  -
 ENOMEM
 ;
 
-947 
+955 
 íåy
  = &
 ˛s
@@ -393113,17 +393145,17 @@ a˘i⁄
 íåõs
 [0];
 
-948 
+956 
 íåy
 ->
 id
 ) {
 
-949 
+957 
 FLOW_ACTION_POLICE
 :
 
-951 i‡(
+959 i‡(
 	`is_dev_Ÿx2
 (
 nic
@@ -393131,17 +393163,17 @@ nic
 pdev
 )) {
 
-952 
+960 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-954  -
+962  -
 EOPNOTSUPP
 ;
 
-957 
+965 
 îr
  = 
 	`˙10k_Æloc_m©chÆl_ùﬁi˚r
@@ -393149,15 +393181,15 @@ EOPNOTSUPP
 nic
 );
 
-958 i‡(
+966 i‡(
 îr
 )
 
-959  
+967  
 îr
 ;
 
-962 
+970 
 øã
  = 
 íåy
@@ -393167,7 +393199,7 @@ pﬁi˚
 øã_byãs_ps
  * 8;
 
-963 
+971 
 îr
  = 
 	`˙10k_£t_m©chÆl_ùﬁi˚r_øã
@@ -393183,15 +393215,15 @@ bur°
 øã
 );
 
-964 i‡(
+972 i‡(
 îr
 )
 
-965  
+973  
 îr
 ;
 
-966 
+974 
 nic
 ->
 Êags
@@ -393199,21 +393231,21 @@ nic
 OTX2_FLAG_TC_MATCHALL_INGRESS_ENABLED
 ;
 
-969 
+977 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 ,
 
-971  -
+979  -
 EOPNOTSUPP
 ;
 
-975 
+983 
 	}
 }
 
-977 
+985 
 	$Ÿx2_tc_ögªss_m©chÆl_dñëe
 (
 Ÿx2_nic
@@ -393221,13 +393253,13 @@ EOPNOTSUPP
 nic
 ,
 
-978 
+986 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s
 )
 
-980 
+988 
 √éök_ext_ack
  *
 exèck
@@ -393237,11 +393269,11 @@ exèck
 comm⁄
 .extack;
 
-981 
+989 
 îr
 ;
 
-983 i‡(
+991 i‡(
 nic
 ->
 Êags
@@ -393249,17 +393281,17 @@ nic
 OTX2_FLAG_INTF_DOWN
 ) {
 
-984 
+992 
 	`NL_SET_ERR_MSG_MOD
 (
 exèck
 , "InterfaceÇot initialized");
 
-985  -
+993  -
 EINVAL
 ;
 
-988 
+996 
 îr
  = 
 	`˙10k_‰ì_m©chÆl_ùﬁi˚r
@@ -393267,7 +393299,7 @@ EINVAL
 nic
 );
 
-989 
+997 
 nic
 ->
 Êags
@@ -393275,15 +393307,15 @@ nic
 OTX2_FLAG_TC_MATCHALL_INGRESS_ENABLED
 ;
 
-990  
+998  
 îr
 ;
 
-991 
+999 
 	}
 }
 
-993 
+1001 
 	$Ÿx2_£tup_tc_ögªss_m©chÆl
 (
 Ÿx2_nic
@@ -393291,23 +393323,23 @@ OTX2_FLAG_TC_MATCHALL_INGRESS_ENABLED
 nic
 ,
 
-994 
+1002 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s_m©chÆl
 )
 
-996 
+1004 
 ˛s_m©chÆl
 ->
 comm™d
 ) {
 
-997 
+1005 
 TC_CLSMATCHALL_REPLACE
 :
 
-998  
+1006  
 	`Ÿx2_tc_ögªss_m©chÆl_ö°Æl
 (
 nic
@@ -393315,11 +393347,11 @@ nic
 ˛s_m©chÆl
 );
 
-999 
+1007 
 TC_CLSMATCHALL_DESTROY
 :
 
-1000  
+1008  
 	`Ÿx2_tc_ögªss_m©chÆl_dñëe
 (
 nic
@@ -393327,19 +393359,19 @@ nic
 ˛s_m©chÆl
 );
 
-1001 
+1009 
 TC_CLSMATCHALL_STATS
 :
 
-1006  -
+1014  -
 EOPNOTSUPP
 ;
 
-1007 
+1015 
 	}
 }
 
-1009 
+1017 
 	$Ÿx2_£tup_tc_block_ögªss_cb
 (
 tc_£tup_ty≥
@@ -393347,13 +393379,13 @@ tc_£tup_ty≥
 ty≥
 ,
 
-1010 *
+1018 *
 ty≥_d©a
 , *
 cb_¥iv
 )
 
-1012 
+1020 
 Ÿx2_nic
  *
 nic
@@ -393361,7 +393393,7 @@ nic
 cb_¥iv
 ;
 
-1014 i‡(!
+1022 i‡(!
 	`tc_˛s_ˇn_ofÊﬂd_™d_chaö0
 (
 nic
@@ -393371,25 +393403,25 @@ nic
 ty≥_d©a
 ))
 
-1015  -
+1023  -
 EOPNOTSUPP
 ;
 
-1017 
+1025 
 ty≥
 ) {
 
-1018 
+1026 
 TC_SETUP_CLSFLOWER
 :
 
-1019 i‡(
+1027 i‡(
 	`Ÿx2_is_¡u∂e_ruÀ_ö°ÆÀd
 (
 nic
 )) {
 
-1020 
+1028 
 	`√tdev_w¨n
 (
 nic
@@ -393397,11 +393429,11 @@ nic
 √tdev
 ,
 
-1022  -
+1030  -
 EOPNOTSUPP
 ;
 
-1025  
+1033  
 	`Ÿx2_£tup_tc_˛s_Êowî
 (
 nic
@@ -393409,11 +393441,11 @@ nic
 ty≥_d©a
 );
 
-1026 
+1034 
 TC_SETUP_CLSMATCHALL
 :
 
-1027  
+1035  
 	`Ÿx2_£tup_tc_ögªss_m©chÆl
 (
 nic
@@ -393421,15 +393453,15 @@ nic
 ty≥_d©a
 );
 
-1032  -
+1040  -
 EOPNOTSUPP
 ;
 
-1033 
+1041 
 	}
 }
 
-1035 
+1043 
 	$Ÿx2_£tup_tc_egªss_m©chÆl
 (
 Ÿx2_nic
@@ -393437,23 +393469,23 @@ EOPNOTSUPP
 nic
 ,
 
-1036 
+1044 
 tc_˛s_m©chÆl_ofÊﬂd
  *
 ˛s_m©chÆl
 )
 
-1038 
+1046 
 ˛s_m©chÆl
 ->
 comm™d
 ) {
 
-1039 
+1047 
 TC_CLSMATCHALL_REPLACE
 :
 
-1040  
+1048  
 	`Ÿx2_tc_egªss_m©chÆl_ö°Æl
 (
 nic
@@ -393461,11 +393493,11 @@ nic
 ˛s_m©chÆl
 );
 
-1041 
+1049 
 TC_CLSMATCHALL_DESTROY
 :
 
-1042  
+1050  
 	`Ÿx2_tc_egªss_m©chÆl_dñëe
 (
 nic
@@ -393473,19 +393505,19 @@ nic
 ˛s_m©chÆl
 );
 
-1043 
+1051 
 TC_CLSMATCHALL_STATS
 :
 
-1048  -
+1056  -
 EOPNOTSUPP
 ;
 
-1049 
+1057 
 	}
 }
 
-1051 
+1059 
 	$Ÿx2_£tup_tc_block_egªss_cb
 (
 tc_£tup_ty≥
@@ -393493,13 +393525,13 @@ tc_£tup_ty≥
 ty≥
 ,
 
-1052 *
+1060 *
 ty≥_d©a
 , *
 cb_¥iv
 )
 
-1054 
+1062 
 Ÿx2_nic
  *
 nic
@@ -393507,7 +393539,7 @@ nic
 cb_¥iv
 ;
 
-1056 i‡(!
+1064 i‡(!
 	`tc_˛s_ˇn_ofÊﬂd_™d_chaö0
 (
 nic
@@ -393517,19 +393549,19 @@ nic
 ty≥_d©a
 ))
 
-1057  -
+1065  -
 EOPNOTSUPP
 ;
 
-1059 
+1067 
 ty≥
 ) {
 
-1060 
+1068 
 TC_SETUP_CLSMATCHALL
 :
 
-1061  
+1069  
 	`Ÿx2_£tup_tc_egªss_m©chÆl
 (
 nic
@@ -393537,21 +393569,21 @@ nic
 ty≥_d©a
 );
 
-1066  -
+1074  -
 EOPNOTSUPP
 ;
 
-1067 
+1075 
 	}
 }
 
-1069 
+1077 
 LIST_HEAD
 (
 Ÿx2_block_cb_li°
 );
 
-1071 
+1079 
 	$Ÿx2_£tup_tc_block
 (
 √t_devi˚
@@ -393559,13 +393591,13 @@ LIST_HEAD
 √tdev
 ,
 
-1072 
+1080 
 Êow_block_ofÊﬂd
  *
 f
 )
 
-1074 
+1082 
 Ÿx2_nic
  *
 nic
@@ -393575,29 +393607,29 @@ nic
 √tdev
 );
 
-1075 
+1083 
 Êow_£tup_cb_t
  *
 cb
 ;
 
-1076 
+1084 
 boﬁ
  
 ögªss
 ;
 
-1078 i‡(
+1086 i‡(
 f
 ->
 block_sh¨ed
 )
 
-1079  -
+1087  -
 EOPNOTSUPP
 ;
 
-1081 i‡(
+1089 i‡(
 f
 ->
 bödî_ty≥
@@ -393605,19 +393637,19 @@ bödî_ty≥
 FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS
 ) {
 
-1082 
+1090 
 cb
  = 
 Ÿx2_£tup_tc_block_ögªss_cb
 ;
 
-1083 
+1091 
 ögªss
  = 
 åue
 ;
 
-1084 } i‡(
+1092 } i‡(
 f
 ->
 bödî_ty≥
@@ -393625,23 +393657,23 @@ bödî_ty≥
 FLOW_BLOCK_BINDER_TYPE_CLSACT_EGRESS
 ) {
 
-1085 
+1093 
 cb
  = 
 Ÿx2_£tup_tc_block_egªss_cb
 ;
 
-1086 
+1094 
 ögªss
  = 
 Ál£
 ;
 
-1088  -
+1096  -
 EOPNOTSUPP
 ;
 
-1091  
+1099  
 	`Êow_block_cb_£tup_sim∂e
 (
 f
@@ -393651,17 +393683,17 @@ f
 cb
 ,
 
-1092 
+1100 
 nic
 ,Çic, 
 ögªss
 );
 
-1093 
+1101 
 	}
 }
 
-1095 
+1103 
 	$Ÿx2_£tup_tc
 (
 √t_devi˚
@@ -393673,19 +393705,19 @@ tc_£tup_ty≥
 ty≥
 ,
 
-1096 *
+1104 *
 ty≥_d©a
 )
 
-1098 
+1106 
 ty≥
 ) {
 
-1099 
+1107 
 TC_SETUP_BLOCK
 :
 
-1100  
+1108  
 	`Ÿx2_£tup_tc_block
 (
 √tdev
@@ -393693,11 +393725,11 @@ TC_SETUP_BLOCK
 ty≥_d©a
 );
 
-1101 
+1109 
 TC_SETUP_QDISC_HTB
 :
 
-1102  
+1110  
 	`Ÿx2_£tup_tc_htb
 (
 √tdev
@@ -393705,27 +393737,27 @@ TC_SETUP_QDISC_HTB
 ty≥_d©a
 );
 
-1104  -
+1112  -
 EOPNOTSUPP
 ;
 
-1106 
+1114 
 	}
 }
 
-1107 
+1115 
 EXPORT_SYMBOL
 (
 Ÿx2_£tup_tc
 );
 
-1109 c⁄° 
+1117 c⁄° 
 rhashèbÀ_∑øms
  
 	gtc_Êow_ht_∑øms
  = {
 
-1110 .
+1118 .
 hód_off£t
  = 
 off£tof
@@ -393735,7 +393767,7 @@ off£tof
 node
 ),
 
-1111 .
+1119 .
 	gkey_off£t
  = 
 off£tof
@@ -393745,7 +393777,7 @@ off£tof
 cookõ
 ),
 
-1112 .
+1120 .
 	gkey_Àn
  = (((
 Ÿx2_tc_Êow
@@ -393753,13 +393785,13 @@ cookõ
 cookõ
 ),
 
-1113 .
+1121 .
 	gautom©ic_shrökög
  = 
 åue
 ,
 
-1116 
+1124 
 	$Ÿx2_öô_tc
 (
 Ÿx2_nic
@@ -393767,7 +393799,7 @@ cookõ
 nic
 )
 
-1118 
+1126 
 Ÿx2_tc_öfo
  *
 tc
@@ -393777,11 +393809,11 @@ nic
 tc_öfo
 ;
 
-1119 
+1127 
 îr
 ;
 
-1122 
+1130 
 	`£t_bô
 (0, &
 nic
@@ -393789,13 +393821,13 @@ nic
 rq_bm≠
 );
 
-1124 i‡(!
+1132 i‡(!
 nic
 ->
 Êow_cfg
 ) {
 
-1125 
+1133 
 	`√tdev_îr
 (
 nic
@@ -393803,11 +393835,11 @@ nic
 √tdev
 ,
 
-1127  -
+1135  -
 EINVAL
 ;
 
-1130 
+1138 
 îr
  = 
 	`Ÿx2_tc_Æloc_ít_bôm≠
@@ -393815,15 +393847,15 @@ EINVAL
 nic
 );
 
-1131 i‡(
+1139 i‡(
 îr
 )
 
-1132  
+1140  
 îr
 ;
 
-1134 
+1142 
 tc
 ->
 Êow_ht_∑øms
@@ -393831,7 +393863,7 @@ tc
 tc_Êow_ht_∑øms
 ;
 
-1135 
+1143 
 îr
  = 
 	`rhashèbÀ_öô
@@ -393843,11 +393875,11 @@ tc
 Êow_ht_∑øms
 );
 
-1136 i‡(
+1144 i‡(
 îr
 ) {
 
-1137 
+1145 
 	`k‰ì
 (
 tc
@@ -393855,7 +393887,7 @@ tc
 tc_íåõs_bôm≠
 );
 
-1138 
+1146 
 tc
 ->
 tc_íåõs_bôm≠
@@ -393863,21 +393895,21 @@ tc_íåõs_bôm≠
 NULL
 ;
 
-1140  
+1148  
 îr
 ;
 
-1141 
+1149 
 	}
 }
 
-1142 
+1150 
 EXPORT_SYMBOL
 (
 Ÿx2_öô_tc
 );
 
-1144 
+1152 
 	$Ÿx2_shutdown_tc
 (
 Ÿx2_nic
@@ -393885,7 +393917,7 @@ EXPORT_SYMBOL
 nic
 )
 
-1146 
+1154 
 Ÿx2_tc_öfo
  *
 tc
@@ -393895,7 +393927,7 @@ nic
 tc_öfo
 ;
 
-1148 
+1156 
 	`k‰ì
 (
 tc
@@ -393903,7 +393935,7 @@ tc
 tc_íåõs_bôm≠
 );
 
-1149 
+1157 
 	`rhashèbÀ_de°roy
 (&
 tc
@@ -393911,11 +393943,11 @@ tc
 Êow_èbÀ
 );
 
-1150 
+1158 
 	}
 }
 
-1151 
+1159 
 EXPORT_SYMBOL
 (
 Ÿx2_shutdown_tc
@@ -406373,7 +406405,9 @@ cfg
 ªgvÆ
 [
 num_ªgs
-] = 
+] = (
+u64
+)
 node
 ->
 ∑ª¡
@@ -407387,7 +407421,9 @@ cfg
 ªgvÆ
 [
 num_ªgs
-] = 
+] = (
+u64
+)
 hw
 ->
 txschq_aggr_lvl_º_¥io
@@ -407487,7 +407523,9 @@ cfg
 ªgvÆ
 [
 num_ªgs
-] = 
+] = (
+u64
+)
 node
 ->
 ∑ª¡
@@ -415100,7 +415138,7 @@ OTX2_QOS_MAX_LEAF_NODES
 ];
 
 45 
-u32
+u16
  
 	mmaj_id
 ;

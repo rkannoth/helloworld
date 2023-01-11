@@ -433,7 +433,6 @@ static int otx2_set_ringparam(struct net_device *netdev,
 	bool if_up = netif_running(netdev);
 	struct otx2_qset *qs = &pfvf->qset;
 	u32 rx_count, tx_count;
-	int qsize;
 
 	if (ring->rx_mini_pending || ring->rx_jumbo_pending)
 		return -EINVAL;
@@ -445,14 +444,7 @@ static int otx2_set_ringparam(struct net_device *netdev,
 	 */
 	if (rx_count < pfvf->hw.rq_skid)
 		rx_count =  pfvf->hw.rq_skid;
-
-	qsize = Q_SIZE(rx_count, 3);
-	if (qsize < 0)
-		return -EINVAL;
-
-	if (2 * qsize > 63)
-		return -EINVAL;
-	rx_count = Q_COUNT(qsize);
+	rx_count = Q_COUNT(Q_SIZE(rx_count, 3));
 
 	/* Due pipelining impact minimum 2000 unused SQ CQE's
 	 * need to be maintained to avoid CQ overflow, hence the

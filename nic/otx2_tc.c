@@ -89,7 +89,6 @@ static void otx2_get_egress_burst_cfg(struct otx2_nic *nic, u32 burst,
 {
 	int max_burst, max_mantissa;
 	unsigned int tmp;
-	u64 shift;
 
 	if (is_dev_otx2(nic->pdev)) {
 		max_burst = MAX_BURST_SIZE;
@@ -104,31 +103,23 @@ static void otx2_get_egress_burst_cfg(struct otx2_nic *nic, u32 burst,
 	 * Max supported burst size is 130,816 bytes.
 	 */
 	burst = min_t(u32, burst, max_burst);
-	if (burst > 1) {
+	if (burst) {
 		*burst_exp = ilog2(burst) ? ilog2(burst) - 1 : 0;
 		tmp = burst - rounddown_pow_of_two(burst);
 		if (burst < max_mantissa)
 			*burst_mantissa = tmp * 2;
-		else {
-			shift = *burst_exp - 7;
-			if (shift > 63)
-				goto done;
-
-			*burst_mantissa = tmp / (1ULL << shift);
-		}
-		return;
+		else
+			*burst_mantissa = tmp / (1ULL << (*burst_exp - 7));
+	} else {
+		*burst_exp = MAX_BURST_EXPONENT;
+		*burst_mantissa = max_mantissa;
 	}
-
-done:
-	*burst_exp = MAX_BURST_EXPONENT;
-	*burst_mantissa = max_mantissa;
 }
 
 static void otx2_get_egress_rate_cfg(u64 maxrate, u32 *exp,
 				     u32 *mantissa, u32 *div_exp)
 {
 	u64 tmp;
-	u32 shift;
 
 	/* Rate calculation by hardware
 	 *
@@ -143,25 +134,18 @@ static void otx2_get_egress_rate_cfg(u64 maxrate, u32 *exp,
 	 */
 	*div_exp = 0;
 
-	if (maxrate > 1) {
+	if (maxrate) {
 		*exp = ilog2(maxrate) ? ilog2(maxrate) - 1 : 0;
 		tmp = maxrate - rounddown_pow_of_two(maxrate);
 		if (maxrate < MAX_RATE_MANTISSA)
 			*mantissa = tmp * 2;
-		else {
-			shift = *exp - 7;
-			if (shift > 63)
-				goto disable_rate_limit;
-
-			*mantissa = tmp / (1ULL << shift);
-		}
-		return;
+		else
+			*mantissa = tmp / (1ULL << (*exp - 7));
+	} else {
+		/* Instead of disabling rate limiting, set all values to max */
+		*exp = MAX_RATE_EXPONENT;
+		*mantissa = MAX_RATE_MANTISSA;
 	}
-
-disable_rate_limit:
-	/* Instead of disabling rate limiting, set all values to max */
-	*exp = MAX_RATE_EXPONENT;
-	*mantissa = MAX_RATE_MANTISSA;
 }
 
 u64 otx2_get_txschq_rate_regval(struct otx2_nic *nic,
